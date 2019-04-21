@@ -39,33 +39,40 @@ export default {
     }
   },
   methods: {
+    // 返回顶部的显示与隐藏操作
     backTopShowOperate () {
       // TMD页面被卷起的距离
       let marginTop = document.documentElement.scrollTop || document.body.scrollTop
       // console.log(marginTop)
-      if (!this.backTopAllow) { return }
-      if (marginTop > this.showPx) {
-        this.backTopShow = true
-      } else {
-        this.backTopShow = false
+      if (this.backTopAllow) {
+        if (marginTop > this.showPx) {
+          this.backTopShow = true
+        } else {
+          this.backTopShow = false
+        }
       }
     },
+    // 点击返回顶部的操作
     goTop () {
       // console.log(value)
-      if (!this.backTopAllow) { return }
-      this.backTopAllow = false
-      var step = document.body.scrollTop / this.backSeconds
-      var backTopInterval = setInterval(function () {
-        if (document.body.scrollTop > 0) {
-          document.body.scrollTop -= step
-        } else {
-          this.backTopAllow = true
-          clearInterval(backTopInterval)
-        }
-      }, 1)
+      // let marginTop = document.documentElement.scrollTop || document.body.scrollTop
+      // console.log(marginTop)
+      if (this.backTopAllow) {
+        var step = document.documentElement.scrollTop / this.backSeconds
+        var backTopInterval = setInterval(function () {
+          if (document.documentElement.scrollTop > 0) {
+            document.documentElement.scrollTop -= step
+          } else {
+            // this.backTopAllow = true
+            clearInterval(backTopInterval)
+          }
+        }, 5)
+        // this.backTopAllow = false
+      }
     }
   },
   mounted () {
+    // 页面挂载时就启动监听
     window.addEventListener('scroll', this.backTopShowOperate, true)
   }
 }
