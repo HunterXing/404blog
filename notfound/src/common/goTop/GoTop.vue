@@ -12,7 +12,7 @@ export default {
   props: {
     showPx: Number,
     backTopShow: Boolean,
-    backTopAllow: Boolean,
+    // backTopAllow: Boolean,
     backSeconds: Number
   },
   methods: {

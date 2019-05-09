@@ -8,7 +8,6 @@
     <go-top
       @goTop="goTop"
       :backTopShow="backTopShow"
-      :backTopAllow="backTopAllow"
       :backSeconds="backSeconds"
       :showPx="showPx"
     ></go-top>
@@ -30,8 +29,8 @@ export default {
     return {
       // 是否显示回到顶部
       backTopShow: false,
-      // 是否允许操作返回顶部
-      backTopAllow: true,
+      // // 是否允许操作返回顶部
+      // backTopAllow: true,
       // 返回顶部所需时间
       backSeconds: 100,
       // 往下滑动多少显示返回顶部（单位：px)
@@ -73,6 +72,7 @@ export default {
   },
   mounted () {
     // 页面挂载时就启动监听
+    // document.documentElement.scrollTop = 0
     window.addEventListener('scroll', this.backTopShowOperate, true)
   }
 }
