@@ -6,28 +6,29 @@
     </div>
     <!-- tab 集合 -->
     <!-- 首页 -->
-    <div class="first">
+    <router-link tag="div" :to="{name: 'Home'}" class="first">
       首页
-    </div>
+    </router-link>
     <!-- 推荐 -->
-    <div class="recomment">
+    <router-link tag="div" :to="{name: 'Recommend'}" class="recomment">
       <i class="iconfont hot">&#xe634;</i> 推荐
-    </div>
+    </router-link>
     <!-- 我的文章 -->
-    <div class="my-article">
+    <router-link tag="div" :to="{name: 'Article'}" class="my-article">
       <i class="el-icon-tickets"></i>  文章
-    </div>
+    </router-link>
     <!--  标签-->
     <div class="tags"></div>
     <!-- 搜索栏 -->
     <div class="right-search"></div>
     <!-- 个人信息区域 -->
     <div class="message-box">
-      <span class="el-icon-message message-icon"></span>
+      <span class="iconfont message-icon">&#xe66e;<span class="number">15</span></span>
     </div>
+
     <!-- 写文章 -->
     <div class="write">
-      <el-button type="info" plain>写文章</el-button>
+      <el-button type="plain" plain>写文章</el-button>
     </div>
     <!-- 头像 -->
     <div class="header-box">
@@ -61,6 +62,7 @@ export default {
   background: #fafafa
   z-index: 3
   display flex
+  min-width 1200px
   .left-logo
     flex 6
     line-height 60px
@@ -74,15 +76,25 @@ export default {
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1), 0 0px rgba(0,0,0,0.1)
   .first, .recomment, .my-article, .tags
     flex 2
+  .recomment
+    .hot
+      color red
   .right-search
     flex 6
   .message-box
-    flex 1
+    flex 2
     margin 0 10px
     .message-icon
       color #888
-      font-size 25px
+      font-size 32px
       padding 2px 10px
+      .number
+        font-size 10px
+        color #fff
+        padding 2px 4px
+        margin-left -10px
+        background #FFA500
+        border-radius 10px
   .write
     flex 2
   .header-box

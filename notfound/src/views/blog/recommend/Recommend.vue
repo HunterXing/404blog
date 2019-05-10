@@ -1,17 +1,15 @@
 <template>
-  <div class="home">
-    首页
+  <div class="article">
+    推荐
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Home'
+  name: 'Recommend'
 }
 </script>
 
 <style lang="stylus" scoped>
-  .home
-    .content
-      min-height 1000px
+
 </style>

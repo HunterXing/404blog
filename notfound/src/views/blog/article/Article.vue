@@ -1,15 +1,15 @@
 <template>
-  <div id="app">
-    <router-view/>
+  <div class="article">
+    文章
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'Article'
 }
 </script>
 
-<style>
+<style lang="stylus" scoped>
 
 </style>
