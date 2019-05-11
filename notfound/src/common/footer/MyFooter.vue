@@ -37,12 +37,3 @@ export default {
   }
 }
 </script>
-
-<style lang="stylus" scoped>
-  .m-footer
-    .content
-      text-align center
-      font-size 10px
-      color #999
-
-</style>
