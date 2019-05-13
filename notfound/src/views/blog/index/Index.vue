@@ -31,7 +31,7 @@ export default {
       // 是否显示回到顶部
       backTopShow: true,
       // // 是否允许操作返回顶部
-      // backTopAllow: true,
+      backTopAllow: true,
       // 返回顶部所需时间
       backSeconds: 100,
       // 往下滑动多少显示返回顶部（单位：px)
@@ -54,7 +54,7 @@ export default {
     },
     // 点击返回顶部的操作
     goTop () {
-      // console.log(value)
+      // console.log()
       // let marginTop = document.documentElement.scrollTop || document.body.scrollTop
       // console.log(marginTop)
       if (this.backTopAllow) {
@@ -63,7 +63,7 @@ export default {
           if (document.documentElement.scrollTop > 0) {
             document.documentElement.scrollTop -= step
           } else {
-            // this.backTopAllow = true
+            this.backTopAllow = true
             clearInterval(backTopInterval)
           }
         }, 5)

@@ -1,21 +1,21 @@
 <template>
   <div class="m-header">
     <!-- logo标志 -->
-    <div class="left-logo">
+    <router-link tag="div" :to="{name: 'Home'}" class="left-logo">
       <img src="../../assets/logo.png">
-    </div>
+    </router-link>
     <!-- tab 集合 -->
     <!-- 首页 -->
     <router-link tag="div" :to="{name: 'Home'}" class="first">
-      首页
+      <span class="link">首页</span>
     </router-link>
     <!-- 推荐 -->
     <router-link tag="div" :to="{name: 'Recommend'}" class="recomment">
-      <i class="iconfont hot">&#xe634;</i> 推荐
+      <i class="iconfont hot">&#xe634;</i><span class="link">推荐</span>
     </router-link>
     <!-- 我的文章 -->
     <router-link tag="div" :to="{name: 'Article'}" class="my-article">
-      <i class="el-icon-tickets"></i>  文章
+      <i class="el-icon-tickets"></i> <span class="link">文章</span>
     </router-link>
     <!--  标签-->
     <div class="tags"></div>
@@ -74,11 +74,22 @@ export default {
     border-radius 10px
     border 0.5px dashed #009a61
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1), 0 0px rgba(0,0,0,0.1)
+  // .link:hover
+  //   // display inline-block
+  //   padding 2px 4px
+  //   background #009a61
+  //   color #fff
+  //   border-radius 10px
   .first, .recomment, .my-article, .tags
     flex 2
+    text-align center
   .recomment
     .hot
       color red
+  .linkActive
+    // border-bottom: 3px solid #009a61
+    color: #009a61
+    font-weight 700
   .right-search
     flex 6
   .message-box

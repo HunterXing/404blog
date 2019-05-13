@@ -1,7 +1,7 @@
 <template>
   <div class="m-footer">
     <div class="content">
-      <p>Copyright © 2019 notfound404 未寻. 当前呈现版本 19.04.20</p>
+      <p>Copyright © 2019 notfound404 未寻. 当前呈现版本 19.05.12</p>
       <p>皖ICP备18018069号-1   个人学习博客</p>
       <p>仅个人学习使用</p>
       <br>
@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     running () {
-      let startTime = new Date('2019/04/20 00:00:00')
+      let startTime = new Date('2019/05/12 00:00:00')
       setInterval(() => {
         let time = new Date() - startTime
         let day = parseInt(time / 1000 / 60 / 60 / 24, 10)

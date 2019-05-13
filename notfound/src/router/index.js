@@ -41,5 +41,7 @@ export default new Router({
         }
       }]
     }
-  ]
+  ],
+  // 路由激活状态 绑定一个class样式
+  linkActiveClass: 'linkActive'
 })
