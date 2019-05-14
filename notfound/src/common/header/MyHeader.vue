@@ -30,7 +30,7 @@
 
     <!-- 写文章 -->
     <div class="write">
-      <el-button type="plain" plain>写文章</el-button>
+      <el-button type="plain" plain @click.native="toWrite()">写文章</el-button>
     </div>
     <!-- 头像 -->
     <div class="header-box">
@@ -49,9 +49,19 @@ export default {
     }
   },
   methods: {
+    // 点击输入框 我想把输入框变长
     inputClick () {
       console.log(this.$refs.search.style.width)
       // this.$refs.search
+    },
+    // 去写文章
+    toWrite () {
+      this.$router.push({
+        name: "Write",
+        params: {
+         // params
+        }
+      });
     }
   }
 

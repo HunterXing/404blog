@@ -36,6 +36,14 @@ export default new Router({
           title: '推荐内容'
         }
       }]
+    },
+    {
+      path: '/write',
+      name: 'Write',
+      component: () => import('@/views/blog/write/Write.vue'),
+      meta: {
+        title: '写文章'
+      }
     }
   ],
   // 路由激活状态 绑定一个class样式
