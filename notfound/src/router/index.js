@@ -1,9 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/views/blog/home/Home.vue'
-import Index from '@/views/blog/index/Index.vue'
-import Article from '@/views/blog/article/Article.vue'
-import Recommend from '@/views/blog/recommend/Recommend.vue'
 
 Vue.use(Router)
 
@@ -13,7 +9,7 @@ export default new Router({
     {
       path: '/',
       name: 'Index',
-      component: Index,
+      component: () => import('@/views/blog/index/Index.vue'),
       redirect: { name: 'Home' },
       meta: {
         title: '博客'
@@ -21,21 +17,21 @@ export default new Router({
       children: [{
         path: 'home',
         name: 'Home',
-        component: Home,
+        component: () => import('@/views/blog/home/Home.vue'),
         meta: {
           title: '首页'
         }
       }, {
         path: 'article',
         name: 'Article',
-        component: Article,
+        component: () => import('@/views/blog/article/Article.vue'),
         meta: {
           title: '我的文章'
         }
       }, {
         path: 'recommend',
         name: 'Recommend',
-        component: Recommend,
+        component: () => import('@/views/blog/recommend/Recommend.vue'),
         meta: {
           title: '推荐内容'
         }

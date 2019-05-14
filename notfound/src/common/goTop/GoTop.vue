@@ -1,7 +1,7 @@
 <template>
   <div class="go-top">
     <div class="back-top" @click="goTop" v-show="backTopShow">
-      <i class="el-icon-caret-top"></i>
+      <i class="iconfont top-icon">&#xe66a;</i>
     </div>
   </div>
 </template>
@@ -31,10 +31,11 @@ export default {
       position fixed
       bottom 100px
       right 30px
-      border 1px solid #999
+      // border 1px solid #999
       text-align center
-      font-size 12px
       color #999
+      .top-icon
+        font-size 30px
     .back-top :hover
-      background #999
+      color #009a61
 </style>

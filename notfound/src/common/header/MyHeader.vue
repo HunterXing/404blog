@@ -11,7 +11,7 @@
     </router-link>
     <!-- 推荐 -->
     <router-link tag="div" :to="{name: 'Recommend'}" class="recomment">
-      <i class="iconfont hot">&#xe634;</i><span class="link">推荐</span>
+      <i class="iconfont hot">&#xe633;</i><span class="link">推荐</span>
     </router-link>
     <!-- 我的文章 -->
     <router-link tag="div" :to="{name: 'Article'}" class="my-article">
@@ -20,7 +20,9 @@
     <!--  标签-->
     <div class="tags"></div>
     <!-- 搜索栏 -->
-    <div class="right-search"></div>
+    <div class="right-search">
+      <input  ref="search" type="text" class="input-search" placeholder="搜索文章或关键字" @click="inputClick">
+    </div>
     <!-- 个人信息区域 -->
     <div class="message-box">
       <span class="iconfont message-icon">&#xe66e;<span class="number">15</span></span>
@@ -47,7 +49,10 @@ export default {
     }
   },
   methods: {
-
+    inputClick () {
+      console.log(this.$refs.search.style.width)
+      // this.$refs.search
+    }
   }
 
 }
@@ -92,6 +97,11 @@ export default {
     font-weight 700
   .right-search
     flex 6
+    .input-search
+      display inline-block
+      padding 4px 8px
+      width 200px
+      // border-radius 5px
   .message-box
     flex 2
     margin 0 10px
