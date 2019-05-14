@@ -57,11 +57,11 @@ export default {
     // 去写文章
     toWrite () {
       this.$router.push({
-        name: "Write",
+        name: 'Write',
         params: {
-         // params
+        // params
         }
-      });
+      })
     }
   }
 

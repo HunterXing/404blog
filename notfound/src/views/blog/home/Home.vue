@@ -29,7 +29,7 @@
 <script>
 export default {
   name: 'Home',
-  data() {
+  data () {
     return {
       tags: [
         { name: '标签一', type: '' },
@@ -38,7 +38,7 @@ export default {
         { name: '标签四', type: 'warning' },
         { name: '标签五', type: 'danger' }
       ]
-    };
+    }
   }
 }
 </script>
