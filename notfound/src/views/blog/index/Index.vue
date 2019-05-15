@@ -29,7 +29,7 @@ export default {
   data () {
     return {
       // 是否显示回到顶部
-      backTopShow: true,
+      backTopShow: false,
       // // 是否允许操作返回顶部
       backTopAllow: true,
       // 返回顶部所需时间
