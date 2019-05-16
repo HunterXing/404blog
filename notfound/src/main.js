@@ -19,3 +19,12 @@ new Vue({
   components: { Index },
   template: '<router-view/>'
 })
+
+// 路由跳转时改变title
+router.beforeEach((to, from, next) => {
+  /* 路由发生变化修改页面title */
+  if (to.meta.title) {
+    document.title = to.meta.title
+  }
+  next()
+})
