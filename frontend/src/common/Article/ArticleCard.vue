@@ -12,7 +12,7 @@
           </p>
           <span class="p-read-number">有1290人阅读过该文章</span>
         </div>
-        <!-- 右边 -->
+        <!--右边-->
         <div class="right-con">
           <div class="article-titie">
             <span>No1.</span>
