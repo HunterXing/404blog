@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "ajv": "^5.0.0",
+    "axios": "^0.18.0",
     "element-ui": "^2.7.2",
     "mavon-editor": "^2.7.4",
     "node-sass": "^4.12.0",
