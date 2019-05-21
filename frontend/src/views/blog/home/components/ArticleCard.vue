@@ -8,7 +8,7 @@
             :style="{backgroundImage: 'url(' + (articlePic[0]) + ')'}"
           ></div>
           <p>
-            <span class="p-create-time">创建时间：</span> <span>2019-5-21</span>
+            <span class="p-create-time">创建时间：</span> <span class="span-time">2019-5-21</span>
           </p>
           <span class="p-read-number">有1290人阅读过该文章</span>
         </div>
@@ -19,8 +19,8 @@
             制作一个简单的菜单动画效果
           </div>
           <div class="article-author">
-            <i class="el-icon-s-custom"></i> xing |
-            <i class="el-icon-notebook-2"></i> web前端工程师
+            <i class="iconfont">&#xe654;</i> xing |
+            <i class="iconfont">&#xe612;</i> web前端工程师
           </div>
           <div class="article-content">
             {{articleBrief[0]}}
@@ -78,6 +78,22 @@ export default {
             width: 379px;
             background-repeat: no-repeat;
             background-size: cover;
+          }
+          p {
+            .p-create-time {
+                font-size: 14px;
+                color: #2d2d2d;
+            }
+            .span-time {
+              font-size: 14px;
+              color: #2d2d2d;
+              opacity: .7;
+            }
+          }
+          .p-read-number {
+              font-size: 14px;
+              color: #2d2d2d;
+              opacity: .7;
           }
         }
         .right-con {

@@ -8,6 +8,7 @@
     <!-- 写文章 -->
     <div class="save">
       <el-button type="success">保存文章</el-button>
+      <el-button type="primary">发布文章</el-button>
     </div>
 
   </div>
@@ -41,7 +42,7 @@ export default {
   background: #fafafa
   z-index: 3
   display flex
-  min-width 1200px
+  min-width 1510px
   .left-logo
     flex 10
     line-height 60px
@@ -55,6 +56,6 @@ export default {
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1), 0 0px rgba(0,0,0,0.1)
 
   .save
-    flex 1
+    flex 2
 
 </style>

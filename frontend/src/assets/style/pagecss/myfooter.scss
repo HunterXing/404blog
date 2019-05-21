@@ -1,7 +1,11 @@
 .m-footer {
   .content {
     text-align: center;
-    font-size: 10px;
-    color: #999;
+    font-size: 12px;
+    color: rgb(24, 19, 19);
+    .time {
+      margin-top: 10px;
+      color: #f00;
+    }
   }
 }

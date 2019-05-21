@@ -4,8 +4,7 @@
       <p>Copyright © 2019 notfound404 未寻. 当前呈现版本 19.05.12</p>
       <p>皖ICP备18018069号-1   个人学习博客</p>
       <p>仅个人学习使用</p>
-      <br>
-      <p>博客开发时间{{runningTime}}</p>
+      <p class="time">博客开发时间{{runningTime}}</p>
 
     </div>
   </div>
