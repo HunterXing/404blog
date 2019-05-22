@@ -16,6 +16,7 @@
   "dependencies": {
     "ajv": "^5.0.0",
     "axios": "^0.18.0",
+    "echarts": "^4.2.1",
     "element-ui": "^2.7.2",
     "mavon-editor": "^2.7.4",
     "node-sass": "^4.12.0",
@@ -23,8 +24,9 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "vue": "^2.5.2",
+    "vue-echarts": "^4.0.2",
     "vue-router": "^3.0.1",
-    "vuex": "^3.1.0"
+    "vuex": "^3.1.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

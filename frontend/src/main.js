@@ -5,16 +5,21 @@ import Vue from 'vue'
 import Index from './views/blog/index/Index'
 import router from './router'
 import ElementUI from 'element-ui'
+import store from './store'
 import 'element-ui/lib/theme-chalk/index.css'
 import 'style/reset.css'
 import 'style/iconfont.css'
 import 'style/main.scss'
+import ECharts from 'vue-echarts/components/ECharts'
+
+Vue.component('chart', ECharts)
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  store,
   router,
   components: { Index },
   template: '<router-view/>'
