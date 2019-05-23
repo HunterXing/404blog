@@ -4,8 +4,12 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+  // 共享数据较多时，可以把state actions mutations 分开，模块化
   state: {
-    count: 0
+    // 测试的数字
+    count: 0,
+    // 默认的用户状态
+    userState: 0
   },
   actions: {
     addNumber (ctx, number) {

@@ -52,6 +52,14 @@ export default new Router({
       meta: {
         title: '练习echarts'
       }
+    },
+    {
+      path: '/echarts',
+      name: 'echarts',
+      component: () => import('@/views/blog/test/Echarts.vue'),
+      meta: {
+        title: 'echarts'
+      }
     }
   ],
   // 路由激活状态 绑定一个class样式

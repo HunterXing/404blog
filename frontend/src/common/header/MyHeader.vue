@@ -33,8 +33,11 @@
       <el-button type="plain" plain @click.native="toWrite()">写文章</el-button>
     </div>
     <!-- 头像 -->
-    <div class="header-box">
+    <div class="header-box" v-if="this.$store.state.userState">
       <img :src="headerPic" class="header-pic">
+    </div>
+    <div class="header-box" v-else>
+      <span class="login-or-register"> 登录/注册</span>
     </div>
   </div>
 
