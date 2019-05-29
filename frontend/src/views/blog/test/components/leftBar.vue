@@ -11,8 +11,8 @@ export default {
 <style lang="scss" scoped>
   .sidebar {
     display: inline-block;
-    width:64px;
-    height:2730px;
+    width:4%;
+    height:1000px;
     background:rgba(41,49,64,1);
   }
 </style>

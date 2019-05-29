@@ -11,6 +11,7 @@ export default new Vuex.Store({
     // 默认的用户状态
     userState: 0
   },
+  // 响应动作
   actions: {
     addNumber (ctx, number) {
       // ctx为上下文， number为dispath过来的参数
@@ -19,9 +20,11 @@ export default new Vuex.Store({
       ctx.commit('addNumber', number)
     }
   },
+  // 变化
   mutations: {
     // 接受actions里面commit过来的函数，state, number参数
     addNumber (state, number) {
+      // 变化
       state.count += number
     }
   }

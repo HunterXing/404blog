@@ -26,7 +26,7 @@
       <!-- 卡片 -->
       <div class="card-box">
         <div class="cards">
-          <div class="card">
+          <div class="card" v-for="(i,index) in 8" :key="index">
             <div class="card-left">
               <div class="iconfont">&#xe611;</div>
             </div>
@@ -35,20 +35,7 @@
               <p class="time-title">加入时间</p>
             </div>
           </div>
-          <div class="card">
-          </div>
-          <div class="card">
-          </div>
-          <div class="card">
-          </div>
-          <div class="card">
-          </div>
-          <div class="card">
-          </div>
-          <div class="card">
-          </div>
-          <div class="card">
-          </div>
+
         </div>
       </div>
       <!-- 学生评课统计 -->
@@ -322,6 +309,7 @@ export default {
     }
   }
   .course-static {
+    margin-top: 20px;
     background: #16569B;
     height: 480px;
     text-align: center;
