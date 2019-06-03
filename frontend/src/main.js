@@ -9,6 +9,9 @@ import 'element-ui/lib/theme-chalk/index.css'
 import 'style/reset.css'
 import 'style/iconfont.css'
 import 'style/main.scss'
+// 使得ie兼容promise
+import promise from 'es6-promise'
+promise.polyfill()
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)

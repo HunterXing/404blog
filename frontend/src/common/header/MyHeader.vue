@@ -1,43 +1,71 @@
 <template>
-  <div class="m-header">
-    <!-- logo标志 -->
-    <router-link tag="div" :to="{name: 'Home'}" class="left-logo">
-      <img src="../../assets/logo.png">
-    </router-link>
-    <!-- tab 集合 -->
-    <!-- 首页 -->
-    <router-link tag="div" :to="{name: 'Home'}" class="first">
-      <span class="link">首页</span>
-    </router-link>
-    <!-- 推荐 -->
-    <router-link tag="div" :to="{name: 'Recommend'}" class="recomment">
-      <i class="iconfont hot">&#xe633;</i><span class="link">推荐</span>
-    </router-link>
-    <!-- 我的文章 -->
-    <router-link tag="div" :to="{name: 'Article'}" class="my-article">
-      <i class="el-icon-tickets"></i> <span class="link">文章</span>
-    </router-link>
-    <!--  标签-->
-    <div class="tags"></div>
-    <!-- 搜索栏 -->
-    <div class="right-search">
-      <input  ref="search" type="text" class="input-search" placeholder="搜索文章或关键字" @click="inputClick">
-    </div>
-    <!-- 个人信息区域 -->
-    <div class="message-box">
-      <span class="iconfont message-icon">&#xe66e;<span class="number">15</span></span>
-    </div>
+  <div class="header-con">
+    <!-- pc端 -->
+    <div class="pc-header-show">
+      <div class="m-header">
+        <!-- logo标志 -->
+        <router-link tag="div" :to="{name: 'Home'}" class="left-logo">
+          <img src="../../assets/logo.png">
+        </router-link>
+        <!-- tab 集合 -->
+        <!-- 首页 -->
+        <router-link tag="div" :to="{name: 'Home'}" class="first">
+          <span class="link">首页</span>
+        </router-link>
+        <!-- 推荐 -->
+        <router-link tag="div" :to="{name: 'Recommend'}" class="recomment">
+          <i class="iconfont hot">&#xe633;</i>
+          <span class="link">推荐</span>
+        </router-link>
+        <!-- 我的文章 -->
+        <router-link tag="div" :to="{name: 'Article'}" class="my-article">
+          <i class="el-icon-tickets"></i>
+          <span class="link">文章</span>
+        </router-link>
+        <!--  标签-->
+        <div class="tags"></div>
+        <!-- 搜索栏 -->
+        <div class="right-search">
+          <input
+            ref="search"
+            type="text"
+            class="input-search"
+            placeholder="搜索文章或关键字"
+            @click="inputClick"
+          >
+        </div>
+        <!-- 个人信息区域 -->
+        <div class="message-box">
+          <span class="iconfont message-icon">
+            &#xe66e;
+            <span class="number">15</span>
+          </span>
+        </div>
 
-    <!-- 写文章 -->
-    <div class="write">
-      <el-button type="plain" plain @click.native="toWrite()">写文章</el-button>
+        <!-- 写文章 -->
+        <div class="write">
+          <el-button type="plain" plain @click.native="toWrite()">写文章</el-button>
+        </div>
+        <!-- 头像 -->
+        <div class="header-box">
+          <img :src="headerPic" class="header-pic">
+        </div>
+      </div>
     </div>
-    <!-- 头像 -->
-    <div class="header-box">
-      <img :src="headerPic" class="header-pic">
+    <!-- 移动端 -->
+    <div class="phone-header-show">
+      <div class="m-header">
+        <!-- logo标志 -->
+        <router-link tag="div" :to="{name: 'Home'}" class="left-logo">
+          <img src="../../assets/logo.png">
+        </router-link>
+        <!-- 头像 -->
+        <div class="header-box">
+          <img :src="headerPic" class="header-pic">
+        </div>
+      </div>
     </div>
   </div>
-
 </template>
 
 <script>
@@ -45,13 +73,14 @@ export default {
   name: 'MyHeader',
   data () {
     return {
-      headerPic: 'https://avatar-static.segmentfault.com/421/904/4219049238-5c96fb0fef7e6_huge256'
+      headerPic:
+       'https://avatar-static.segmentfault.com/421/904/4219049238-5c96fb0fef7e6_huge256'
     }
   },
   methods: {
     // 点击输入框 我想把输入框变长
     inputClick () {
-      console.log(this.$refs.search.style.width)
+      console.log(this.$refs.search.style)
       // this.$refs.search
     },
     // 去写文章
@@ -59,85 +88,170 @@ export default {
       this.$router.push({
         name: 'Write',
         params: {
-        // params
+          // params
         }
       })
     }
   }
-
 }
 </script>
 
-<style lang="stylus" scoped>
-.m-header
-  height 50px
-  line-height 50px
-  border-top 3px solid #009a61
-  box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.1), 0 1px rgba(0,0,0,0.1)
-  background: #fafafa
-  z-index: 3
-  display flex
-  min-width 1200px
-  .left-logo
-    flex 6
-    line-height 60px
-    padding-left 50px
-    border-radius 10px
-    img
-      width 180px
-  .left-logo :hover
-    border-radius 10px
-    border 0.5px dashed #009a61
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1), 0 0px rgba(0,0,0,0.1)
-  // .link:hover
-  //   // display inline-block
-  //   padding 2px 4px
-  //   background #009a61
-  //   color #fff
-  //   border-radius 10px
-  .first, .recomment, .my-article, .tags
-    flex 2
-    text-align center
-  .recomment
-    .hot
-      color red
-  .linkActive
-    // border-bottom: 3px solid #009a61
-    color: #009a61
-    font-weight 700
-  .right-search
-    flex 6
-    .input-search
-      display inline-block
-      padding 4px 8px
-      width 200px
-      // border-radius 5px
-  .message-box
-    flex 2
-    margin 0 10px
-    .message-icon
-      color #888
-      font-size 32px
-      padding 2px 10px
-      .number
-        font-size 10px
-        color #fff
-        padding 2px 4px
-        margin-left -10px
-        background #FFA500
-        border-radius 10px
-  .write
-    flex 2
-  .header-box
-    flex 5
-    display inline-block
-    height 50px
-    line-height 65px
-    text-align left
-    padding 0 0 0 20px
-    img
-      width 25px
-      height 25px
-      border-radius 20px
-      border 0.5px dashed #009a61
+<style lang="scss" scoped>
+// pc端样式
+.pc-header-show {
+  display:block;
+  .m-header {
+    height: 50px;
+    line-height: 50px;
+    border-top: 3px solid #009a61;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
+    background: #fafafa;
+    z-index: 3;
+    display: flex;
+    min-width: 1200px;
+
+    .left-logo {
+      flex: 6;
+      line-height: 60px;
+      padding-left: 50px;
+      border-radius: 10px;
+
+      img {
+        width: 180px;
+      }
+    }
+
+    .left-logo :hover {
+      border-radius: 10px;
+      border: 0.5px dashed #009a61;
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1), 0 0px rgba(0, 0, 0, 0.1);
+    }
+
+    // .link:hover
+    // // display inline-block
+    // padding 2px 4px
+    // background #009a61
+    // color #fff
+    // border-radius 10px
+    .first, .recomment, .my-article, .tags {
+      flex: 2;
+      text-align: center;
+    }
+
+    .recomment {
+      .hot {
+        color: red;
+      }
+    }
+
+    .linkActive {
+      // border-bottom: 3px solid #009a61
+      color: #009a61;
+      font-weight: 700;
+    }
+
+    .right-search {
+      flex: 6;
+
+      .input-search {
+        display: inline-block;
+        padding: 4px 8px;
+        width: 200px;
+        // border-radius 5px
+      }
+    }
+
+    .message-box {
+      flex: 2;
+      margin: 0 10px;
+
+      .message-icon {
+        color: #888;
+        font-size: 32px;
+        padding: 2px 10px;
+
+        .number {
+          font-size: 10px;
+          color: #fff;
+          padding: 2px 4px;
+          margin-left: -10px;
+          background: #FFA500;
+          border-radius: 10px;
+        }
+      }
+    }
+
+    .write {
+      flex: 2;
+    }
+
+    .header-box {
+      flex: 5;
+      display: inline-block;
+      height: 50px;
+      line-height: 65px;
+      text-align: left;
+      padding: 0 0 0 20px;
+
+      img {
+        width: 25px;
+        height: 25px;
+        border-radius: 20px;
+        border: 0.5px dashed #009a61;
+      }
+    }
+  }
+}
+// 移动端样式
+.phone-header-show {
+  display:none;
+  .m-header {
+    height: 50px;
+    line-height: 50px;
+    border-top: 3px solid #009a61;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
+    background: #fafafa;
+    z-index: 3;
+    display: flex;
+    width: 100%;
+    .left-logo {
+      flex: 1;
+      line-height: 60px;
+      padding-left: 50px;
+      border-radius: 10px;
+      img {
+        width: 180px;
+      }
+    }
+    .left-logo :hover {
+      border-radius: 10px;
+      border: 0.5px dashed #009a61;
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1), 0 0px rgba(0, 0, 0, 0.1);
+    }
+    .header-box {
+      flex: 1;
+      display: inline-block;
+      height: 50px;
+      line-height: 65px;
+      text-align: left;
+      padding: 0 0 0 20px;
+      img {
+        width: 25px;
+        height: 25px;
+        border-radius: 20px;
+        border: 0.5px dashed #009a61;
+      }
+    }
+  }
+}
+
+// 移动端样式
+@media only screen and( max-width:960px ) { // 当屏幕宽度小于960时 认为是移动端
+  .pc-header-show {
+    display: none;
+  }
+  .phone-header-show {
+    display:block;
+  }
+}
 </style>
