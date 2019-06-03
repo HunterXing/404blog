@@ -35,7 +35,7 @@ export default {
       // 返回顶部所需时间
       backSeconds: 100,
       // 往下滑动多少显示返回顶部（单位：px)
-      showPx: 200
+      showPx: 100
     }
   },
   methods: {
@@ -43,7 +43,7 @@ export default {
     backTopShowOperate () {
       // TMD页面被卷起的距离
       let marginTop = document.documentElement.scrollTop || document.body.scrollTop
-      // console.log(marginTop)
+      console.log(marginTop)
       if (this.backTopAllow) {
         if (marginTop > this.showPx) {
           this.backTopShow = true
