@@ -24,7 +24,9 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "vue": "^2.5.2",
+    "vue-calendar-component": "^2.8.2",
     "vue-echarts": "^4.0.2",
+    "vue-event-calendar": "^1.5.2",
     "vue-router": "^3.0.1",
     "vuex": "^3.1.1"
   },

@@ -12,7 +12,7 @@ export default {
   .sidebar {
     display: inline-block;
     width:4%;
-    height:1000px;
+    height:2000px;
     background:rgba(41,49,64,1);
   }
 </style>

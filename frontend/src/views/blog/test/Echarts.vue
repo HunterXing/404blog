@@ -59,6 +59,22 @@
                 </div>
               </el-card>
 
+               <!-- 今日教学数据 -->
+              <el-card class="box-card-tody">
+                <div slot="header" class="clearfix">
+                  <span>今日教学数据</span>
+                  <div class="calendar-con">
+                    <Calendar
+                      v-on:choseDay="clickDay"
+                      v-on:changeMonth="changeDate"
+                    ></Calendar>
+                  </div>
+                  <div class="calendar-con">
+                     <echarts :options="optionTeachData" @click="getBarDetails" ref="echarts1"></echarts>
+                  </div>
+                </div>
+
+              </el-card>
             </div>
           </el-tab-pane>
           <el-tab-pane label="配置管理" name="second">配置管理</el-tab-pane>
@@ -69,11 +85,13 @@
   </div>
 </template>
 <script>
+import Calendar from 'vue-calendar-component';
 import LeftBar from './components/leftBar'
 export default {
   name: 'Echarts',
   components: {
-    LeftBar
+    LeftBar,
+    Calendar
   },
   data() {
     return {
@@ -105,6 +123,15 @@ export default {
   methods: {
     handleClick(tab, event) {
       console.log(tab, event);
+    },
+     clickDay(data) {
+      console.log(data); //选中某天
+    },
+    changeDate(data) {
+      console.log(data); //左右点击切换月份
+    },
+    clickToday(data) {
+      console.log(data); //跳到了本月
     }
   }
 }
@@ -194,6 +221,12 @@ export default {
             margin: 20px 0 20px 25px;
             float: right;
           }
+          .box-card-tody{
+            .calendar-con {
+              width: 50%;
+              margin-top: 10px;
+            }
+          }
         }
       }
     }
@@ -218,11 +251,25 @@ export default {
     background: #fff;
   }
 
-  /deep/ .el-card__header {
-        padding: 18px 20px;
-        border-bottom: 1px solid #EBEEF5;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        background: #f7f7f7;
-    }
+  // /deep/ .el-card__header {
+  //       padding: 18px 20px;
+  //       border-bottom: 1px solid #EBEEF5;
+  //       -webkit-box-sizing: border-box;
+  //       box-sizing: border-box;
+  //       background: #f7f7f7;
+  //   }
+  /deep/   .wh_content_all {
+    // background: #fff;
+    border-radius: 10px;
+  }
+  // /deep/ .wh_content_item, wh_content_item_tag{
+  //   font-size: 15px;
+  //   width: 13.4%;
+  //   text-align: center;
+  //   color: #211818;
+  //   position: relative;
+  // }
+  // /deep/ .wh_top_changge {
+  //   color: #000;
+  // }
 </style>
