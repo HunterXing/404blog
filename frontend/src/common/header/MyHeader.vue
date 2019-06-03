@@ -105,7 +105,7 @@ export default {
     line-height: 50px;
     border-top: 3px solid #009a61;
     box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
-    background: #fafafa;
+    background: #fff;
     z-index: 3;
     display: flex;
     min-width: 1200px;
@@ -210,7 +210,7 @@ export default {
     line-height: 50px;
     border-top: 3px solid #009a61;
     box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.1);
-    background: #fafafa;
+    background: #fff;
     z-index: 3;
     display: flex;
     width: 100%;
