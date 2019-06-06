@@ -2,8 +2,8 @@
   <div class="home">
     <div
       class="content"
-      :style="{backgroundImage: 'url(' + ('https://raw.githubusercontent.com/HunterXing/resourse/master/images/bg-summer.png') + ')'}"
     >
+      这是首页
     </div>
   </div>
 </template>
@@ -16,23 +16,7 @@ export default {
   },
   data () {
     return {
-      carouselList: [{
-        id: '1',
-        name: '111',
-        url: 'https://raw.githubusercontent.com/HunterXing/resourse/master/images/wallpaper-701403.jpg'
-      }, {
-        id: '2',
-        name: '222',
-        url: 'https://raw.githubusercontent.com/HunterXing/resourse/master/images/wallpaper-696758.jpg'
-      }, {
-        id: '3',
-        name: '333',
-        url: 'https://raw.githubusercontent.com/HunterXing/resourse/master/images/wallpaper-696758.jpg'
-      }, {
-        id: '4',
-        name: '444',
-        url: 'https://raw.githubusercontent.com/HunterXing/resourse/master/images/wallpaper-696758.jpg'
-      }]
+
     }
   }
 }
@@ -40,6 +24,6 @@ export default {
 
 <style lang="scss" scoped>
  .content {
-   height: 1080px;
+   height: 1020px;
  }
 </style>

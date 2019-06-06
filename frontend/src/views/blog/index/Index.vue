@@ -1,5 +1,7 @@
 <template>
-  <div class="home">
+  <div class="home"
+    :style="{backgroundImage: 'url(' + (backImg[0]) + ')'}"
+  >
     <my-header></my-header>
     <div class="content">
       <!-- 嵌套路由-->
@@ -35,7 +37,10 @@ export default {
       // 返回顶部所需时间
       backSeconds: 100,
       // 往下滑动多少显示返回顶部（单位：px)
-      showPx: 100
+      showPx: 100,
+      backImg:[
+        require('../../../assets/images/bg-summer-day.png')
+      ]
     }
   },
   methods: {
@@ -81,6 +86,9 @@ export default {
 
 <style lang="stylus" scoped>
   .home
+    background-size contain
+    background-position top center
+    background-repeat no-repeat
     .content
-      min-height 1000px
+      min-height 1000px;
 </style>
