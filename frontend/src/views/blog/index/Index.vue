@@ -38,7 +38,7 @@ export default {
       backSeconds: 100,
       // 往下滑动多少显示返回顶部（单位：px)
       showPx: 100,
-      backImg:[
+      backImg: [
         require('../../../assets/images/bg-summer-day.png')
       ]
     }

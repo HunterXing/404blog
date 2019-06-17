@@ -1,50 +1,21 @@
 <template>
-  <div class="article">
-    <div class="test"
-      v-for="(item, index) in myData" :key="index"
-      @click="hidden(index)"
-      v-show="item.isShow"
-    >
-      {{item.divName}}
-    </div>
-  </div>
+  <div class="article"></div>
 </template>
 
 <script>
 export default {
   name: 'Recommend',
   data () {
-    return {
-      myData: [{
-        divName: 'div1',
-        isShow: true
-      },{
-        divName: 'div2',
-        isShow: true
-      },{
-        divName: 'div3',
-        isShow: true
-      }]
-    }
+    return {}
   },
-  methods: {
-    hidden (index) {
-      for (let i in this.myData) {
-        this.myData[i].isShow = true
-      }
-
-      this.myData[index].isShow = false
-    }
-  }
+  methods: {}
 }
 </script>
 
-
 <style lang="stylus" scoped>
-  .test {
-    border 1px solid #f00
-    margin 20px
-    width 20%
-    height 50px
-  }
+  .test
+    border: 1px solid #f00;
+    margin: 20px;
+    width: 20%;
+    height: 50px;
 </style>

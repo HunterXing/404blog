@@ -3,7 +3,6 @@
     <div
       class="content"
     >
-      这是首页
     </div>
   </div>
 </template>
@@ -16,7 +15,6 @@ export default {
   },
   data () {
     return {
-
     }
   }
 }
