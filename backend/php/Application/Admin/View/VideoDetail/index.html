@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/layui/css/layui.css">
+    <!--<link rel="stylesheet" href="__HOME__/css/main.css">-->
+    <style>
+        .userlist {
+            margin: 10px;
+        }
+        .userlist table{
+            border-collapse: collapse;
+            width:100%;
+            border:1px solid #c6c6c6 !important;
+            margin-bottom:20px;
+        }
+        .userlist table th{
+            border-collapse: collapse;
+            border-right:1px solid #c6c6c6 !important;
+            border-bottom:1px solid #c6c6c6 !important;
+            /*background-color:#ddeeff !important;*/
+            background-color:#f2f2f2 !important;
+            padding:5px 9px;
+            font-size:14px;
+            font-weight:normal;
+            text-align:center;
+        }
+        .userlist table td{
+            border-collapse: collapse;
+            border-right:1px solid #c6c6c6 !important;
+            border-bottom:1px solid #c6c6c6 !important;
+            padding:5px 9px;
+            font-size:12px;
+            font-weight:normal;
+            text-align:center;
+            word-break: break-all;
+        }
+
+        .ddd{
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="userlist">
+    <fieldset class="layui-elem-field layui-field-title" style="margin: 20px 30px 20px 20px;">
+        <legend>《 {$course_name['name']} 》视频列表</legend>
+    </fieldset>
+    <table class="ddd">
+        <thead>
+        <tr>
+            <th>章节</th>
+            <th>视频名称</th>
+            <th colspan="2">操作</th>
+        </tr>
+        </thead>
+        <volist name="videoData" id="vo" key="k">
+            <tr>
+                <td>第{$k}章</td>
+                <td>{$vo.name}</td>
+                <td>
+                    <a href="{:U('AddVideo/index')}?course_id={$vo.id}" class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+                    <a class="layui-btn layui-btn-danger layui-btn-xs" href="{:U('VideoDetail/delete',array('id'=>$vo['id']))}" onclick="return confirm('您确定删除吗? ');">删除</a>
+                </td>
+            </tr>
+        </volist>
+        <tbody>
+        </tbody>
+    </table>
+    <div class="layui-btn-group demoTable">
+        <!--<a href="add.html" class="layui-btn">添加员工</a>-->
+        <a href="__MODULE__/AddVideo/index/course_id/{$course_name['id']}" class="layui-btn">添加视频</a>
+    </div>
+    <div id="listpage"></div>
+</div>
+
+</body>
+</html>

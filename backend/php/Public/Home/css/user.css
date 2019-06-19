@@ -1,0 +1,164 @@
+#user .setting-left {
+    width: 216px;
+    /*height: 600px;*/
+    background-color: #f3f3f3;
+    float: left;
+    margin-top: 20px;
+    display: inline;
+}
+
+#user .avator-wapper {
+    padding: 32px 0 24px;
+}
+
+#user .avator-mode {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    box-sizing: border-box;
+    border: 4px solid #d9dde1;
+    border-radius: 50px;
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden;
+}
+
+#user .des-mode {
+     font-size: 16px;
+     text-align: center;
+ }
+
+
+#user .list-wapper {
+
+    overflow: hidden;
+}
+
+#user h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+#user ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+#user .settings-cont .setting-left .list-wapper .menu a.on {
+    color: #fff;
+    background-color: #f01414;
+}
+#user .settings-cont .setting-left .list-wapper .menu a {
+    display: block;
+    position: relative;
+    padding: 0 0 0 54px;
+    height: 48px;
+    line-height: 48px;
+    transition: background-color .3s ease;
+}
+
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+ol, ul {
+    list-style: none;
+}
+
+
+.layui-nav{
+    background-color: #f3f3f3;
+}
+
+.layui-nav .layui-nav-item a {
+    display: block;
+    padding: 0 20px;
+    color: #000000;
+    text-align: center;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+}
+
+
+
+
+/*右边的个人信息区域*/
+
+.setting-right {
+
+    margin-left: 48px;
+    width: 936px;
+    box-sizing: border-box;
+    background-color: #fff;
+    display: inline;
+}
+
+
+.common-title {
+    line-height: 40px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.setting-profile .info-wapper {
+    margin: 24px auto 24px 40px;
+}
+
+.setting-profile .info-box {
+    margin-bottom: 12px;
+}
+
+.setting-profile .info-box label {
+    width: 120px;
+    line-height: 20px;
+    padding: 20px 0;
+    text-align: center;
+    background-color: #f3f5f7;
+    color: #07111b;
+    font-weight: 700;
+}
+
+.setting-profile .info-box div.pull-left {
+    width: 500px;
+    margin-left: 8px;
+    line-height: 20px;
+    padding: 20px 0 20px 22px;
+    border-bottom: 1px solid #d9dde1;
+}
+
+/*编辑*/
+.common-title a {
+    color: #93999f;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+
+
+.moco-modal-layer {
+    position: absolute;
+    background: #fff;
+    box-shadow: 0 8px 16px 0 rgba(7,17,27,0.2);
+    border-radius: 12px;
+}
+
+
+.newClass{
+    bottom: 0px;
+}
+.user_right{
+    display: none;
+}
+.collect_first{
+    width: 33%;
+}

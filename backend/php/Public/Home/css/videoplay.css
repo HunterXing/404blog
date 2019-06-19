@@ -1,0 +1,50 @@
+.videotitle{
+    display: inline-block;
+}
+.back{
+    font-size:22px;
+}
+.videomain{
+    background-color: #1C1F21;
+    width: 1530px;
+}
+.videobox{
+    float: right;
+    margin-right: 35px;
+}
+.showVideo{
+    /*height: 520px;*/
+    margin-left: 215px;
+    border-radius: 5px;
+    background-color: #000000;
+}
+.showVideo video{
+    border-radius: 5px;
+    width:830px;
+    height:500px;
+    margin: 0 auto;
+}
+.showcatalog{
+    color: white;
+    margin-left: 35px;
+    margin-top: 25px;
+}
+.catalog{
+    height: 25px;
+    text-align: center;
+    background-color: grey;
+    font-size: 19px;
+}
+.catalog-list{
+    padding-top: 20px;
+    font-size: 14px;
+}
+.catalog-list span{
+    color: yellow;
+}
+.catalog_icon{
+    /*font-size: 13px;*/
+    float: right;
+    padding-right: 19px;
+    color: yellow;
+}

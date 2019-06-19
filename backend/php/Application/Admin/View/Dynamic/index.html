@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/layui/css/layui.css">
+    <!--<link rel="stylesheet" href="__HOME__/css/main.css">-->
+    <style>
+        .userlist {
+            margin: 10px;
+        }
+        .userlist table{
+            border-collapse: collapse;
+            width:100%;
+            border:1px solid #c6c6c6 !important;
+            margin-bottom:20px;
+        }
+        .userlist table th{
+            border-collapse: collapse;
+            border-right:1px solid #c6c6c6 !important;
+            border-bottom:1px solid #c6c6c6 !important;
+            /*background-color:#ddeeff !important;*/
+            background-color:#f2f2f2 !important;
+            padding:5px 9px;
+            font-size:14px;
+            font-weight:normal;
+            text-align:center;
+        }
+        .userlist table td{
+            border-collapse: collapse;
+            border-right:1px solid #c6c6c6 !important;
+            border-bottom:1px solid #c6c6c6 !important;
+            padding:5px 9px;
+            font-size:12px;
+            font-weight:normal;
+            text-align:center;
+            word-break: break-all;
+        }
+
+        .ddd{
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="userlist">
+    <table class="ddd">
+        <thead>
+        <tr>
+            <th>编号</th>
+            <th>动态发布者</th>
+            <th>内容</th>
+            <th>发布时间</th>
+            <th>主题</th>
+            <th>点赞数</th>
+            <th>分享数</th>
+            <th colspan="2">操作</th>
+        </tr>
+        </thead>
+        <volist name="dynamic" id="vo"> 
+            <tr>
+                <td>{$vo.dynamic_id}</td>
+                <td>{$vo.nickname}</td>
+                <td>{$vo.content}</td>
+                <td>{$vo.dynamic_time}</td>
+                <td>{$vo.theme}</td>
+                <td>{$vo.good}</td>
+                <td>{$vo.share}</td>
+                <td>
+                    <a class="layui-btn layui-btn-danger layui-btn-xs" onclick="showDel('{$emp.ename}','{$emp.eno}')">删除</a>
+                </td>
+            </tr>
+        </volist>
+    </table>
+</div>
+</body>
+</html>

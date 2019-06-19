@@ -36,8 +36,6 @@ export default {
     doSubmit () {
       // 获取 markdown
       let markdown = this.$refs.editor.d_value
-      // // 修改 markdown
-      // this.$refs.editor.d_value = '> hello world'
 
       // 获取编译后的 html
       let html = this.$refs.editor.d_render

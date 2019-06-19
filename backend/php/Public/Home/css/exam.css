@@ -1,0 +1,207 @@
+/*exam模块页面的公共部分*/
+/*学生考试不可复制文档进行搜索*/
+* {
+    moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/*考试界面 index       部分*/
+#examIndex .ue {
+    display: inline;
+}
+
+/*成绩单  reportCard  部分*/
+#reportCard{
+    text-align: center
+}
+
+#reportCard #container {
+    height: 500px;
+    width: 500px;
+    display: inline-block;
+
+}
+
+/*错题集  mistake    部分*/
+#mistake .trueAnswer, #mistake .trueAnswer label {
+    display: inline-block;
+}
+
+#mistake .test {
+    width: 100%;
+}
+
+#mistake .trueAnswer label strong {
+    color: red;
+}
+
+#mistake .trueAnswer label p {
+    display: inline;
+    color: red
+}
+
+#mistake .remove {
+    float: right
+}
+
+#mistake .ue {
+    display: inline;
+}
+
+#mistake .explain {
+    background: #009688;
+}
+
+#mistake .explainLi {
+    height: 250px;
+}
+
+#mistake .mistakeDtail {
+    height: 250px;
+
+}
+
+#mistake .footer {
+
+    border: none;
+}
+#mistake .pagin-list {
+
+    margin-left: 50px;
+}
+
+#mistake .count {
+    margin-right: 20px;
+    float: right;
+
+}
+#mistake .noMistake {
+    height: 300px;
+    text-align: center;
+    margin-top: 120px;
+}
+#mistake .noMistake h1 {
+   color: #d3d3d3;
+}
+
+
+/*错题页面的分页美化*/
+/*====================================
+     分页信息（表格依赖样式）
+     ===================================*/
+.pagination a {
+    text-decoration: none;
+    border: solid 1px;
+}
+
+.pagination .pxofy {
+    float: left;
+    margin-left: 5px;
+    height: 25px;
+    *padding-top: 1px;
+}
+
+.pagination a, .pagination span {
+    display: block;
+    float: left;
+    line-height: 24px;
+    padding: 0 9px;
+    border-radius: 2px;
+    margin-right: 5px;
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+.pagination .current {
+    cursor: default;
+    border: solid 1px;
+}
+
+.pagination .prev, .pagination .next {
+    *line-height: 22px;
+}
+
+/*分页样式*/
+.pagination a {
+    color: #000000;
+    border-color: #8EB2D2;
+    background: #eaf4fa;
+}
+
+.pagination a:hover {
+    color: #023054;
+    border-color: #8EB2D2;
+    background: #B8DFFB;
+}
+
+.pagination .current {
+    color: #fff;
+    border-color: #4ea052;
+    background: #5ebc62;
+}
+
+.pagination .current.prev, .pagination .current.next {
+    color: #B9B9B9;
+    border-color: #D3D3D3;
+    background: #fff;
+}
+
+.pagination .pxofy {
+    color: #023054;
+}
+
+.button {
+    display: inline-block;
+    width: 135px;
+    height: 35px;
+    background: url(../images/dialog_btnbg.png);
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'Microsoft Yahei', '微软雅黑';
+    outline: none;
+}
+
+.button.normal {
+    width: 133px;
+    height: 33px;
+    background: url(../images/dialogbtn.png);
+    color: #000;
+    border: 1px solid #c0c0c0;
+}
+
+.button:active {
+}
+
+.button.long2 {
+    width: 100px;
+}
+
+.select-wrap ul {
+    display: none;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    top: 30px;
+    width: 260px;
+    border: 1px solid #c5d6e0;
+    border-top: none;
+    z-index: 222;
+}
+
+.select-wrap ul li {
+    padding-left: 10px;
+    line-height: 28px;
+    cursor: pointer;
+}
+
+.select-wrap ul li:hover {
+    background: url(../images/formbtnbg.png) repeat-x;
+}
+

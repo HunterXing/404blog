@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="__ADMIN__/layui/css/layui.css">
+    <!--<link rel="stylesheet" href="__HOME__/css/main.css">-->
+    <style>
+        .userlist {
+            margin: 10px;
+        }
+        .userlist table{
+            border-collapse: collapse;
+            width:100%;
+            border:1px solid #c6c6c6 !important;
+            margin-bottom:20px;
+        }
+        .userlist table th{
+            border-collapse: collapse;
+            border-right:1px solid #c6c6c6 !important;
+            border-bottom:1px solid #c6c6c6 !important;
+            /*background-color:#ddeeff !important;*/
+            background-color:#f2f2f2 !important;
+            padding:5px 9px;
+            font-size:14px;
+            font-weight:normal;
+            text-align:center;
+        }
+        .userlist table td{
+            border-collapse: collapse;
+            border-right:1px solid #c6c6c6 !important;
+            border-bottom:1px solid #c6c6c6 !important;
+            padding:5px 9px;
+            font-size:12px;
+            font-weight:normal;
+            text-align:center;
+            word-break: break-all;
+        }
+
+        .ddd{
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="userlist">
+    <table class="ddd">
+        <thead>
+        <tr>
+            <th>编号</th>
+            <th>课程名称</th>
+            <th>知识点</th>
+            <th>课程须知</th>
+            <th>课程介绍</th>
+            <th>开始时间</th>
+            <th>结束时间</th>
+            <th>价格</th>
+            <th colspan="2">操作</th>
+        </tr>
+        </thead>
+        <volist name="coursedata" id="vo" key="k">
+            <tr>
+                <td>{$k}</td>
+                <td>{$vo.name}</td>
+                <td>{$vo.knowledgepoints|msubstr=0,8}</td>
+                <td>{$vo.tips|msubstr=0,8}</td>
+                <td>{$vo.course_intro|msubstr=0,8}</td>
+                <td>{$vo.start_time}</td>
+                <td>{$vo.end_time}</td>   
+                <td>{$vo.price}</td>
+                <td>
+                    <a href="{:U('VideoDetail/index')}?course_id={$vo.id}" class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit"><i class="layui-icon layui-icon-play"></i>视频</a>
+                    <a href="{:U('EditCourse/index')}?course_id={$vo.id}" class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+                    <a class="layui-btn layui-btn-danger layui-btn-xs" href="{:U('CourseDetail/delete',array('id'=>$vo['id']))}" onclick="return confirm('您确定删除吗? ');"><i class="layui-icon layui-icon-delete"></i></a>
+                </td>
+            </tr>
+        </volist>
+        <tbody>
+        </tbody>
+    </table>
+   
+    <if condition="$role eq 1">
+        <div class="layui-btn-group demoTable">
+            <!--<a href="add.html" class="layui-btn">添加员工</a>-->
+            <a href="{:U('AddCourse/index')}" class="layui-btn">添加课程</a>
+        </div>
+    </if>
+       
+    <div id="listpage"></div>
+</div>
+
+</body>
+</html>

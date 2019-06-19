@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="__ADMIN__/layui/css/layui.css">
+  <link rel="stylesheet" type="text/css" href="__ADMIN__/css/admin.css">
+  <title>Title</title>
+</head>
+<style type="text/css">
+.layui-body{
+    left: 0px;
+}
+</style>
+<body>
+<div class="layui-body">
+        <div class="aright">
+            <fieldset class="layui-elem-field layui-field-title" style="margin: 20px 30px 20px 20px;">
+                <legend>向《 {$course_name['name']} 》中添加视频</legend>
+            </fieldset>
+            <form class="layui-form" action="{:U('AddVideo/doadd')}" method="post" enctype="multipart/form-data">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">视频名称</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="video_name" required  lay-verify="required" placeholder="请输入视频名称" autocomplete="off" class="layui-input">
+                        <input type="hidden" name="course_id" value="{$course_id}">
+                    </div>
+                </div>
+              <div class="layui-form-item">
+                    <label class="layui-form-label">上传视频</label>
+                    <div class="layui-input-block">
+                        <div class="file-box">
+                            <i class="layui-icon">&#xe61f</i>
+                            <input type="button" class="file-btn" value="选择视频"/>
+                            <input class="file-txt" type="text" name="textfield" id="textfield">
+                            <input class="file-file" type="file" name="video" id="video" size="28" onchange="document.getElementById('textfield').value=this.value" />
+                        </div>
+                    </div>
+              </div>
+              <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <input type="submit" class="layui-btn" value="立即提交">
+                        <input type="button" onclick="history.back()" class="layui-btn layui-btn-primary" value="返回">
+                    </div>
+              </div>
+            </form>
+        </div>
+    </div>
+<script src="__HOME__/js/jquery.js"></script>
+<script src="__HOME__/layui/layui.js"></script>
+<script>
+    layui.use('form', function(){
+        var form = layui.form;
+    });
+    layui.use('laydate', function(){
+      var laydate = layui.laydate;
+      laydate.render({
+        elem: '#test1',
+      });
+      laydate.render({
+        elem: '#test2',
+      });
+      });
+</script>
+</body>
+</html>

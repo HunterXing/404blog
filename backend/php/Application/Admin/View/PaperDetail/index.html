@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--bootstrap的css样式-->
+    <link rel="stylesheet" type="text/css" href="__HOME__/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="__HOME__/layui/css/layui.css">
+    <link href="__HOME__/css/exam.css" rel="stylesheet" type="text/css"/>
+    <!--<link rel="stylesheet" href="__HOME__/css/main.css">-->
+    <style>
+        .userlist {
+            margin: 10px;
+        }
+        .userlist table{
+            border-collapse: collapse;
+            width:100%;
+            border:1px solid #c6c6c6 !important;
+            margin-bottom:20px;
+        }
+        .userlist table th{
+            border-collapse: collapse;
+            border-right:1px solid #c6c6c6 !important;
+            border-bottom:1px solid #c6c6c6 !important;
+            /*background-color:#ddeeff !important;*/
+            background-color:#f2f2f2 !important;
+            padding:5px 9px;
+            font-size:14px;
+            font-weight:normal;
+            text-align:center;
+        }
+        .userlist table td{
+            border-collapse: collapse;
+            border-right:1px solid #c6c6c6 !important;
+            border-bottom:1px solid #c6c6c6 !important;
+            padding:5px 9px;
+            font-size:12px;
+            font-weight:normal;
+            text-align:center;
+            word-break: break-all;
+        }
+
+        .ddd{
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="userlist">
+    <table class="ddd">
+        <thead>
+        <tr>
+            <th>编号</th>
+            <th>试卷名称</th>
+            <th>创建时间</th>
+            <th>所属课程</th>
+            <th colspan="2">操作</th>
+        </tr>
+        </thead>
+        <volist name="paperData" id="vo">
+            <tr>
+                <td>{$vo.id}</td>
+                <td>{$vo.title}</td>
+                <td>{$vo.paper_time}</td>
+                <td>{$vo.course_name}</td>
+                <td>
+                    <a href="{:U('AddCourse/index')}?id={$vo.id}" class="layui-btn layui-btn-xs" data-toggle="modal"
+                       data-target=".myModal" lay-event="edit">编辑</a>
+                    <a class="layui-btn layui-btn-danger layui-btn-xs del" data-id="{$vo.id}">删除</a>
+                </td>
+            </tr>
+        </volist>
+        <tbody>
+        </tbody>
+    </table>
+    <div class="pagination ue-clear">
+
+
+        <div class="pagin-list">
+            {$show}
+        </div>
+        <div class="pxofy">共{$count}条记录</div>
+
+
+
+        <!--试卷信息编辑的模态框-->
+        <!-- Modal -->
+        <div class="modal fade myModal" tabindex="-1" role="dialog"
+             aria-labelledby="myModalLabel">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span
+                                aria-hidden="true">&times;</span><span
+                                class="sr-only">Close</span></button>
+                        <h4 class="modal-title">个人信息编辑</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="layui-form" action="{:U('updateInfo')}" method="post">
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">昵称：</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="nickname" required
+                                           lay-verify="required" placeholder="请输入新的昵称"
+                                           autocomplete="off" class="layui-input"  value="{$userInfo.nickname}">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">新密码：</label>
+                                <div class="layui-input-block">
+                                    <input type="password" name="password" required
+                                           lay-verify="required" placeholder="请输入新的密码"
+                                           autocomplete="off" class="layui-input" value="{$userInfo.password}">
+                                </div>
+                            </div>
+
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">性别：</label>
+                                <div class="layui-input-block">
+                                    <input type="radio" name="sex" value="男" title="男"
+                                    <if condition="$userInfo.sex eq '男' ">
+                                        checked
+                                    </if>
+                                    >
+                                    <input type="radio" name="sex" value="女" title="女"
+                                    <if condition="$userInfo.sex eq '女' ">
+                                        checked
+                                    </if>
+                                    >
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">学校：</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="school" required
+                                           lay-verify="required" placeholder="请输入您的学校"
+                                           autocomplete="off" class="layui-input" value="{$userInfo.school}">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item layui-form-text">
+                                <label class="layui-form-label">签名：</label>
+                                <div class="layui-input-block">
+                                                            <textarea name="signature" placeholder="请输入签名"
+                                                                      class="layui-textarea">{$userInfo.signature}</textarea>
+                                </div>
+                            </div>
+
+
+                            <div class="layui-form-item">
+                                <div class="layui-input-block">
+                                    <button class="layui-btn" type="submit">
+                                        立即提交
+                                    </button>
+                                    <button type="reset" class="layui-btn layui-btn-primary">
+                                        重置
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="__HOME__/js/jquery.js"></script>
+<script src="__HOME__/layui/layui.all.js"></script>
+<script src="__HOME__/bootstrap/js/bootstrap.js"></script>
+<script>
+
+   $(function () {
+       $('.del').click(function () {
+           var id = $(this).attr('data-id');
+           layer.confirm('确认删除?', {icon: 3, title:'提示'}, function(){
+               //do something
+               $.ajax({
+                   type: 'get',
+                   url: '__CONTROLLER__/delPaper/id/'+id,
+                   dataType: 'json',
+                   success: function(data){
+                       layer.close();
+                       layer.msg('删除成功');
+                       location.reload();
+                   },
+                   error: function(xhr){
+                       layer.msg('删除失败');
+                   }
+               });
+           });
+       })
+   })
+
+
+
+
+</script>
+</body>
+</html>

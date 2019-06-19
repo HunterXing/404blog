@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="__ADMIN__/layui/css/layui.css">
+  <link rel="stylesheet" type="text/css" href="__ADMIN__/css/admin.css">
+  <title>Title</title>
+</head>
+<style type="text/css">
+.layui-body{
+    left: 0px;
+}
+</style>
+<body>
+<div class="layui-body">
+        <div class="aright">
+            <fieldset class="layui-elem-field layui-field-title" style="margin: 20px 30px 20px 20px;">
+                <legend>编辑课程</legend>
+            </fieldset>
+            <form class="layui-form" action="{:U('EditCourse/updateCourse')}" method="post" enctype="multipart/form-data">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">课程名称</label>
+                    <div class="layui-input-block">
+                      <input type="text" name="name" required  lay-verify="required" placeholder="请输入课程名称" autocomplete="off" class="layui-input" value="{$course_data.name}">
+                        <input type="hidden" name="id" required  lay-verify="required" value="{$course_data.id}">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">课程分类</label>
+                    <div class="layui-input-block">
+                        <select name="category_id" lay-verify="required">
+                            <volist name='category_data' id="value">
+                                <if condition="$course_data['category_id'] eq $value['id']">
+                                    <option value="{$value.id}" selected>{$value.name}</option>
+                                <else />
+                                      <option value="{$value.id}">{$value.name}</option>
+                                </if>
+         
+                                <!-- <option value=""></option>
+                                <option value="{$value.id}">{$value.name}</option> -->
+                            </volist>
+                        </select>
+                    </div>
+                </div>
+              <div class="layui-form-item">
+                    <label class="layui-form-label">课程价格</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="price" required lay-verify="required" placeholder="请输入课程价格" autocomplete="off" class="layui-input" value="{$course_data.price}">
+                    </div>
+              </div>
+              <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">课程介绍</label>
+                    <div class="layui-input-block">
+                      <textarea name="course_intro"  required lay-verify="required" placeholder="请输入100字以内内容" class="layui-textarea">{$course_data.course_intro}</textarea>
+                    </div>
+            </div>
+              <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">涉及知识</label>
+                    <div class="layui-input-block">
+                      <textarea name="knowledgePoints" required lay-verify="required" placeholder="请输入100字以内内容，每个知识点以句号分隔" class="layui-textarea">{$course_data.knowledgepoints}</textarea>
+                    </div>
+             </div>
+              <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">课程须知</label>
+                    <div class="layui-input-block">
+                      <textarea name="tips"  required lay-verify="required" placeholder="请输入100字以内内容，每个须知以句号分隔" class="layui-textarea">{$course_data.tips}</textarea>
+                    </div>
+            </div>
+              <div class="layui-form-item">
+                    <label class="layui-form-label">开始时间</label>
+                    <div class="layui-input-inline">
+                        <input type="text" class="layui-input" id="test1" name="start_time" placeholder="yyyy-MM-dd"  value="{$course_data.start_time}">
+                    </div>
+              </div>
+              <div class="layui-form-item">
+                    <label class="layui-form-label">结束时间</label>
+                    <div class="layui-input-inline">
+                        <input type="text" class="layui-input" id="test2" name="end_time" placeholder="yyyy-MM-dd"  value="{$course_data.end_time}">
+                    </div>
+              </div>
+              <div class="layui-form-item">
+                    <label class="layui-form-label">课程海报</label>
+                    <div class="layui-input-block">
+                        <div class="file-box">
+                            <i class="layui-icon">&#xe61f</i>
+                            <input type="button" class="file-btn" value="选择图片"/>
+                            <input class="file-txt" type="text" name="post" id="textfield"  value="{$course_data.post}">
+                            <input class="file-file" type="file" name="post" id="course_intro" size="28" onchange="document.getElementById('textfield').value=this.value" />
+                        </div>
+                    </div>
+                </div>
+              <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <input type="submit" class="layui-btn" value="立即提交">
+                        <input type="button" onclick="history.back()" class="layui-btn layui-btn-primary" value="返回">
+                    </div>
+              </div>
+            </form>
+        </div>
+    </div>
+<script src="__HOME__/js/jquery.js"></script>
+<script src="__HOME__/layui/layui.js"></script>
+<script>
+    layui.use('form', function(){
+        var form = layui.form;
+    });
+    layui.use('laydate', function(){
+      var laydate = layui.laydate;
+      laydate.render({
+        elem: '#test1',
+      });
+      laydate.render({
+        elem: '#test2',
+      });
+      });
+</script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--layui的css-->
+    <link rel="stylesheet" type="text/css" href="__HOME__/layui/css/layui.css">
+</head>
+<body>
+<div class="layui-container">
+    <br>
+    <blockquote class="layui-elem-quote"><h2>教师上传题库须知</h2></blockquote>
+    <blockquote class="layui-elem-quote layui-quote-nm">教师需要按照本页内容一步步完成试题的上传以及导入数据库，注意下载本页下方的 <b><a href="{:U('download')}">试题模板</a></b>，在里面写好试题进行上传。</blockquote>
+    <ul class="layui-timeline">
+        <li class="layui-timeline-item">
+            <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+            <div class="layui-timeline-content layui-text">
+                <h3 class="layui-timeline-title" id="step1">第一步</h3>
+                <p>
+                    填写表单，提交。
+                </p>
+                <fieldset class="layui-elem-field layui-field-title">
+                    <legend>试卷信息表单</legend>
+                    <div class="layui-field-box">
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">试卷名称</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="title"  required  lay-verify="required" placeholder="请输入试卷名称" autocomplete="off" class="layui-input title">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">所属课程</label>
+                                <div class="layui-input-block">
+                                    <select name="course_id"  class="layui-input course_id" lay-verify="required">
+                                        <volist name ='courseNames'  id = 'vol'>
+                                            <option value="{$vol.id}" >{$vol.course_name}</option>
+                                        </volist>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <div class="layui-input-block">
+                                    <button class="layui-btn createPaper">立即提交</button>
+                                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                                </div>
+                            </div>
+
+                    </div>
+                </fieldset>
+
+            </div>
+        </li>
+        <li class="layui-timeline-item">
+            <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+            <div class="layui-timeline-content layui-text">
+                <h3 class="layui-timeline-title" id="step2">第二步</h3>
+                <p>下载本页下方的 <b><a href="{:U('download')}">试题模板</a></b></p><br>
+                <p><b>注意：</b></p>
+                <ul>
+                    <li>填写的题库中的试卷号得与第一步提交的试卷id一致</li>
+                    <li>严格遵守上传规则</li>
+                </ul>
+            </div>
+        </li>
+        <li class="layui-timeline-item">
+            <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+            <div class="layui-timeline-content layui-text">
+                <h3 class="layui-timeline-title" id="step3">第三步</h3>
+                <p>
+                   点击 下方绿色按钮<b>导入试题</b>，上传自己填写好的题库excel文件。
+                </p>
+            </div>
+        </li>
+        <li class="layui-timeline-item">
+            <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+            <div class="layui-timeline-content layui-text">
+                <div class="layui-timeline-title">结束</div>
+            </div>
+        </li>
+    </ul>
+
+    <a href="{:U('download')}" class="layui-btn">下载试卷模板</a>
+    <button type="button" class="layui-btn" id="test1">
+        <i class="layui-icon">&#xe67c;</i>导入试题
+    </button>
+    <br>
+    <br>
+    <br>
+</div>
+
+
+<script src="__HOME__/js/jquery.js"></script>
+<script src="__HOME__/layui/layui.all.js"></script>
+<script>
+    layui.use(['upload'], function(){
+        var upload = layui.upload;
+        //执行实例
+        var uploadInst = upload.render({
+            elem: '#test1' //绑定元素
+            ,url: '__CONTROLLER__/upload' //上传接口
+            ,field: 'photo'
+            ,acceptMime: 'file/xls,file/xlsx'
+            ,accept: 'file'
+            ,done: function(res){
+                //上传完毕回调
+                layer.msg('插入试题成功');
+            }
+            ,error: function(){
+                //请求异常回调
+                layer.msg('插入试题失败，注意是否数据冲突');
+            }
+        });
+    });
+
+    //通过ajax提交表单信息
+    $(function () {
+        $('.createPaper').click(function () {
+            var id = "";
+            //console.log($('.title').val());
+            $.getJSON(
+                "__CONTROLLER__/testInfo",
+                {
+                    title:$('.title').val(),
+                    course_id:$('.course_id').val(),
+                },function (res) {
+                   alert("您的试卷id为"+res+"，请填写在下载的模板中");
+                });
+            layer.msg('添加试卷成功，请进行下一步操作',{icon: 6});
+        })
+    })
+
+</script>
+</body>
+</html>
