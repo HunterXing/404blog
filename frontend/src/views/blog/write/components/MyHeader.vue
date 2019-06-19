@@ -8,7 +8,7 @@
     <!-- 写文章 -->
     <div class="save">
       <el-button type="success">保存文章</el-button>
-      <el-button type="primary">发布文章</el-button>
+      <el-button type="primary" @click='doSubmit'>发布文章</el-button>
     </div>
 
   </div>
@@ -27,6 +27,9 @@ export default {
     inputClick () {
       console.log(this.$refs.search.style.width)
       // this.$refs.search
+    },
+    doSubmit () {
+      this.$emit('doSubmit')
     }
   }
 
@@ -54,7 +57,6 @@ export default {
     border-radius 10px
     border 0.5px dashed #009a61
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1), 0 0px rgba(0,0,0,0.1)
-
   .save
     flex 2
 

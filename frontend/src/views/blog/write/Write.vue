@@ -1,14 +1,16 @@
 <template>
   <div class="write">
-    <my-header></my-header>
+   <my-header
+     @doSubmit = "doSubmit"
+   ></my-header>
     <div class="write-con">
-      <el-input placeholder="请输入文章标题" v-model="input" class="input-group input-with-select">
-        <el-select v-model="select" slot="prepend" placeholder="请选择">
-          <el-option label="原创" value="1"></el-option>
-          <el-option label="转载" value="2"></el-option>
+      <el-input placeholder="请输入文章标题" v-model="articleTitle" class="input-group input-with-select">
+        <el-select v-model="articleType" slot="prepend" placeholder="请选择">
+          <el-option label="原创" value="0"></el-option>
+          <el-option label="转载" value="1"></el-option>
         </el-select>
       </el-input>
-      <mavon-editor class="editor" style="height: 100%"></mavon-editor>
+      <mavon-editor class="editor" style="height: 100%" ref="editor" v-model="articleValue"></mavon-editor>
     </div>
   </div>
 </template>
@@ -25,8 +27,24 @@ export default {
   },
   data () {
     return {
-      input: '',
-      select: ''
+      articleTitle: '',
+      articleType: '',
+      articleValue: ''
+    }
+  },
+  methods: {
+    doSubmit () {
+      // 获取 markdown
+      let markdown = this.$refs.editor.d_value
+      // // 修改 markdown
+      // this.$refs.editor.d_value = '> hello world'
+
+      // 获取编译后的 html
+      let html = this.$refs.editor.d_render
+
+      console.log('submit')
+      console.log(markdown)
+      console.log(html)
     }
   }
 }
@@ -35,19 +53,21 @@ export default {
 <style lang="stylus" scoped>
 .write {
   min-height: 600px;
-
   .write-con {
     padding: 20px;
     height: 600px;
+
     .editor {
       margin-top: 50px;
     }
+
     .input-group {
       border: #ccc 2px solid;
       border-radius: 5px;
     }
+
     >>> .el-input--suffix {
-      width:100px;
+      width: 100px;
     }
   }
 }

@@ -44,6 +44,14 @@ export default new Router({
       meta: {
         title: '写文章'
       }
+    },
+    {
+      path: '/detail',
+      name: 'ArticleDetail',
+      component: () => import('@/views/blog/article/ArticleDetail.vue'),
+      meta: {
+        title: '写文章'
+      }
     }
   ],
   // 路由激活状态 绑定一个class样式

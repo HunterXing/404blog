@@ -1,8 +1,6 @@
 <template>
   <div class="article">
-    <ul v-infinite-scroll="load">
-      <article-card></article-card>
-    </ul>
+    <article-card></article-card>
   </div>
 </template>
 
