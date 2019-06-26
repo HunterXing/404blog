@@ -39,7 +39,7 @@ export default {
 
       // 获取编译后的 html
       let html = this.$refs.editor.d_render
-
+      debugger
       console.log('submit')
       console.log(markdown)
       console.log(html)

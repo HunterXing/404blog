@@ -43,15 +43,20 @@
         </div>
 
         <!-- 写文章 -->
-        <div class="write">
+        <div class="write" v-if="hasLogin">
           <el-button type="plain" plain @click.native="toWrite()">写文章</el-button>
         </div>
         <!-- 头像 -->
-        <div class="header-box">
+        <div class="header-box" v-if="hasLogin">
           <img :src="headerPic" class="header-pic">
+        </div>
+        <div class="login-register" v-if="!hasLogin">
+          <el-button @click="doLoginOrRegis('0')">立即登录</el-button>
+          <el-button type="success" @click="doLoginOrRegis('1')">免费注册</el-button>
         </div>
       </div>
     </div>
+
     <!-- 移动端 -->
     <div class="phone-header-show">
       <div class="m-header">
@@ -74,7 +79,9 @@ export default {
   data () {
     return {
       headerPic:
-       'https://avatar-static.segmentfault.com/421/904/4219049238-5c96fb0fef7e6_huge256'
+        'https://avatar-static.segmentfault.com/421/904/4219049238-5c96fb0fef7e6_huge256',
+      hasLogin: false,
+      type: '-1'
     }
   },
   methods: {
@@ -91,6 +98,18 @@ export default {
           // params
         }
       })
+    },
+
+    // 登陆或者注册
+    doLoginOrRegis (type) {
+      this.type = type
+      if (type === '0') {
+        console.log('to login')
+        this.$emit('doLoginOrRegis', this.type)
+      } else {
+        console.log('to register')
+        this.$emit('doLoginOrRegis', this.type)
+      }
     }
   }
 }
@@ -99,7 +118,7 @@ export default {
 <style lang="scss" scoped>
 // pc端样式
 .pc-header-show {
-  display:block;
+  display: block;
   .m-header {
     height: 50px;
     line-height: 50px;
@@ -133,7 +152,10 @@ export default {
     // background #009a61
     // color #fff
     // border-radius 10px
-    .first, .recomment, .my-article, .tags {
+    .first,
+    .recomment,
+    .my-article,
+    .tags {
       flex: 2;
       text-align: center;
     }
@@ -175,7 +197,7 @@ export default {
           color: #fff;
           padding: 2px 4px;
           margin-left: -10px;
-          background: #FFA500;
+          background: #ffa500;
           border-radius: 10px;
         }
       }
@@ -200,11 +222,14 @@ export default {
         border: 0.5px dashed #009a61;
       }
     }
+    .login-register {
+      flex: 5;
+    }
   }
 }
 // 移动端样式
 .phone-header-show {
-  display:none;
+  display: none;
   .m-header {
     height: 50px;
     line-height: 50px;
@@ -246,12 +271,13 @@ export default {
 }
 
 // 移动端样式
-@media only screen and( max-width:960px ) { // 当屏幕宽度小于960时 认为是移动端
+@media only screen and( max-width:960px ) {
+  // 当屏幕宽度小于960时 认为是移动端
   .pc-header-show {
     display: none;
   }
   .phone-header-show {
-    display:block;
+    display: block;
   }
 }
 </style>

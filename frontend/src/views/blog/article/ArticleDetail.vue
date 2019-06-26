@@ -12,10 +12,10 @@ export default {
   name: 'ArticleDtail',
   methods: {
     getApi () {
-      axios.get('http://localhost:8080/static/mock/article.json')
+      axios.get('http://localhost/404blog/backend/php/index.php/Home/Article/index')
         .then(res => {
-          console.log(res.data.code)
-          this.article = res.data.data[0].articleTitle
+          console.log(res.data[0].content)
+          this.article = res.data[0].content
         })
         .catch(function (err) {
           console.log(err)

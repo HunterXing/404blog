@@ -10,7 +10,7 @@ export default new Router({
       path: '/',
       name: 'Index',
       component: () => import('@/views/blog/index/Index.vue'),
-      redirect: { name: 'Home' },
+      redirect: { name: 'Article' },
       meta: {
         title: '博客'
       },
@@ -51,6 +51,14 @@ export default new Router({
       component: () => import('@/views/blog/article/ArticleDetail.vue'),
       meta: {
         title: '写文章'
+      }
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('@/views/blog/login/Login.vue'),
+      meta: {
+        title: '登录'
       }
     }
   ],
