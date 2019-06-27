@@ -1,5 +1,5 @@
 <template>
-  <div class="article-detail">
+  <div class="article-detail markdown-body">
     <div v-html="article">
 
     </div>
@@ -7,12 +7,13 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
+// import 'style/markdown.css'
 export default {
   name: 'ArticleDtail',
   methods: {
     getApi () {
-      axios.get('http://localhost/404blog/backend/php/index.php/Home/Article/index')
+      this.axios.get('http://localhost/404blog/backend/php/index.php/Home/Article/index')
         .then(res => {
           console.log(res.data[0].content)
           this.article = res.data[0].content
@@ -34,5 +35,5 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-
+  @import "~style/markdown.styl"
 </style>

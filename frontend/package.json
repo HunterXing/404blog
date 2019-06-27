@@ -19,6 +19,7 @@
     "element-ui": "^2.7.2",
     "mavon-editor": "^2.7.4",
     "node-sass": "^4.12.0",
+    "qs": "^6.7.0",
     "sass-loader": "^7.1.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",

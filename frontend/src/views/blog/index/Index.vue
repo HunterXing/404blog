@@ -7,30 +7,38 @@
     </div>
     <my-footer></my-footer>
     <go-top @goTop="goTop" :backTopShow="backTopShow" :backSeconds="backSeconds" :showPx="showPx"></go-top>
-    <el-dialog title="收货地址" :visible.sync="dialogFormVisible">
-      <!-- <el-form :model="form">
-        <el-form-item label="活动名称" :label-width="formLabelWidth">
-          <el-input v-model="form.name" autocomplete="off"></el-input>
+
+    <!-- 登录 -->
+    <el-dialog
+      title="登录"
+      :visible.sync="dialogFormVisible"
+      width="30%"
+      @close="cancel('form')"
+      :append-to-body="true"
+      :close-on-click-modal="false"
+    >
+      <el-form ref="form" :model="form" label-width="106px" :rules="rules">
+        <el-form-item label="账户:" prop="username">
+          <el-input v-model="form.username"></el-input>
         </el-form-item>
-        <el-form-item label="活动区域" :label-width="formLabelWidth">
-          <el-select v-model="form.region" placeholder="请选择活动区域">
-            <el-option label="区域一" value="shanghai"></el-option>
-            <el-option label="区域二" value="beijing"></el-option>
-          </el-select>
+        <el-form-item label="密码:" prop="password" type="password">
+          <el-input v-model="form.password"></el-input>
         </el-form-item>
-      </el-form> -->
+      </el-form>
+
       <div slot="footer" class="dialog-footer">
-        <el-button @click="dialogFormVisible = false">取 消</el-button>
-        <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+        <el-button @click="cancel('form')">取 消</el-button>
+        <el-button type="primary" @click="doLogin('form')">确 定</el-button>
       </div>
     </el-dialog>
   </div>
 </template>
 
 <script>
-import MyHeader from "common/header/MyHeader"
-import MyFooter from "common/footer/MyFooter"
-import GoTop from "common/goTop/GoTop"
+import MyHeader from "common/header/MyHeader";
+import MyFooter from "common/footer/MyFooter";
+import GoTop from "common/goTop/GoTop";
+import qs from "qs";
 export default {
   name: "Index",
   components: {
@@ -49,9 +57,19 @@ export default {
       // 往下滑动多少显示返回顶部（单位：px)
       showPx: 100,
       backImg: [require("../../../assets/images/bg-summer-day.png")],
-      loginOrRegister: '-1',
-      dialogFormVisible: false
-    }
+      loginOrRegister: "-1",
+      dialogFormVisible: false,
+      form: {
+        username: "",
+        password: ""
+      },
+      rules: {
+        username: [
+          { required: true, message: "请输入账户", trigger: "change" }
+        ],
+        password: [{ required: true, message: "请输入密码", trigger: "change" }]
+      }
+    };
   },
   methods: {
     // 返回顶部的显示与隐藏操作
@@ -62,14 +80,14 @@ export default {
       console.log(marginTop);
       if (this.backTopAllow) {
         if (marginTop > this.showPx) {
-          this.backTopShow = true
+          this.backTopShow = true;
         } else {
-          this.backTopShow = false
+          this.backTopShow = false;
         }
       }
     },
     // 点击返回顶部的操作
-    goTop () {
+    goTop() {
       // console.log()
       // let marginTop = document.documentElement.scrollTop || document.body.scrollTop
       // console.log(marginTop)
@@ -87,20 +105,77 @@ export default {
       }
     },
     doLoginOrRegis(type) {
-      console.log(type);
-      this.loginOrRegister = type
-      this.dialogFormVisible = true
+      // console.log(type);
+      this.loginOrRegister = type;
+      this.dialogFormVisible = true;
+    },
+    // 登录的确定按钮
+    doLogin(form) {
+      // let self = this;
+      this.$refs[form].validate(valid => {
+        if (valid) {
+          console.log(this.form);
+          this.axios
+            .post(
+              "http://localhost/404blog/backend/php/index.php/Home/Login/index",
+              qs.stringify({
+                username: this.form.username,
+                password: this.form.password
+              })
+            )
+            .then(res => {
+              let code = res.data.code
+              if (code > 0) {
+                this.$message({
+                  type: 'success',
+                  message: '登录成功'
+                })
+                this.cancel('form')
+              } else {
+                 this.$message({
+                  type: 'error',
+                  message: '登录失败，用户名或密码错误'
+                })
+              }
+              // console.log(res.data.code);
+              // debugger
+            })
+            .catch(error => {
+              console.log(error);
+            });
+        }
+      });
+    },
+    cancel(form) {
+      this.dialogFormVisible = false;
+      // 清楚验证提示信息和表单内容
+      this.$refs[form].resetFields();
     }
   },
-  mounted () {
+  mounted() {
     // 页面挂载时就启动监听
     // document.documentElement.scrollTop = 0
-    window.addEventListener("scroll", this.backTopShowOperate, true)
+    window.addEventListener("scroll", this.backTopShowOperate, true);
   }
 };
 </script>
 
 <style lang="stylus" scoped>
+>>> .el-dialog__header {
+  padding: 20px 20px 10px;
+  background: #f5f5f5;
+}
+
+>>> .el-dialog__title {
+  line-height: 24px;
+  font-size: 24px;
+  color: #303133;
+}
+
+>>> .el-form-item__label {
+  font-size: 20px;
+}
+
 .home {
   background-size: contain;
   background-position: top center;

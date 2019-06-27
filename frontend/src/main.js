@@ -10,7 +10,7 @@ import 'style/reset.css'
 import 'style/iconfont.css'
 import 'style/main.scss'
 import VueLazyload from 'vue-lazyload'
-
+import Axios from 'axios'
 // 使得ie兼容promise
 import promise from 'es6-promise'
 promise.polyfill()
@@ -25,6 +25,8 @@ new Vue({
   components: { Index },
   template: '<router-view/>'
 })
+// 在Vue的原型上添加axios方法
+Vue.prototype.axios = Axios
 
 // 路由跳转时改变title
 router.beforeEach((to, from, next) => {

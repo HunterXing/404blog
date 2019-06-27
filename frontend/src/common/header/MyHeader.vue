@@ -104,11 +104,15 @@ export default {
     doLoginOrRegis (type) {
       this.type = type
       if (type === '0') {
-        console.log('to login')
+        // console.log('to login')
         this.$emit('doLoginOrRegis', this.type)
       } else {
-        console.log('to register')
-        this.$emit('doLoginOrRegis', this.type)
+        // console.log('to register')
+        // this.$emit('doLoginOrRegis', this.type)
+        this.$message({
+          type: 'error',
+          message: '个人博客，暂不支持注册'
+        })
       }
     }
   }
