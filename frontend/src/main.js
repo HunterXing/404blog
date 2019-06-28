@@ -22,7 +22,9 @@ Vue.use(VueLazyload)
 new Vue({
   el: '#app',
   router,
-  components: { Index },
+  components: {
+    Index
+  },
   template: '<router-view/>'
 })
 // 在Vue的原型上添加axios方法
@@ -34,5 +36,9 @@ router.beforeEach((to, from, next) => {
   if (to.meta.title) {
     document.title = to.meta.title
   }
-  next()
+  if (to.meta.isLogin) {
+    alert('请先登录')
+  } else {
+    next()
+  }
 })
