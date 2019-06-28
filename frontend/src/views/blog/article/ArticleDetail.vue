@@ -9,6 +9,7 @@
 <script>
 // import axios from 'axios'
 // import 'style/markdown.css'
+import "mavon-editor/dist/css/index.css"
 export default {
   name: 'ArticleDtail',
   methods: {
@@ -35,5 +36,8 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-  @import "~style/markdown.styl"
+  // @import "~style/markdown.styl";
+    .article-detail
+      width 60%
+      margin 0 auto
 </style>

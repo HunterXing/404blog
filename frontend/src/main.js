@@ -13,6 +13,7 @@ import VueLazyload from 'vue-lazyload'
 import Axios from 'axios'
 // 使得ie兼容promise
 import promise from 'es6-promise'
+import './assets/style/markdown.styl'
 promise.polyfill()
 
 Vue.config.productionTip = false
@@ -37,6 +38,9 @@ router.beforeEach((to, from, next) => {
     document.title = to.meta.title
   }
   if (to.meta.isLogin) {
+    next({
+      path: '/Home'
+    })
     alert('请先登录')
   } else {
     next()

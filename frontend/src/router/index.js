@@ -10,7 +10,7 @@ export default new Router({
       path: '/',
       name: 'Index',
       component: () => import('@/views/blog/index/Index.vue'),
-      redirect: { name: 'Home' },
+      redirect: { name: 'Recommend' },
       meta: {
         title: '博客',
         isLogin: false
@@ -47,7 +47,7 @@ export default new Router({
       component: () => import('@/views/blog/write/Write.vue'),
       meta: {
         title: '写文章',
-        isLogin: true
+        isLogin: false
       }
     },
     {

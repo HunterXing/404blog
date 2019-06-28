@@ -109,7 +109,7 @@ export default {
       this.loginOrRegister = type;
       this.dialogFormVisible = true;
     },
-    // 登录的确定按钮
+    // 登录
     doLogin(form) {
       // let self = this;
       this.$refs[form].validate(valid => {
