@@ -14,15 +14,18 @@ import Axios from 'axios'
 // 使得ie兼容promise
 import promise from 'es6-promise'
 import './assets/style/markdown.styl'
+import store from './store/index'
 promise.polyfill()
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(VueLazyload)
+Vue.use(store)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: {
     Index
   },
@@ -37,12 +40,18 @@ router.beforeEach((to, from, next) => {
   if (to.meta.title) {
     document.title = to.meta.title
   }
-  if (to.meta.isLogin) {
-    next({
-      path: '/Home'
-    })
-    alert('请先登录')
-  } else {
+  let getFlag = localStorage.hasLogin
+
+  if (getFlag) {
     next()
+  } else {
+    if (to.meta.isLogin) {
+      next({
+        path: '/Home'
+      })
+      alert('请先登录')
+    } else {
+      next()
+    }
   }
 })

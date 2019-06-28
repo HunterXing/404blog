@@ -1,7 +1,14 @@
 <template>
   <div class="article-detail markdown-body">
-    <div v-html="article">
+    <!-- <div class="author-info-con">
 
+    </div> -->
+    <div class="article-title-con">
+      <span class="article-title">这是文章标题</span>
+    </div>
+    <el-tag>原创</el-tag>
+
+    <div v-html="article">
     </div>
   </div>
 </template>
@@ -39,5 +46,14 @@ export default {
   // @import "~style/markdown.styl";
     .article-detail
       width 60%
-      margin 0 auto
+      margin 20px auto
+      .article-title-con
+        border-left 10px solid #5cb85c
+        height 80px
+        line-height 80px
+        margin 20px 0
+        .article-title
+          padding-left 10px
+          font-size 50px
+          font-weight 700
 </style>

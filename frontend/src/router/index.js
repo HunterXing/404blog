@@ -47,7 +47,7 @@ export default new Router({
       component: () => import('@/views/blog/write/Write.vue'),
       meta: {
         title: '写文章',
-        isLogin: false
+        isLogin: true
       }
     },
     {

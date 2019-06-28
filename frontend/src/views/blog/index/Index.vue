@@ -130,6 +130,7 @@ export default {
                   type: 'success',
                   message: '登录成功'
                 })
+                this.$store.dispatch('changLoginState', 1)
                 this.cancel('form')
               } else {
                  this.$message({

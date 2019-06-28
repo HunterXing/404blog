@@ -80,7 +80,7 @@ export default {
     return {
       headerPic:
         'https://avatar-static.segmentfault.com/421/904/4219049238-5c96fb0fef7e6_huge256',
-      hasLogin: false,
+
       type: '-1'
     }
   },
@@ -115,6 +115,14 @@ export default {
         })
       }
     }
+  },
+  computed: {
+    // let hasLogin = 0
+    hasLogin () {
+     let  hasLogin = this.$store.state.hasLogin
+      return hasLogin
+    }
+    // return hasLogin
   }
 }
 </script>
