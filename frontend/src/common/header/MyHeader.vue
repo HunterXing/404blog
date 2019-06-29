@@ -10,7 +10,7 @@
         <!-- tab 集合 -->
         <!-- 首页 -->
         <router-link tag="div" :to="{name: 'Home'}" class="first">
-          <span class="link">首页</span>
+          <span class="link">关于作者</span>
         </router-link>
         <!-- 推荐 -->
         <router-link tag="div" :to="{name: 'Recommend'}" class="recomment">

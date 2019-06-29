@@ -10,7 +10,7 @@ export default new Router({
       path: '/',
       name: 'Index',
       component: () => import('@/views/blog/index/Index.vue'),
-      redirect: { name: 'Recommend' },
+      redirect: { name: 'Home' },
       meta: {
         title: '博客',
         isLogin: false
@@ -20,7 +20,7 @@ export default new Router({
         name: 'Home',
         component: () => import('@/views/blog/home/Home.vue'),
         meta: {
-          title: '首页',
+          title: '关于作者',
           isLogin: false
         }
       }, {
