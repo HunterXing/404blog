@@ -51,7 +51,7 @@ export default new Router({
       }
     },
     {
-      path: '/detail',
+      path: '/article/detail/:blogId',
       name: 'ArticleDetail',
       component: () => import('@/views/blog/article/ArticleDetail.vue'),
       meta: {
