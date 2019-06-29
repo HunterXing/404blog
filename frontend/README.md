@@ -1,6 +1,22 @@
 # notfound
 
-> A Vue.js project
+> 一个简单的个人博客项目
+
+## 项目结构
+```
+# 前端
+     - vue
+      # element-ui
+# 后端 （暂未确定）
+    - node
+      # thinkphp框架
+      or
+    - php （不希望）
+      # thinkphp框架
+# 数据库
+     - mysql
+```
+
 
 ## Build Setup
 
