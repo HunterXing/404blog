@@ -1,8 +1,10 @@
 <template>
   <div class="home">
     <div  class="content">
-     <h1>一个前端实习生，一个热爱技术的新青年。</h1>
-     <h2>HunterXing</h2>
+      <div class="my-info">
+        <h1>一个前端实习生，一个热爱技术的新青年。</h1>
+        <h2>HunterXing</h2>
+      </div>
     </div>
   </div>
 </template>
@@ -22,9 +24,9 @@ export default {
 
 <style lang="scss" scoped>
  .content {
-   height: 1020px;
-   position: relative;
-   top: 400px;
-   left: 500px;
+  //  height: 1020px;
+   .my-info {
+     margin: 200px 0 0 600px;
+   }
  }
 </style>

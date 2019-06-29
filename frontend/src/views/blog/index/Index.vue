@@ -183,7 +183,7 @@ export default {
   background-repeat: no-repeat;
 
   .content {
-    min-height: 1000px;
+    min-height: 900px;
   }
 }
 </style>

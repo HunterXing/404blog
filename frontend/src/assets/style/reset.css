@@ -1,3 +1,17 @@
 body {
   margin: 0
 }
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.clearfix{
+  zoom: 1;
+}
+.clearfix:after{
+  display: block;
+  content: '';
+  clear: both;
+}
