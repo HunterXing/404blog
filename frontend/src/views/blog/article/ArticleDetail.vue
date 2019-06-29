@@ -18,8 +18,11 @@
       </div>
       <el-tag>原创</el-tag>
       <el-tag type="info">作者名</el-tag>
+      <el-tag type="success">1.5k+浏览</el-tag>
       <span class="create-time">2019-6-29 15:42</span>
-      <el-button type="success" size="small" plain class="fr">编辑</el-button>
+      <el-button  type="success" size="small" plain class="edit-button fr">编辑</el-button>
+      <el-button type="danger" size="small" plain class="fr">删除</el-button>
+
       <div v-html="article"></div>
     </div>
     <!-- <el-backtop target=".article-title-con " :bottom="100">
@@ -137,13 +140,13 @@ export default {
 
     .article-title-con {
       border-left: 8px solid #5cb85c;
-      height: 80px;
-      line-height: 80px;
+      height: 60px;
+      line-height: 60px;
       margin: 30px 0 20px;
 
       .article-title {
         padding-left: 10px;
-        font-size: 50px;
+        font-size: 40px;
         font-weight: 700;
       }
     }
@@ -151,6 +154,9 @@ export default {
     .create-time {
       margin-left: 10px;
       color: #bbb;
+    }
+    .edit-button {
+      margin: 0 10px;
     }
   }
 }

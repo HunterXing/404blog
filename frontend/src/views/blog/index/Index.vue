@@ -117,8 +117,7 @@ export default {
           console.log(this.form);
           this.axios
             .post(
-              // "http://localhost/404blog/backend/php/index.php/Home/Login/index",
-              "/phpApi/Home/Login/index",
+              "/phpApi/Home/User/login",
               qs.stringify({
                 username: this.form.username,
                 password: this.form.password

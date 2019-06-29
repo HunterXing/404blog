@@ -2,8 +2,7 @@
 - 登录
 
   ```
-  api/user/login
-  /interface/index.php/Home/Login/index
+  api/Home/User/login
   ```
 
   | 参数名   | 描述   |
@@ -112,5 +111,5 @@ blogs
 | create_time    | 创建时间      |
 | detail         | 详细内容      |
 | preview_number | 浏览量        |
-|                |               |
+| state          | 状态 0 删除 1 展示   |
 |                |               |

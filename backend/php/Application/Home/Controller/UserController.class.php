@@ -3,8 +3,8 @@ namespace Home\Controller;
 use Think\Controller;
 use Think\Verify;
 
-class LoginController extends Controller {
-    public function index(){
+class UserController extends Controller {
+    public function login(){
         $username = $_REQUEST['username'];
         $password = $_REQUEST['password'];
         $model = M('users');

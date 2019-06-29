@@ -1,12 +1,7 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
-// 制定允许其他域名访问
-header("Access-Control-Allow-Origin:*");
-// 响应类型
-header('Access-Control-Allow-Methods:POST');
-// 响应头设置
-header('Access-Control-Allow-Headers:x-requested-with, content-type');
+
 // 这是对文章的操作
 class ArticleController extends Controller {
     
@@ -17,20 +12,20 @@ class ArticleController extends Controller {
         echo json_encode($result);
     }
 
-    // // 保存文章
-    // public function saveArticle() {
-    //     $userId = $_REQUEST['userId'];
-    //     $title = $_REQUEST['title'];
-    //     $code = $_REQUEST['code'];
-    // }
+    // 保存文章
+    public function saveArticle() {
+        $userId = $_REQUEST['userId'];
+        $title = $_REQUEST['title'];
+        $code = $_REQUEST['code'];
+    }
 
-    // // 新增文章
-    // public function addArticle() {
-    //     $userId = $_REQUEST['userId'];
-    //     $title = $_REQUEST['title'];
-    //     $detail = $_REQUEST['detail'];
-    //     $create_time = time();
-    // }
-
+    // 新增文章
+    public function addArticle() {
+        $userId = $_REQUEST['userId'];
+        $title = $_REQUEST['title'];
+        $detail = $_REQUEST['detail'];
+        $create_time = time();
+    }
+    
 
 }
