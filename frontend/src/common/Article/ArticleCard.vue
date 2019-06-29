@@ -42,6 +42,17 @@
         </div>
       </el-card>
     </div>
+    <div class="u-page-con">
+      <el-pagination
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        :current-page="currentPage"
+        :page-sizes="[5, 10, 15, 20]"
+        :page-size="pageSize"
+        layout="total, sizes, prev, pager, next, jumper"
+        :total="totalCount"
+      ></el-pagination>
+    </div>
   </div>
 </template>
 
@@ -51,7 +62,13 @@ export default {
   name: "AiticleCard",
   data() {
     return {
-      articleSimple: []
+      articleSimple: [],
+       //当前页
+      currentPage: 1,
+      // 总条数，根据接口获取数据长度(注意：这里不能为空)
+      totalCount: 1,
+      // 默认每页显示的条数（可修改）
+      pageSize: 5,
     };
   },
   methods: {
@@ -68,15 +85,21 @@ export default {
     },
 
     getDetail(id) {
-      console.log(id)
-      this.$router.push(
-        {
-          name: "ArticleDetail",
-          params: {
-            blogId: id
-          }
-        });
-    }
+      console.log(id);
+      this.$router.push({
+        name: "ArticleDetail",
+        params: {
+          blogId: id
+        }
+      });
+    },
+
+     handleSizeChange(pageSize) {
+        console.log(`每页 ${pageSize} 条`);
+      },
+      handleCurrentChange(page) {
+        console.log(`当前页: ${page}`);
+      }
   },
   mounted() {
     this.getArtical();
@@ -150,5 +173,12 @@ export default {
       }
     }
   }
+  .u-page-con {
+    text-align: center;
+    padding: 50px 0;
+    width: 60%;
+    margin: 0 auto;
+  }
+
 }
 </style>
