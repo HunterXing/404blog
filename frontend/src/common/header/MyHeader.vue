@@ -35,7 +35,7 @@
           >
         </div>
         <!-- 个人信息区域 -->
-        <div class="message-box">
+        <div class="message-box" @click="getMyMessage()">
           <span class="iconfont message-icon">
             &#xe66e;
             <span class="number">15</span>
@@ -114,6 +114,14 @@ export default {
           message: '个人博客，暂不支持注册'
         })
       }
+    },
+    // 得到个人收件信息
+    getMyMessage () {
+      // todo
+       this.$message({
+          type: 'error',
+          message: '暂不支持查看邮件'
+      })
     }
   },
   computed: {

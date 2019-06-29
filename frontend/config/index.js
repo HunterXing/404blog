@@ -10,14 +10,44 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    // proxyTable: {
-    //   '/api': {
-    //     target: 'http://localhost:8080',
-    //     pathRewrite: {
-    //       '^/api': '/mock'
-    //     }
-    //   }
-    // },
+    proxyTable: {
+      // php 后台API
+      '/phpApi': {
+        // 不要写localhost
+        target: 'http://127.0.0.1:80/',
+        // true允许跨域
+        changeOrigin: true,
+        pathRewrite: {
+          // 需要rewrite重写的, 如果在服务器端做了处理则可以不要这段
+          '^/phpApi': '/404blog/backend/php/index.php'
+        }
+      },
+      // node后台API
+      '/nodeApi': {
+        // 不要写localhost
+        target: 'http://127.0.0.1:8000/404blog/backend/node',
+        // true允许跨域
+        changeOrigin: true,
+        pathRewrite: {
+          // rewrite重写的
+          '^/nodeApi': ''
+        }
+      }
+      // 服务器根目录下的接口
+      // '/interface': {
+      //   target: 'http://localhost/',
+      //   changeOrigin: true,
+      //   pathRewrite: {
+      //     '^/interface': '/api'
+      //   }
+      // },
+      // '/api': {
+      //   target: 'http://localhost:8080',
+      //   pathRewrite: {
+      //     '^/api': 'static/mock/'
+      //   }
+      // }
+    },
 
     // Various Dev Server settings
     host: '0.0.0.0', // can be overwritten by process.env.HOST

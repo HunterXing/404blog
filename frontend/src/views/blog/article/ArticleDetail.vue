@@ -22,76 +22,136 @@
       <el-button type="success" size="small" plain class="fr">编辑</el-button>
       <div v-html="article"></div>
     </div>
+    <!-- <el-backtop target=".article-title-con " :bottom="100">
+      <div
+        style="{
+            height: 100%;
+            width: 100%;
+            background-color: #f2f5f6;
+            box-shadow: 0 0 6px rgba(0,0,0, .12);
+            text-align: center;
+            line-height: 40px;
+            color: #1989fa;
+          }"
+      >sdfesdrgsergsergse</div>
+    </el-backtop>-->
+    <!-- 自己定义的返回顶部组件 -->
+    <go-top @goTop="goTop" :backTopShow="backTopShow" :backSeconds="backSeconds" :showPx="showPx"></go-top>
   </div>
 </template>
 
 <script>
 import MyHeader from "common/header/MyHeader.vue";
+import GoTop from "common/goTop/GoTop";
 export default {
   name: "ArticleDtail",
   components: {
-    MyHeader
+    MyHeader,
+    GoTop
+  },
+  data() {
+    return {
+      article: "",
+      // 是否显示回到顶部
+      backTopShow: false,
+      // // 是否允许操作返回顶部
+      backTopAllow: true,
+      // 返回顶部所需时间
+      backSeconds: 100,
+      // 往下滑动多少显示返回顶部（单位：px)
+      showPx: 100
+    };
   },
   methods: {
     getApi() {
       this.axios
-        .get(
-          "http://localhost/404blog/backend/php/index.php/Home/Article/index"
-        )
+        .get("/phpApi/Home/Article/index")
         .then(res => {
-          console.log(res.data[0].content);
+          // console.log(res.data[0].content);
           this.article = res.data[0].content;
         })
         .catch(function(err) {
           console.log(err);
         });
+    },
+    // 返回顶部的显示与隐藏操作
+    backTopShowOperate() {
+      // TMD页面被卷起的距离
+      let marginTop =
+        document.documentElement.scrollTop || document.body.scrollTop;
+      // console.log(marginTop);
+      if (this.backTopAllow) {
+        if (marginTop > this.showPx) {
+          this.backTopShow = true;
+        } else {
+          this.backTopShow = false;
+        }
+      }
+    },
+    // 点击返回顶部的操作
+    goTop() {
+      // console.log()
+      // let marginTop = document.documentElement.scrollTop || document.body.scrollTop
+      // console.log(marginTop)
+      if (this.backTopAllow) {
+        var step = document.documentElement.scrollTop / this.backSeconds;
+        var backTopInterval = setInterval(function() {
+          if (document.documentElement.scrollTop > 0) {
+            document.documentElement.scrollTop -= step;
+          } else {
+            this.backTopAllow = true;
+            clearInterval(backTopInterval);
+          }
+        }, 5);
+        // this.backTopAllow = false
+      }
     }
   },
   mounted() {
     this.getApi();
-  },
-  data() {
-    return {
-      article: ""
-    };
+    window.addEventListener("scroll", this.backTopShowOperate, true);
   }
 };
 </script>
 
 <style lang="stylus" scoped>
-.article-detail {
-  width: 60%;
-  margin: 20px auto;
+.article {
+  position: relative;
 
-  .author-info-con {
-    margin: 20px 0;
-    height: 80px;
-    line-height: 80px;
+  .article-detail {
+    width: 60%;
+    margin: 20px auto;
 
-    .header-pic {
-      display: inline-block;
-      width: 40px;
-      height: 40px;
-      overflow: hidden;
+    .author-info-con {
+      margin: 20px 0;
+      height: 80px;
+      line-height: 80px;
+
+      .header-pic {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        overflow: hidden;
+      }
     }
-  }
 
-  .article-title-con {
-    border-left: 8px solid #5cb85c;
-    height: 80px;
-    line-height: 80px;
-    margin: 30px 0 20px;
+    .article-title-con {
+      border-left: 8px solid #5cb85c;
+      height: 80px;
+      line-height: 80px;
+      margin: 30px 0 20px;
 
-    .article-title {
-      padding-left: 10px;
-      font-size: 50px;
-      font-weight: 700;
+      .article-title {
+        padding-left: 10px;
+        font-size: 50px;
+        font-weight: 700;
+      }
     }
-  }
 
-  .create-time {
-    margin-left 10px;
-    color: #bbb;
+    .create-time {
+      margin-left: 10px;
+      color: #bbb;
+    }
   }
 }
 </style>

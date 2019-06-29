@@ -77,7 +77,7 @@ export default {
       // TMD页面被卷起的距离
       let marginTop =
         document.documentElement.scrollTop || document.body.scrollTop;
-      console.log(marginTop);
+      // console.log(marginTop);
       if (this.backTopAllow) {
         if (marginTop > this.showPx) {
           this.backTopShow = true;
@@ -117,7 +117,8 @@ export default {
           console.log(this.form);
           this.axios
             .post(
-              "http://localhost/404blog/backend/php/index.php/Home/Login/index",
+              // "http://localhost/404blog/backend/php/index.php/Home/Login/index",
+              "/phpApi/Home/Login/index",
               qs.stringify({
                 username: this.form.username,
                 password: this.form.password

@@ -4,8 +4,6 @@ return array(
 	 //模版常量
 	 'TMPL_PARSE_STRING' => array(
 		'__UPLOAD__'  => __ROOT__.'/Public/Upload',
-		'__HOME__' => __ROOT__.'/Public/Home',
-		'__ADMIN__'  => __ROOT__.'/Public/Admin',
 		'__DATA__' => __ROOT__.'/index.php/home',
 		'__SMS__' => __ROOT__.'/qcloudsms_php'
 	),

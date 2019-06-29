@@ -16,4 +16,21 @@ class ArticleController extends Controller {
         $result = $model -> select();
         echo json_encode($result);
     }
+
+    // // 保存文章
+    // public function saveArticle() {
+    //     $userId = $_REQUEST['userId'];
+    //     $title = $_REQUEST['title'];
+    //     $code = $_REQUEST['code'];
+    // }
+
+    // // 新增文章
+    // public function addArticle() {
+    //     $userId = $_REQUEST['userId'];
+    //     $title = $_REQUEST['title'];
+    //     $detail = $_REQUEST['detail'];
+    //     $create_time = time();
+    // }
+
+
 }
