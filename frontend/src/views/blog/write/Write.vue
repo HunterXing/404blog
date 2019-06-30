@@ -13,7 +13,7 @@
         </el-select>
       </el-input>
       <div class="reprint-link-con" v-show="form.articleType === '1'">
-        <el-input placeholder="请输入原文链接"></el-input>
+        <el-input placeholder="请输入原文链接" v-model="form.link"></el-input>
       </div>
 
       <div class="tags-con">
@@ -50,6 +50,7 @@
 import { mavonEditor } from "mavon-editor";
 import "mavon-editor/dist/css/index.css";
 import MyHeader from "./components/MyHeader";
+import qs from "qs";
 export default {
   name: "Write",
   components: {
@@ -61,7 +62,8 @@ export default {
       form: {
         articleTitle: "",
         articleType: "0",
-        articleValue: ""
+        articleValue: "",
+        link: ""
       },
       dynamicTags: ["标签一", "标签二", "标签三"],
       inputVisible: false,
@@ -76,10 +78,62 @@ export default {
       // 获取编译后的 html
       let html = this.$refs.editor.d_render;
       this.form.articleValue = html;
-      debugger;
-      console.log("submit");
-      console.log(markdown);
-      console.log(html);
+      // debugger;
+      // console.log("submit");
+      // console.log(markdown);
+      // console.log(html);
+
+      if (this.form.articleType === "1") {
+        let link = this.form.link;
+        let reg = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)+([A-Za-z0-9-~\/])+$/;
+        if (!reg.test(link)) {
+          this.$message({
+            type: "error",
+            message: "请输入正确的网址"
+          });
+          return;
+        }
+      }
+
+      // addArticle
+      this.axios
+        .post(
+          "/phpApi/Home/Article/addArticle",
+          qs.stringify({
+            userId: this.$store.state.userId,
+            title: this.form.articleTitle,
+            detail: html,
+            type: this.form.articleType,
+            link: this.form.link
+          })
+        )
+        .then(res => {
+          console.log(res);
+          let code = res.data.code;
+          let blogId = res.data.blogId;
+          if (code > 0) {
+            this.$message({
+              type: "success",
+              message: "发布文章成功"
+            });
+            setTimeout(() => {
+              this.$router.push({
+                name: "ArticleDetail",
+                params: {
+                  blogId: blogId
+                }
+              });
+            }, 1500);
+          } else {
+            this.$message({
+              type: "error",
+              message: "文章发布失败"
+            });
+          }
+        })
+        .catch(error => {
+          console.log(error);
+        });
     },
 
     // 绑定@imgAdd event
@@ -135,6 +189,8 @@ export default {
   .write-con {
     padding: 20px;
     height: 600px;
+    width: 95%;
+    margin: 0 auto;
 
     .editor {
       margin-top: 50px;

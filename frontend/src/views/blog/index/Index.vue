@@ -125,12 +125,18 @@ export default {
             )
             .then(res => {
               let code = res.data.code
+              let userId = res.data.id
               if (code > 0) {
                 this.$message({
                   type: 'success',
                   message: '登录成功'
                 })
-                this.$store.dispatch('changLoginState', 1)
+                this.$store.dispatch('changLoginState', {
+                  hasLogin: 1,
+                  username: this.form.username,
+                  password: this.form.password,
+                  userId
+                  })
                 this.cancel('form')
               } else {
                  this.$message({

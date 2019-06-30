@@ -7,38 +7,38 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   // 共享数据较多时，可以把state actions mutations 分开，模块化
   state: {
-    // 测试的数字
-    count: 0,
     // 默认的用户状态
-    hasLogin: localStorage.hasLogin || 0
+    hasLogin: localStorage.hasLogin || 0,
+    // username: localStorage.username || '',
+    username: localStorage.nagsergsergserf || '',
+    // password: localStorage.password || '',
+    password: localStorage.psvsergserg || '',
+    // userId: localStorage.userId || ''
+    userId: localStorage.idqwrdfswef || ''
   },
   // 响应动作
   actions: {
-    addNumber (ctx, number) {
-      // ctx为上下文， number为dispath过来的参数
-      console.log(number)
+    changLoginState (ctx, params) {
+      // ctx为上下文， 后面为dispath过来的参数
+      console.log(params.hasLogin)
       // 将这个函数和参数发给mutations
-      ctx.commit('addNumber', number)
-    },
-    changLoginState (ctx, hasLogin) {
-      // ctx为上下文， number为dispath过来的参数
-      console.log(hasLogin)
-      // 将这个函数和参数发给mutations
-      ctx.commit('changLoginState', hasLogin)
+      ctx.commit('changLoginState', params)
     }
   },
   // 变化
   mutations: {
+
     // 接受actions里面commit过来的函数，state, number参数
-    addNumber (state, number) {
+    changLoginState (state, params) {
       // 变化
-      state.count += number
-    },
-    // 接受actions里面commit过来的函数，state, number参数
-    changLoginState (state, hasLogin) {
-      // 变化
-      state.hasLogin = hasLogin
-      localStorage.hasLogin = hasLogin
+      state.hasLogin = params.hasLogin
+      state.username = params.username
+      state.password = params.password
+      state.userId = params.userId
+      localStorage.hasLogin = params.hasLogin
+      localStorage.nagsergsergserf = params.username
+      localStorage.psvsergserg = params.password
+      localStorage.idqwrdfswef = params.userId
     }
   }
 })
