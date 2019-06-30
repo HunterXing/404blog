@@ -27,7 +27,7 @@ export default {
   //  height: 1020px;
    .my-info {
      width: 650px;
-     margin: 350px auto;
+     margin: 400px auto 0px;
    }
  }
 </style>
