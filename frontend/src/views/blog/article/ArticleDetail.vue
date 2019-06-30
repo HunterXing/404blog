@@ -143,14 +143,9 @@ export default {
           let code = res.data.code;
           let message = res.data.message;
           if (code > 0) {
+            this.goHome()
             this.$message({
               type: "success",
-              message: message
-            });
-            this.goHome()
-          } else {
-            this.$message({
-              type: "error",
               message: message
             });
           }

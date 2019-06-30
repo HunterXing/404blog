@@ -95,7 +95,7 @@ export default {
       this.$router.push({
         name: 'Write',
         params: {
-          // params
+            blogId: ''
         }
       })
     },
@@ -165,13 +165,6 @@ export default {
       border: 0.5px dashed #009a61;
       box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1), 0 0px rgba(0, 0, 0, 0.1);
     }
-
-    // .link:hover
-    // // display inline-block
-    // padding 2px 4px
-    // background #009a61
-    // color #fff
-    // border-radius 10px
     .first,
     .recomment,
     .my-article,

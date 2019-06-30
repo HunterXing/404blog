@@ -104,7 +104,7 @@ export default {
       // 获取编译后的 html
       let html = this.$refs.editor.d_render;
       this.form.articleValue = html;
-      debugger;
+      // debugger;
       // console.log("submit");
       // console.log(markdown);
       // console.log(html);

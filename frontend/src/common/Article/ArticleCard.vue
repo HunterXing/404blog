@@ -185,7 +185,7 @@ export default {
   }
   .u-page-con {
     text-align: center;
-    padding: 50px 0;
+    padding: 200px 0;
     width: 60%;
     margin: 0 auto;
   }
