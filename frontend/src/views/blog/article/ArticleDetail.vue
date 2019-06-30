@@ -14,16 +14,19 @@
         </div>
       </div>-->
       <div class="article-title-con">
-        <span class="article-title">这是文章标题</span>
+        <span class="article-title">{{articleDetail.title}}</span>
       </div>
-      <el-tag>原创</el-tag>
-      <el-tag type="info">作者名</el-tag>
-      <el-tag type="success">1.5k+浏览</el-tag>
-      <span class="create-time">2019-6-29 15:42</span>
-      <el-button  type="success" size="small" plain class="edit-button fr">编辑</el-button>
-      <el-button type="danger" size="small" plain class="fr">删除</el-button>
+      <el-tag v-if="articleDetail.type === '0'">原创</el-tag>
+      <el-tag v-else>转载自 {{articleDetail.link}}</el-tag>
+      <el-tag type="info">作者：{{articleDetail.username}}</el-tag>
+      <el-tag type="success">{{articleDetail.preview}} 浏览</el-tag>
+      <span class="create-time">{{articleDetail.createtime}}</span>
+      <div class="fr" v-if="articleDetail.id === this.$store.state.userId">
+        <el-button type="success" size="small" plain class="edit-button fr" @click.native="toEdit">编辑</el-button>
+        <el-button type="danger" size="small" plain class="fr" @click.native="handleDel">删除</el-button>
+      </div>
 
-      <div v-html="article"></div>
+      <div v-html="articleDetail.content" class="article-content"></div>
     </div>
     <!-- <el-backtop target=".article-title-con " :bottom="100">
       <div
@@ -46,6 +49,7 @@
 <script>
 import MyHeader from "common/header/MyHeader.vue";
 import GoTop from "common/goTop/GoTop";
+import qs from "qs";
 export default {
   name: "ArticleDtail",
   components: {
@@ -62,20 +66,115 @@ export default {
       // 返回顶部所需时间
       backSeconds: 100,
       // 往下滑动多少显示返回顶部（单位：px)
-      showPx: 100
+      showPx: 100,
+      articleDetail: {}
     };
   },
   methods: {
-    getApi() {
+    getData() {
+      // this.axios
+      //   .get("/phpApi/Home/Article/getDetail")
+      //   .then(res => {
+      //     // console.log(res.data[0].content);
+      //     this.article = res.data[0].content;
+      //   })
+      //   .catch(function(err) {
+      //     console.log(err);
+      //   });
+
       this.axios
-        .get("/phpApi/Home/Article/index")
+        .post(
+          "/phpApi/Home/Article/getDetail",
+          qs.stringify({
+            blogId: this.$route.params.blogId
+          })
+        )
         .then(res => {
-          // console.log(res.data[0].content);
-          this.article = res.data[0].content;
+          console.log(res);
+          let code = res.data.code;
+          let message = res.data.message;
+          this.articleDetail = res.data.result;
+          if (code > 0) {
+            let blogId = res.data.blogId;
+            // this.$message({
+            //   type: "success",
+            //   message: message
+            // });
+          } else {
+            this.$message({
+              type: "error",
+              message: message
+            });
+          }
         })
-        .catch(function(err) {
-          console.log(err);
+        .catch(error => {
+          console.log(error);
         });
+    },
+
+    // 删除文章提示
+    handleDel() {
+      this.$confirm("此操作将删除该博客, 是否继续?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      }).then(()=> {
+        this.doDel()
+      }).then(() => {
+          this.doDel()
+        })
+        .catch(() => {
+          this.$message({
+            type: "info",
+            message: "已取消删除"
+          });
+        });
+    },
+    // 删除
+    doDel() {
+       this.axios
+        .post("/phpApi/Home/Article/delArticle", qs.stringify({
+                blogId: this.$route.params.blogId,
+                userId: this.$store.state.userId,
+                hasLogin: this.$store.state.hasLogin
+              }))
+        .then(res => {
+          console.log(res);
+          let code = res.data.code;
+          let message = res.data.message;
+          if (code > 0) {
+            this.$message({
+              type: "success",
+              message: message
+            });
+            this.goHome()
+          } else {
+            this.$message({
+              type: "error",
+              message: message
+            });
+          }
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
+    // 返回我的文章
+    goHome () {
+      setTimeout(() => {
+          this.$router.push({
+            name: "Article",
+          });
+      }, 1500);
+    },
+    // 去编辑文章
+    toEdit() {
+       this.$router.push({
+          name: "Write",
+          params: {
+            blogId: this.$route.params.blogId
+          }
+      });
     },
     // 返回顶部的显示与隐藏操作
     backTopShowOperate() {
@@ -111,7 +210,7 @@ export default {
     }
   },
   mounted() {
-    this.getApi();
+    this.getData();
     window.addEventListener("scroll", this.backTopShowOperate, true);
   }
 };
@@ -155,8 +254,13 @@ export default {
       margin-left: 10px;
       color: #bbb;
     }
+
     .edit-button {
       margin: 0 10px;
+    }
+
+    .article-content {
+      margin-top: 50px;
     }
   }
 }

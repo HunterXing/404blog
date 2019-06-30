@@ -4,18 +4,18 @@
       <el-card
         class="box-card"
         shadow="hover"
-        v-for="(item) in articleSimple"
-        :key="item.id"
-        @click.native="getDetail(item.id)"
+        v-for="(item) in myArticle"
+        :key="item.articleid"
+        @click.native="getDetail(item.articleid)"
       >
         <!-- 左边 -->
         <div class="left-con">
-          <div class="pic" :style="{backgroundImage: 'url(' + (item.articlePic) + ')'}"></div>
+          <div class="pic" :style="{backgroundImage: 'url(' + (articlePic[randomNum(0,2)]) + ')'}"></div>
           <p>
             <span class="p-create-time">创建时间：</span>
-            <span class="span-time">{{item.createTime}}</span>
+            <span class="span-time">{{item.createtime}}</span>
           </p>
-          <span class="p-read-number">有{{item.peoNumber}}人阅读过该文章</span>
+          <span class="p-read-number">有{{item.preview}}人阅读过该文章</span>
         </div>
         <!--右边-->
         <div class="right-con">
@@ -26,11 +26,11 @@
           </div>
           <div class="article-author">
             <i class="iconfont">&#xe654;</i>
-            {{item.author}} |
+            {{item.username}} |
             <i class="iconfont">&#xe612;</i>
             {{item.job}}
           </div>
-          <div class="article-content">{{item.articleBrief}}</div>
+          <div class="article-content">{{item.markdown}}</div>
           <!-- 标签 -->
           <div class="tags-con">
             <el-tag>标签一</el-tag>
@@ -50,40 +50,37 @@
         :page-sizes="[5, 10, 15, 20]"
         :page-size="pageSize"
         layout="total, sizes, prev, pager, next, jumper"
-        :total="totalCount"
+        :total="myArticle.length"
       ></el-pagination>
     </div>
   </div>
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 export default {
   name: "AiticleCard",
+  props: {
+    myArticle: Array
+  },
   data() {
     return {
       articleSimple: [],
-       //当前页
+      //当前页
       currentPage: 1,
       // 总条数，根据接口获取数据长度(注意：这里不能为空)
       totalCount: 1,
       // 默认每页显示的条数（可修改）
       pageSize: 5,
+
+      articlePic: [
+        require("../../assets/images/aritcle-pic1.jpg"),
+        require("../../assets/images/aritcle-pic2.jpg"),
+        require("../../assets/images/aritcle-pic3.jpg")
+      ]
     };
   },
   methods: {
-    getArtical() {
-      axios
-        .get("http://localhost:8080/static/mock/data.json")
-        .then(res => {
-          console.log(res);
-          this.articleSimple = res.data.data;
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    },
-
     getDetail(id) {
       console.log(id);
       this.$router.push({
@@ -94,15 +91,26 @@ export default {
       });
     },
 
-     handleSizeChange(pageSize) {
-        console.log(`每页 ${pageSize} 条`);
-      },
-      handleCurrentChange(page) {
-        console.log(`当前页: ${page}`);
+    handleSizeChange(pageSize) {
+      console.log(`每页 ${pageSize} 条`);
+    },
+    handleCurrentChange(page) {
+      console.log(`当前页: ${page}`);
+    },
+
+    randomNum(minNum, maxNum) {
+      switch (arguments.length) {
+        case 1:
+          return parseInt(Math.random() * minNum + 1, 10);
+          break;
+        case 2:
+          return parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10);
+          break;
+        default:
+          return 0;
+          break;
       }
-  },
-  mounted() {
-    this.getArtical();
+    }
   }
 };
 </script>
@@ -117,6 +125,7 @@ export default {
       margin-top: 50px;
       width: 1000px;
       height: 345px;
+      cursor: pointer;
       .left-con {
         height: 100%;
         width: 40%;
@@ -166,6 +175,7 @@ export default {
           -webkit-box-orient: vertical;
           overflow: hidden;
           line-height: 1.8;
+          min-height: 135px;
         }
         .tags-con {
           margin-top: 50px;
@@ -179,6 +189,5 @@ export default {
     width: 60%;
     margin: 0 auto;
   }
-
 }
 </style>

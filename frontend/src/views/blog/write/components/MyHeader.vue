@@ -2,12 +2,11 @@
   <div class="m-header">
     <!-- logo标志 -->
     <router-link tag="div" :to="{name: 'Home'}" class="left-logo">
-      <img src="https://raw.githubusercontent.com/HunterXing/resourse/master/images/BlogLogo.png
-">
+      <img src="../../../../assets/images/BlogLogo.png">
     </router-link>
     <!-- 写文章 -->
     <div class="save">
-      <el-button type="success">保存文章</el-button>
+      <el-button type="success" @click='saveAritcle'>保存文章</el-button>
       <el-button type="primary" @click='doSubmit'>发布文章</el-button>
     </div>
 
@@ -27,6 +26,9 @@ export default {
     inputClick () {
       console.log(this.$refs.search.style.width)
       // this.$refs.search
+    },
+    saveAritcle () {
+      this.$emit('saveAritcle')
     },
     doSubmit () {
       this.$emit('doSubmit')

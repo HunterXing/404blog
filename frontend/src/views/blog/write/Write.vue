@@ -1,6 +1,6 @@
 <template>
   <div class="write">
-    <my-header @doSubmit="doSubmit"></my-header>
+    <my-header @doSubmit="doSubmit" @saveAritcle="saveAritcle"></my-header>
     <div class="write-con">
       <el-input
         placeholder="请输入文章标题"
@@ -41,7 +41,7 @@
         ref="editor"
         @imgAdd="$imgAdd"
       ></mavon-editor>-->
-      <mavon-editor class="editor" style="height: 100%" ref="editor"></mavon-editor>
+      <mavon-editor class="editor" style="height: 100%" ref="editor" v-model="form.articleText"></mavon-editor>
     </div>
   </div>
 </template>
@@ -63,6 +63,7 @@ export default {
         articleTitle: "",
         articleType: "0",
         articleValue: "",
+        articleText: "",
         link: ""
       },
       dynamicTags: ["标签一", "标签二", "标签三"],
@@ -70,7 +71,32 @@ export default {
       inputValue: ""
     };
   },
+  mounted() {
+    this.getEditArticle();
+  },
   methods: {
+    // 得到需要编辑的文章
+    getEditArticle() {
+      this.axios
+        .post(
+          "/phpApi/Home/Article/getEditArticle",
+          qs.stringify({
+            blogId: this.$route.params.blogId
+          })
+        )
+        .then(res => {
+          console.log(res);
+          let data = res.data.result;
+          this.form.articleTitle = data.title;
+          this.form.articleType = data.type;
+          this.form.articleText = data.markdown;
+          this.form.link = data.link;
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
+    // 发布文章按钮
     doSubmit() {
       // 获取 markdown 暂时用不到
       let markdown = this.$refs.editor.d_value;
@@ -78,14 +104,14 @@ export default {
       // 获取编译后的 html
       let html = this.$refs.editor.d_render;
       this.form.articleValue = html;
-      // debugger;
+      debugger;
       // console.log("submit");
       // console.log(markdown);
       // console.log(html);
 
       if (this.form.articleType === "1") {
         let link = this.form.link;
-        let reg = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)+([A-Za-z0-9-~\/])+$/;
+        let reg = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)/;
         if (!reg.test(link)) {
           this.$message({
             type: "error",
@@ -95,6 +121,16 @@ export default {
         }
       }
 
+      // 如果路由中有参数 说明是编辑
+      if (this.$route.params.blogId) {
+        this.editArticle(html, markdown);
+      } else {
+        // 没有参数就是添加文章
+        this.addArticle(html, markdown);
+      }
+    },
+    // 添加文章
+    addArticle(html, markdown) {
       // addArticle
       this.axios
         .post(
@@ -104,17 +140,19 @@ export default {
             title: this.form.articleTitle,
             detail: html,
             type: this.form.articleType,
-            link: this.form.link
+            link: this.form.link,
+            markdown: markdown
           })
         )
         .then(res => {
-          console.log(res);
+          // console.log(res);
           let code = res.data.code;
-          let blogId = res.data.blogId;
+          let message = res.data.message;
           if (code > 0) {
+            let blogId = res.data.blogId;
             this.$message({
               type: "success",
-              message: "发布文章成功"
+              message: message
             });
             setTimeout(() => {
               this.$router.push({
@@ -127,13 +165,65 @@ export default {
           } else {
             this.$message({
               type: "error",
-              message: "文章发布失败"
+              message: message
             });
           }
         })
         .catch(error => {
           console.log(error);
         });
+    },
+    // 编辑文章
+    editArticle(html, markdown) {
+      this.axios
+        .post(
+          "/phpApi/Home/Article/editArticle",
+          qs.stringify({
+            userId: this.$store.state.userId,
+            blogId: this.$route.params.blogId,
+            hasLogin: this.$store.state.userId,
+            title: this.form.articleTitle,
+            detail: html,
+            type: this.form.articleType,
+            link: this.form.link,
+            markdown: markdown
+          })
+        )
+        .then(res => {
+          // console.log(res);
+          let code = res.data.code;
+          let message = res.data.message;
+          if (code > 0) {
+            let blogId = this.$route.params.blogId;
+            this.$message({
+              type: "success",
+              message: message
+            });
+            setTimeout(() => {
+              this.$router.push({
+                name: "ArticleDetail",
+                params: {
+                  blogId: blogId
+                }
+              });
+            }, 1500);
+          } else {
+            this.$message({
+              type: "error",
+              message: message
+            });
+          }
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
+    // 暂时保存文章到草稿箱
+    saveAritcle() {
+      this.$message({
+        type: "success",
+        message: "草稿箱功能暂时未实现，所以此功能暂缓"
+      });
     },
 
     // 绑定@imgAdd event

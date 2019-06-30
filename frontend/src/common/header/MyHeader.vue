@@ -20,7 +20,7 @@
         <!-- 我的文章 -->
         <router-link tag="div" :to="{name: 'Article'}" class="my-article">
           <i class="el-icon-tickets"></i>
-          <span class="link">文章</span>
+          <span class="link">my文章</span>
         </router-link>
         <!--  标签-->
         <div class="tags"></div>

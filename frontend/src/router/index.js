@@ -42,7 +42,7 @@ export default new Router({
       }]
     },
     {
-      path: '/write',
+      path: '/write/:blogId',
       name: 'Write',
       component: () => import('@/views/blog/write/Write.vue'),
       meta: {

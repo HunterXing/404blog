@@ -3,7 +3,9 @@
     <my-header @doLoginOrRegis="doLoginOrRegis"></my-header>
     <div class="content">
       <!-- 嵌套路由-->
-      <router-view></router-view>
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
     </div>
     <my-footer></my-footer>
     <go-top @goTop="goTop" :backTopShow="backTopShow" :backSeconds="backSeconds" :showPx="showPx"></go-top>
