@@ -24,7 +24,7 @@
           <el-input v-model="form.username"></el-input>
         </el-form-item>
         <el-form-item label="密码:" prop="password" type="password">
-          <el-input v-model="form.password"></el-input>
+          <el-input v-model="form.password" type="password"></el-input>
         </el-form-item>
       </el-form>
 
@@ -119,7 +119,7 @@ export default {
           console.log(this.form);
           this.axios
             .post(
-              "/phpApi/Home/User/login",
+              "/phpApi/index.php/Home/User/login",
               qs.stringify({
                 username: this.form.username,
                 password: this.form.password

@@ -79,7 +79,7 @@ export default {
     getEditArticle() {
       this.axios
         .post(
-          "/phpApi/Home/Article/getEditArticle",
+          "/phpApi/index.php/Home/Article/getEditArticle",
           qs.stringify({
             blogId: this.$route.params.blogId
           })
@@ -134,7 +134,7 @@ export default {
       // addArticle
       this.axios
         .post(
-          "/phpApi/Home/Article/addArticle",
+          "/phpApi/index.php/Home/Article/addArticle",
           qs.stringify({
             userId: this.$store.state.userId,
             title: this.form.articleTitle,
@@ -177,7 +177,7 @@ export default {
     editArticle(html, markdown) {
       this.axios
         .post(
-          "/phpApi/Home/Article/editArticle",
+          "/phpApi/index.php/Home/Article/editArticle",
           qs.stringify({
             userId: this.$store.state.userId,
             blogId: this.$route.params.blogId,

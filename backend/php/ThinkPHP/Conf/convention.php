@@ -43,9 +43,9 @@ return  array(
     'DEFAULT_V_LAYER'       =>  'View', // 默认的视图层名称
     'DEFAULT_LANG'          =>  'zh-cn', // 默认语言
     'DEFAULT_THEME'         =>  '',	// 默认模板主题名称
-    'DEFAULT_MODULE'        =>  'Admin',  // 默认模块
-    'DEFAULT_CONTROLLER'    =>  'Login', // 默认控制器名称
-    'DEFAULT_ACTION'        =>  'index', // 默认操作名称
+    'DEFAULT_MODULE'        =>  'Home',  // 默认模块
+    'DEFAULT_CONTROLLER'    =>  'User', // 默认控制器名称
+    'DEFAULT_ACTION'        =>  'login', // 默认操作名称
     'DEFAULT_CHARSET'       =>  'utf-8', // 默认输出编码
     'DEFAULT_TIMEZONE'      =>  'PRC',	// 默认时区
     'DEFAULT_AJAX_RETURN'   =>  'JSON',  // 默认AJAX 数据返回格式,可选JSON XML ...

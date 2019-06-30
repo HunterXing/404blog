@@ -42,7 +42,7 @@ export default {
       // debugger
       this.axios
         .post(
-          "/phpApi/Home/Article/getMyArticle",
+          "/phpApi/index.php/Home/Article/getMyArticle",
           qs.stringify({
             userId: this.$store.state.userId
           })

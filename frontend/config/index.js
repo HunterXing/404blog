@@ -13,18 +13,16 @@ module.exports = {
     proxyTable: {
       // php 后台API
       '/phpApi': {
-        // 不要写localhost
-        target: 'http://127.0.0.1:80/',
+        target: 'http://127.0.0.1:80',
         // true允许跨域
-        changeOrigin: true,
-        pathRewrite: {
-          // 需要rewrite重写的, 如果在服务器端做了处理则可以不要这段
-          '^/phpApi': '/404blog/backend/php/index.php'
-        }
+        changeOrigin: true
+        // pathRewrite: {
+        //   // 需要rewrite重写的, 如果在服务器端做了处理则可以不要这段
+        //   '^/phpApi': '/php'
+        // }
       },
       // node后台API
       '/nodeApi': {
-        // 不要写localhost
         target: 'http://127.0.0.1:8000/404blog/backend/node',
         // true允许跨域
         changeOrigin: true,

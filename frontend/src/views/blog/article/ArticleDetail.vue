@@ -90,7 +90,7 @@ export default {
 
       this.axios
         .post(
-          "/phpApi/Home/Article/getDetail",
+          "/phpApi/index.php/Home/Article/getDetail",
           qs.stringify({
             blogId: this.$route.params.blogId
           })
@@ -142,7 +142,7 @@ export default {
     doDel() {
       this.axios
         .post(
-          "/phpApi/Home/Article/delArticle",
+          "/phpApi/index.php/Home/Article/delArticle",
           qs.stringify({
             blogId: this.$route.params.blogId,
             userId: this.$store.state.userId,
@@ -169,7 +169,7 @@ export default {
     addPageView() {
       this.axios
         .post(
-          "/phpApi/Home/Article/addview",
+          "/phpApi/index.php/Home/Article/addview",
           qs.stringify({
             blogId: this.$route.params.blogId,
           })

@@ -112,4 +112,6 @@ blogs
 | detail         | 详细内容      |
 | preview_number | 浏览量        |
 | state          | 状态 0 删除 1 展示   |
-|                |               |
+| show | 状态 0 删除 1 展示 |
+| type | 0 原创  1转载 |
+| link | 转载链接 |
