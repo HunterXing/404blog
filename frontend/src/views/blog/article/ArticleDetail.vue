@@ -22,7 +22,13 @@
       <el-tag type="success">{{articleDetail.preview}} 浏览</el-tag>
       <span class="create-time">{{articleDetail.createtime}}</span>
       <div class="fr" v-if="articleDetail.id === this.$store.state.userId">
-        <el-button type="success" size="small" plain class="edit-button fr" @click.native="toEdit">编辑</el-button>
+        <el-button
+          type="success"
+          size="small"
+          plain
+          class="edit-button fr"
+          @click.native="toEdit"
+        >编辑</el-button>
         <el-button type="danger" size="small" plain class="fr" @click.native="handleDel">删除</el-button>
       </div>
 
@@ -118,10 +124,12 @@ export default {
         confirmButtonText: "确定",
         cancelButtonText: "取消",
         type: "warning"
-      }).then(()=> {
-        this.doDel()
-      }).then(() => {
-          this.doDel()
+      })
+        .then(() => {
+          this.doDel();
+        })
+        .then(() => {
+          this.doDel();
         })
         .catch(() => {
           this.$message({
@@ -132,18 +140,21 @@ export default {
     },
     // 删除
     doDel() {
-       this.axios
-        .post("/phpApi/Home/Article/delArticle", qs.stringify({
-                blogId: this.$route.params.blogId,
-                userId: this.$store.state.userId,
-                hasLogin: this.$store.state.hasLogin
-              }))
+      this.axios
+        .post(
+          "/phpApi/Home/Article/delArticle",
+          qs.stringify({
+            blogId: this.$route.params.blogId,
+            userId: this.$store.state.userId,
+            hasLogin: this.$store.state.hasLogin
+          })
+        )
         .then(res => {
           console.log(res);
           let code = res.data.code;
           let message = res.data.message;
           if (code > 0) {
-            this.goHome()
+            this.goHome();
             this.$message({
               type: "success",
               message: message
@@ -154,21 +165,37 @@ export default {
           console.log(error);
         });
     },
+    // 添加访问量
+    addPageView() {
+      this.axios
+        .post(
+          "/phpApi/Home/Article/addview",
+          qs.stringify({
+            blogId: this.$route.params.blogId,
+          })
+        )
+        .then(res => {
+          // console.log(res);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
     // 返回我的文章
-    goHome () {
+    goHome() {
       setTimeout(() => {
-          this.$router.push({
-            name: "Article",
-          });
+        this.$router.push({
+          name: "Article"
+        });
       }, 1500);
     },
     // 去编辑文章
     toEdit() {
-       this.$router.push({
-          name: "Write",
-          params: {
-            blogId: this.$route.params.blogId
-          }
+      this.$router.push({
+        name: "Write",
+        params: {
+          blogId: this.$route.params.blogId
+        }
       });
     },
     // 返回顶部的显示与隐藏操作
@@ -206,6 +233,7 @@ export default {
   },
   mounted() {
     this.getData();
+    this.addPageView();
     window.addEventListener("scroll", this.backTopShowOperate, true);
   }
 };

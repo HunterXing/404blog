@@ -48,7 +48,8 @@
         </div>
         <!-- 头像 -->
         <div class="header-box" v-if="hasLogin">
-          <img :src="headerPic" class="header-pic">
+          <!-- 截取用户名首字为头像 -->
+           <el-avatar style=" margin-top: 5px;background: #009a61;">{{this.$store.state.username.slice(0,1)}}</el-avatar>
         </div>
         <div class="login-register" v-if="!hasLogin">
           <el-button @click="doLoginOrRegis('0')">立即登录</el-button>
@@ -57,7 +58,7 @@
       </div>
     </div>
 
-    <!-- 移动端 -->
+    <!-- 移动端 待做-->
     <div class="phone-header-show">
       <div class="m-header">
         <!-- logo标志 -->
@@ -66,7 +67,7 @@
         </router-link>
         <!-- 头像 -->
         <div class="header-box">
-          <img :src="headerPic" class="header-pic">
+           <el-avatar>user</el-avatar>
         </div>
       </div>
     </div>
@@ -279,6 +280,7 @@ export default {
         border-radius: 20px;
         border: 0.5px dashed #009a61;
       }
+
     }
   }
 }

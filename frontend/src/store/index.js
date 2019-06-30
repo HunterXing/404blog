@@ -27,7 +27,6 @@ export default new Vuex.Store({
   },
   // 变化
   mutations: {
-
     // 接受actions里面commit过来的函数，state, number参数
     changLoginState (state, params) {
       // 变化

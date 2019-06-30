@@ -1,7 +1,6 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
-
 // 这是对文章的操作
 class ArticleController extends Controller {
     
@@ -255,5 +254,13 @@ class ArticleController extends Controller {
        
     }
     
+     // 添加博客访问量
+     public function addview(){
+        $blogId = (int)$_REQUEST['blogId'];
+        $model = M('blogs');
+        $result = $model->where("id='$blogId'")->setInc('preview',1); // 访问量加1
+        echo json_encode($result);
+      }
+      //得到该课程所有评
 
 }
