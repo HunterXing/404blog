@@ -17,12 +17,4 @@ return array(
 		'DB_PWD'                =>  '',          // 密码
 		'DB_PORT'               =>  '3306',          // 端口
 		'DB_PREFIX'             =>  'tb_',    		 // 数据库表前缀
-
-		// 'DB_TYPE'               =>  'mysqli',     	 // 数据库类型
-		// 'DB_HOST'             =>  '212.64.25.152', 	 // 服务器地址		
-		// 'DB_NAME'               =>  'db_myblog',         // 数据库名
-		// 'DB_USER'               =>  'heng',      	 // 用户名
-		// 'DB_PWD'                =>  'xinghenga',          // 密码
-		// 'DB_PORT'               =>  '3306',          // 端口
-		// 'DB_PREFIX'             =>  'tb_',    		 // 数据库表前缀
 );

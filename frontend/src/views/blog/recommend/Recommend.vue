@@ -29,7 +29,7 @@ export default {
     getRecommend() {
       // debugger
       this.axios
-        .post("/phpApi/Home/Article/getRecommend")
+        .post("/phpApi/index.php/Home/Article/getRecommend")
         .then(res => {
           console.log(res);
           let code = res.data.code;
