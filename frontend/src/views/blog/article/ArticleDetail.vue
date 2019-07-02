@@ -239,13 +239,13 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
+<style lang="scss" scoped>
 .article {
   position: relative;
 
   .article-detail {
-    width: 60%;
-    margin: 20px auto;
+    // width: 60%;
+    // margin: 20px auto;
 
     .author-info-con {
       margin: 20px 0;
@@ -285,6 +285,22 @@ export default {
     .article-content {
       margin-top: 50px;
     }
+  }
+}
+
+
+@media only screen and( max-width:960px) {
+  // 当屏幕宽度小于960时 认为是移动端
+  .article-detail {
+    width: 90%;
+    margin: 20px auto;
+  }
+}
+@media only screen and( min-width:960px) {
+  // 当屏幕宽度大于960时 认为是PC端
+  .article-detail {
+    width: 60%;
+    margin: 20px auto;
   }
 }
 </style>

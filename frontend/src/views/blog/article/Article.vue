@@ -1,11 +1,8 @@
 <template>
   <div class="article">
-    <article-card
-      :myArticle="myArticle"
-      v-if="myArticle.length > 0"
-    ></article-card>
-    <div  class="noData-con" v-else>
-      <img src="../../../assets/images/noData.png" alt="">
+    <article-card :myArticle="myArticle" v-if="myArticle.length > 0"></article-card>
+    <div class="noData-con" v-else>
+      <img src="../../../assets/images/noData.png" alt />
     </div>
   </div>
 </template>
@@ -19,13 +16,13 @@ export default {
   components: {
     ArticleCard
   },
-  mounted () {
-   this.getMyArticle()
+  mounted() {
+    this.getMyArticle();
   },
-  data () {
+  data() {
     return {
       myArticle: []
-    }
+    };
   },
   methods: {
     // getApi () {
@@ -51,15 +48,13 @@ export default {
           console.log(res);
           let code = res.data.code;
           if (code > 0) {
-
             let message = res.data.message;
             this.myArticle = res.data.result;
-
           } else {
             this.$message({
-              type: 'error',
+              type: "error",
               message: message
-            })
+            });
           }
         })
         .catch(error => {
@@ -70,9 +65,22 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
-  .noData-con
-    width 300px
-    margin 0px auto
-    padding-top 280px
+<style lang="scss" scoped>
+@media only screen and( max-width:960px) {
+  // 当屏幕宽度小于960时 认为是移动端
+  .noData-con {
+    width: 300px;
+    margin: 0px auto;
+    padding-top: 130px;
+  }
+}
+
+// PC端
+@media only screen and( min-width:960px) {
+   .noData-con {
+    width: 300px;
+    margin: 0px auto;
+    padding-top: 280px;
+  }
+}
 </style>

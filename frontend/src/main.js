@@ -47,7 +47,7 @@ router.beforeEach((to, from, next) => {
   } else {
     if (to.meta.isLogin) {
       next({
-        path: '/Home'
+        path: '/recommend'
       })
       alert('请先登录')
     } else {

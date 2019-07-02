@@ -1,44 +1,92 @@
 <template>
-  <div class="home" :style="{backgroundImage: 'url(' + (backImg[0]) + ')'}">
-    <my-header @doLoginOrRegis="doLoginOrRegis"></my-header>
-    <div class="content">
-      <!-- 嵌套路由-->
-      <keep-alive>
-        <router-view></router-view>
-      </keep-alive>
-    </div>
-    <my-footer></my-footer>
-    <go-top @goTop="goTop" :backTopShow="backTopShow" :backSeconds="backSeconds" :showPx="showPx"></go-top>
-
-    <!-- 登录 -->
-    <el-dialog
-      title="登录"
-      :visible.sync="dialogFormVisible"
-      width="30%"
-      @close="cancel('form')"
-      :append-to-body="true"
-      :close-on-click-modal="false"
-    >
-      <el-form ref="form" :model="form" label-width="106px" :rules="rules">
-        <el-form-item label="账户:" prop="username">
-          <el-input v-model="form.username"></el-input>
-        </el-form-item>
-        <el-form-item label="密码:" prop="password" type="password">
-          <el-input v-model="form.password" type="password"></el-input>
-        </el-form-item>
-      </el-form>
-
-      <div slot="footer" class="dialog-footer">
-        <el-button @click="cancel('form')">取 消</el-button>
-        <el-button type="primary" @click="doLogin('form')">确 定</el-button>
+<div class="index-con">
+  <!-- pc端 -->
+  <div class="pc-show">
+    <div class="home" :style="{backgroundImage: 'url(' + (backImg[0]) + ')'}">
+      <my-header @doLoginOrRegis="doLoginOrRegis"></my-header>
+      <div class="content">
+        <!-- 嵌套路由-->
+        <keep-alive>
+          <router-view></router-view>
+        </keep-alive>
       </div>
-    </el-dialog>
+      <my-footer></my-footer>
+      <go-top @goTop="goTop" :backTopShow="backTopShow" :backSeconds="backSeconds" :showPx="showPx"></go-top>
+
+      <!-- 登录 -->
+      <el-dialog
+        title="登录"
+        :visible.sync="dialogFormVisible"
+        width="30%"
+        @close="cancel('form')"
+        :append-to-body="true"
+        :close-on-click-modal="false"
+      >
+        <el-form ref="form" :model="form" label-width="106px" :rules="rules">
+          <el-form-item label="账户:" prop="username">
+            <el-input v-model="form.username"></el-input>
+          </el-form-item>
+          <el-form-item label="密码:" prop="password" type="password">
+            <el-input v-model="form.password" type="password"></el-input>
+          </el-form-item>
+        </el-form>
+
+        <div slot="footer" class="dialog-footer">
+          <el-button @click="cancel('form')">取 消</el-button>
+          <el-button type="primary" @click="doLogin('form')">确 定</el-button>
+        </div>
+      </el-dialog>
+    </div>
   </div>
+
+  <!-- 移动端 -->
+  <div class="phone-show">
+     <div class="home">
+      <my-header @doLoginOrRegis="doLoginOrRegis"></my-header>
+      <div class="content">
+        <!-- 嵌套路由-->
+        <keep-alive>
+          <router-view></router-view>
+        </keep-alive>
+      </div>
+      <footer-bar></footer-bar>
+      <my-footer></my-footer>
+      <go-top @goTop="goTop" :backTopShow="backTopShow" :backSeconds="backSeconds" :showPx="showPx"></go-top>
+
+      <!-- 登录 -->
+      <el-dialog
+        title="登录"
+        :visible.sync="dialogFormVisible"
+        width="90%"
+        @close="cancel('form')"
+        :append-to-body="true"
+        :close-on-click-modal="false"
+      >
+        <el-form ref="form" :model="form" label-width="106px" :rules="rules">
+          <el-form-item label="账户:" prop="username">
+            <el-input v-model="form.username"></el-input>
+          </el-form-item>
+          <el-form-item label="密码:" prop="password" type="password">
+            <el-input v-model="form.password" type="password"></el-input>
+          </el-form-item>
+        </el-form>
+
+        <div slot="footer" class="dialog-footer">
+          <el-button @click="cancel('form')">取 消</el-button>
+          <el-button type="primary" @click="doLogin('form')">确 定</el-button>
+        </div>
+      </el-dialog>
+    </div>
+  </div>
+</div>
+
+
 </template>
 
 <script>
 import MyHeader from "common/header/MyHeader";
 import MyFooter from "common/footer/MyFooter";
+import FooterBar from "common/footer/FooterBar";
 import GoTop from "common/goTop/GoTop";
 import qs from "qs";
 export default {
@@ -46,7 +94,8 @@ export default {
   components: {
     MyHeader,
     MyFooter,
-    GoTop
+    GoTop,
+    FooterBar
   },
   data() {
     return {
@@ -169,19 +218,20 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
->>> .el-dialog__header {
+<style lang="scss" scoped>
+
+/deep/ .el-dialog__header {
   padding: 20px 20px 10px;
   background: #f5f5f5;
 }
 
->>> .el-dialog__title {
+/deep/ .el-dialog__title {
   line-height: 24px;
   font-size: 24px;
   color: #303133;
 }
 
->>> .el-form-item__label {
+/deep/ .el-form-item__label {
   font-size: 20px;
 }
 
@@ -194,4 +244,27 @@ export default {
     min-height: 900px;
   }
 }
+
+
+// pc端样式
+.pc-show {
+  display: block;
+}
+// 移动端样式
+.phone-show {
+  display: none;
+
+}
+
+// 移动端样式
+@media only screen and( max-width:960px) {
+  // 当屏幕宽度小于960时 认为是移动端
+  .pc-show {
+    display: none;
+  }
+  .phone-show {
+    display: block;
+  }
+}
+
 </style>

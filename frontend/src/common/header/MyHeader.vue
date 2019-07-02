@@ -62,12 +62,18 @@
     <div class="phone-header-show">
       <div class="m-header">
         <!-- logo标志 -->
-        <router-link tag="div" :to="{name: 'Home'}" class="left-logo">
+        <router-link tag="div" :to="{name: 'Recommend'}" class="left-logo">
           <img src="../../assets/logo.png">
         </router-link>
         <!-- 头像 -->
-        <div class="header-box">
-           <el-avatar>user</el-avatar>
+        <!-- 头像 -->
+        <div class="header-box" v-if="hasLogin">
+          <!-- 截取用户名首字为头像 -->
+           <el-avatar style=" margin-top: 5px;background: #009a61;">{{this.$store.state.username.slice(0,1)}}</el-avatar>
+        </div>
+        <div class="login-register" v-if="!hasLogin">
+          <el-button type="mini" @click="doLoginOrRegis('0')">登录</el-button>
+          <!-- <el-button type="success" @click="doLoginOrRegis('1')">免费注册</el-button> -->
         </div>
       </div>
     </div>
@@ -179,7 +185,6 @@ export default {
         color: red;
       }
     }
-
     .linkActive {
       // border-bottom: 3px solid #009a61
       color: #009a61;
@@ -254,9 +259,9 @@ export default {
     display: flex;
     width: 100%;
     .left-logo {
-      flex: 1;
+      flex: 2;
       line-height: 60px;
-      padding-left: 50px;
+      padding-left: 10px;
       border-radius: 10px;
       img {
         width: 180px;
@@ -268,19 +273,14 @@ export default {
       box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1), 0 0px rgba(0, 0, 0, 0.1);
     }
     .header-box {
-      flex: 1;
+      flex: 0.5;
       display: inline-block;
       height: 50px;
       line-height: 65px;
-      text-align: left;
       padding: 0 0 0 20px;
-      img {
-        width: 25px;
-        height: 25px;
-        border-radius: 20px;
-        border: 0.5px dashed #009a61;
-      }
-
+    }
+    .login-register {
+      flex: 0.5;
     }
   }
 }
@@ -293,6 +293,17 @@ export default {
   }
   .phone-header-show {
     display: block;
+  }
+}
+
+// PC样式
+@media only screen and( min-width:960px ) {
+  // 当屏幕宽度小于960时 认为是移动端
+  .pc-header-show {
+    display: block;
+  }
+  .phone-header-show {
+    display: none;
   }
 }
 </style>

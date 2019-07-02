@@ -10,7 +10,7 @@ export default new Router({
       path: '/',
       name: 'Index',
       component: () => import('@/views/blog/index/Index.vue'),
-      redirect: { name: 'Home' },
+      redirect: { name: 'Recommend' },
       meta: {
         title: '博客',
         isLogin: false
@@ -58,16 +58,16 @@ export default new Router({
         title: '文章详情',
         isLogin: false
       }
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('@/views/blog/phoneLogin/Login.vue'),
+      meta: {
+        title: '登录',
+        isLogin: false
+      }
     }
-    // {
-    //   path: '/login',
-    //   name: 'login',
-    //   component: () => import('@/views/blog/login/Login.vue'),
-    //   meta: {
-    //     title: '登录',
-    //     isLogin: false
-    //   }
-    // }
   ],
   // 路由激活状态 绑定一个class样式
   linkActiveClass: 'linkActive'
