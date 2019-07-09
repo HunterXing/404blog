@@ -1,7 +1,7 @@
 <template>
   <div class="article">
-    <article-card :myArticle="myArticle" v-if="myArticle.length"></article-card>
-    <div  class="noData-con" v-else>
+    <article-card :myArticle="myArticle" v-show="myArticle.length"></article-card>
+    <div  class="noData-con" v-show="myArticle.length < 0">
       <img src="../../../assets/images/noData.png" alt="">
     </div>
   </div>
@@ -17,7 +17,8 @@ export default {
   components: {
     ArticleCard
   },
-  mounted() {
+  created() {
+    // debugger
     this.getRecommend();
   },
   data() {
@@ -29,23 +30,12 @@ export default {
     getRecommend() {
       // debugger
       this.axios
-        .post("/phpApi/index.php/Home/Article/getRecommend")
+        .get("/api/blog/list")
         .then(res => {
-          console.log(res);
-          let code = res.data.code;
-          if (code > 0) {
-            let message = res.data.message;
-            this.myArticle = res.data.result;
-          } else {
-            this.$message({
-              type: "error",
-              message: message
-            });
-          }
+          console.log(res.data.data);
+          this.myArticle = res.data.data
+          // debugger
         })
-        .catch(error => {
-          console.log(error);
-        });
     }
   }
 };

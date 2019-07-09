@@ -5,7 +5,7 @@
       <div class="m-header">
         <!-- logo标志 -->
         <router-link tag="div" :to="{name: 'Home'}" class="left-logo">
-          <img src="../../assets/logo.png">
+          <img src="../../assets/logo.png" />
         </router-link>
         <!-- tab 集合 -->
         <!-- 首页 -->
@@ -32,7 +32,7 @@
             class="input-search"
             placeholder="搜索文章或关键字"
             @click="inputClick"
-          >
+          />
         </div>
         <!-- 个人信息区域 -->
         <div class="message-box" @click="getMyMessage()">
@@ -49,7 +49,9 @@
         <!-- 头像 -->
         <div class="header-box" v-if="hasLogin">
           <!-- 截取用户名首字为头像 -->
-           <el-avatar style=" margin-top: 5px;background: #009a61;">{{this.$store.state.username.slice(0,1)}}</el-avatar>
+          <el-avatar
+            style=" margin-top: 5px;background: #009a61;"
+          >{{this.$store.state.username.slice(0,1)}}</el-avatar>
         </div>
         <div class="login-register" v-if="!hasLogin">
           <el-button @click="doLoginOrRegis('0')">立即登录</el-button>
@@ -63,13 +65,15 @@
       <div class="m-header">
         <!-- logo标志 -->
         <router-link tag="div" :to="{name: 'Recommend'}" class="left-logo">
-          <img src="../../assets/logo.png">
+          <img src="../../assets/logo.png" />
         </router-link>
         <!-- 头像 -->
         <!-- 头像 -->
         <div class="header-box" v-if="hasLogin">
           <!-- 截取用户名首字为头像 -->
-           <el-avatar style=" margin-top: 5px;background: #009a61;">{{this.$store.state.username.slice(0,1)}}</el-avatar>
+          <el-avatar
+            style=" margin-top: 5px;background: #009a61;"
+          >{{this.$store.state.username.slice(0,1)}}</el-avatar>
         </div>
         <div class="login-register" v-if="!hasLogin">
           <el-button type="mini" @click="doLoginOrRegis('0')">登录</el-button>
@@ -82,64 +86,64 @@
 
 <script>
 export default {
-  name: 'MyHeader',
-  data () {
+  name: "MyHeader",
+  data() {
     return {
       headerPic:
-        'https://avatar-static.segmentfault.com/421/904/4219049238-5c96fb0fef7e6_huge256',
+        "https://avatar-static.segmentfault.com/421/904/4219049238-5c96fb0fef7e6_huge256",
 
-      type: '-1'
-    }
+      type: "-1"
+    };
   },
   methods: {
     // 点击输入框 我想把输入框变长
-    inputClick () {
-      console.log(this.$refs.search.style)
+    inputClick() {
+      console.log(this.$refs.search.style);
       // this.$refs.search
     },
     // 去写文章
-    toWrite () {
+    toWrite() {
       this.$router.push({
-        name: 'Write',
+        name: "Write",
         params: {
-            blogId: ''
+          blogId: ""
         }
-      })
+      });
     },
 
     // 登陆或者注册
-    doLoginOrRegis (type) {
-      this.type = type
-      if (type === '0') {
+    doLoginOrRegis(type) {
+      this.type = type;
+      if (type === "0") {
         // console.log('to login')
-        this.$emit('doLoginOrRegis', this.type)
+        this.$emit("doLoginOrRegis", this.type);
       } else {
         // console.log('to register')
         // this.$emit('doLoginOrRegis', this.type)
         this.$message({
-          type: 'error',
-          message: '个人博客，暂不支持注册'
-        })
+          type: "error",
+          message: "个人博客，暂不支持注册"
+        });
       }
     },
     // 得到个人收件信息
-    getMyMessage () {
+    getMyMessage() {
       // todo
-       this.$message({
-          type: 'error',
-          message: '暂不支持查看邮件'
-      })
+      this.$message({
+        type: "error",
+        message: "暂不支持查看邮件"
+      });
     }
   },
   computed: {
     // let hasLogin = 0
-    hasLogin () {
-     let  hasLogin = this.$store.state.hasLogin
-      return hasLogin
+    hasLogin() {
+      let hasLogin = this.$store.state.hasLogin
+      return hasLogin;
     }
     // return hasLogin
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

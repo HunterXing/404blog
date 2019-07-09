@@ -8,13 +8,8 @@ export default new Vuex.Store({
   // 共享数据较多时，可以把state actions mutations 分开，模块化
   state: {
     // 默认的用户状态
-    hasLogin: localStorage.hasLogin || 0,
-    // username: localStorage.username || '',
-    username: localStorage.nagsergsergserf || '',
-    // password: localStorage.password || '',
-    password: localStorage.psvsergserg || '',
-    // userId: localStorage.userId || ''
-    userId: localStorage.idqwrdfswef || ''
+    hasLogin: 0,
+    username: ''
   },
   // 响应动作
   actions: {
@@ -32,12 +27,6 @@ export default new Vuex.Store({
       // 变化
       state.hasLogin = params.hasLogin
       state.username = params.username
-      state.password = params.password
-      state.userId = params.userId
-      localStorage.hasLogin = params.hasLogin
-      localStorage.nagsergsergserf = params.username
-      localStorage.psvsergserg = params.password
-      localStorage.idqwrdfswef = params.userId
     }
   }
 })

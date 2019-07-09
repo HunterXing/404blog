@@ -11,40 +11,40 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      // php 后台API
-      '/phpApi': {
-        target: 'http://localhost',
-        // true允许跨域
-        changeOrigin: true
-        // pathRewrite: {
-        //   // 需要rewrite重写的, 如果在服务器端做了处理则可以不要这段
-        //   '^/phpApi': '/php'
-        // }
-      },
-      // node后台API
-      '/nodeApi': {
-        target: 'http://127.0.0.1:8000/404blog/backend/node',
-        // true允许跨域
-        changeOrigin: true,
-        pathRewrite: {
-          // rewrite重写的
-          '^/nodeApi': ''
-        }
-      }
-      // 服务器根目录下的接口
-      // '/interface': {
-      //   target: 'http://localhost/',
-      //   changeOrigin: true,
-      //   pathRewrite: {
-      //     '^/interface': '/api'
-      //   }
+      // // php 后台API
+      // '/phpApi': {
+      //   target: 'http://212.64.25.152',
+      //   // true允许跨域
+      //   changeOrigin: true
+      //   // pathRewrite: {
+      //   //   // 需要rewrite重写的, 如果在服务器端做了处理则可以不要这段
+      //   //   '^/phpApi': '/php'
+      //   // }
       // },
+      // node后台API
       // '/api': {
-      //   target: 'http://localhost:8080',
-      //   pathRewrite: {
-      //     '^/api': 'static/mock/'
-      //   }
+      //   target: 'http://localhost:8000',
+      //   // true允许跨域
+      //   changeOrigin: true
+      //   // pathRewrite: {
+      //   //   // rewrite重写的
+      //   //   '^/nodeApi': ''
+      //   // }
       // }
+    //   // 服务器根目录下的接口
+    //   // '/interface': {
+    //   //   target: 'http://localhost/',
+    //   //   changeOrigin: true,
+    //   //   pathRewrite: {
+    //   //     '^/interface': '/api'
+    //   //   }
+    //   // },
+    //   // '/api': {
+    //   //   target: 'http://localhost:8080',
+    //   //   pathRewrite: {
+    //   //     '^/api': 'static/mock/'
+    //   //   }
+    //   // }
     },
 
     // Various Dev Server settings

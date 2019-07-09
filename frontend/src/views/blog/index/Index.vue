@@ -1,86 +1,94 @@
 <template>
-<div class="index-con">
-  <!-- pc端 -->
-  <div class="pc-show">
-    <div class="home" :style="{backgroundImage: 'url(' + (backImg[0]) + ')'}">
-      <my-header @doLoginOrRegis="doLoginOrRegis"></my-header>
-      <div class="content">
-        <!-- 嵌套路由-->
-        <keep-alive>
-          <router-view></router-view>
-        </keep-alive>
-      </div>
-      <my-footer></my-footer>
-      <go-top @goTop="goTop" :backTopShow="backTopShow" :backSeconds="backSeconds" :showPx="showPx"></go-top>
-
-      <!-- 登录 -->
-      <el-dialog
-        title="登录"
-        :visible.sync="dialogFormVisible"
-        width="30%"
-        @close="cancel('form')"
-        :append-to-body="true"
-        :close-on-click-modal="false"
-      >
-        <el-form ref="form" :model="form" label-width="106px" :rules="rules">
-          <el-form-item label="账户:" prop="username">
-            <el-input v-model="form.username"></el-input>
-          </el-form-item>
-          <el-form-item label="密码:" prop="password" type="password">
-            <el-input v-model="form.password" type="password"></el-input>
-          </el-form-item>
-        </el-form>
-
-        <div slot="footer" class="dialog-footer">
-          <el-button @click="cancel('form')">取 消</el-button>
-          <el-button type="primary" @click="doLogin('form')">确 定</el-button>
+  <div class="index-con">
+    <!-- pc端 -->
+    <div class="pc-show">
+      <div class="home" :style="{backgroundImage: 'url(' + (backImg[0]) + ')'}">
+        <my-header @doLoginOrRegis="doLoginOrRegis"></my-header>
+        <div class="content">
+          <!-- 嵌套路由-->
+          <keep-alive>
+            <router-view></router-view>
+          </keep-alive>
         </div>
-      </el-dialog>
+        <my-footer></my-footer>
+        <go-top
+          @goTop="goTop"
+          :backTopShow="backTopShow"
+          :backSeconds="backSeconds"
+          :showPx="showPx"
+        ></go-top>
+
+        <!-- 登录 -->
+        <el-dialog
+          title="登录"
+          :visible.sync="dialogFormVisible"
+          width="30%"
+          @close="cancel('form')"
+          :append-to-body="true"
+          :close-on-click-modal="false"
+        >
+          <el-form ref="form" :model="form" label-width="106px" :rules="rules">
+            <el-form-item label="账户:" prop="username">
+              <el-input v-model="form.username"></el-input>
+            </el-form-item>
+            <el-form-item label="密码:" prop="password" type="password">
+              <el-input v-model="form.password" type="password"></el-input>
+            </el-form-item>
+          </el-form>
+
+          <div slot="footer" class="dialog-footer">
+            <el-button @click="cancel('form')">取 消</el-button>
+            <el-button type="primary" @click="doLogin('form')">确 定</el-button>
+          </div>
+        </el-dialog>
+      </div>
+    </div>
+
+    <!-- 移动端 -->
+    <div class="phone-show">
+      <div class="home">
+        <my-header @doLoginOrRegis="doLoginOrRegis"></my-header>
+        <div class="content">
+          <!-- 嵌套路由-->
+          <keep-alive>
+            <router-view></router-view>
+          </keep-alive>
+        </div>
+        <footer-bar></footer-bar>
+        <my-footer></my-footer>
+        <go-top
+          @goTop="goTop"
+          :backTopShow="backTopShow"
+          :backSeconds="backSeconds"
+          :showPx="showPx"
+        ></go-top>
+
+        <!-- 登录 -->
+        <el-dialog
+          title="登录"
+          :visible.sync="dialogFormVisible"
+          width="90%"
+          @close="cancel('form')"
+          :append-to-body="true"
+          :close-on-click-modal="false"
+        >
+          <el-form ref="form" :model="form" label-width="106px" :rules="rules">
+            <el-form-item label="账户:" prop="username">
+              <el-input v-model="form.username"></el-input>
+            </el-form-item>
+            <el-form-item label="密码:" prop="password" type="password">
+              <el-input v-model="form.password" type="password"></el-input>
+            </el-form-item>
+          </el-form>
+
+          <div slot="footer" class="dialog-footer">
+            <el-button @click="cancel('form')">取 消</el-button>
+            <el-button type="primary" @click="doLogin('form')">确 定</el-button>
+          </div>
+        </el-dialog>
+      </div>
     </div>
   </div>
-
-  <!-- 移动端 -->
-  <div class="phone-show">
-     <div class="home">
-      <my-header @doLoginOrRegis="doLoginOrRegis"></my-header>
-      <div class="content">
-        <!-- 嵌套路由-->
-        <keep-alive>
-          <router-view></router-view>
-        </keep-alive>
-      </div>
-      <footer-bar></footer-bar>
-      <my-footer></my-footer>
-      <go-top @goTop="goTop" :backTopShow="backTopShow" :backSeconds="backSeconds" :showPx="showPx"></go-top>
-
-      <!-- 登录 -->
-      <el-dialog
-        title="登录"
-        :visible.sync="dialogFormVisible"
-        width="90%"
-        @close="cancel('form')"
-        :append-to-body="true"
-        :close-on-click-modal="false"
-      >
-        <el-form ref="form" :model="form" label-width="106px" :rules="rules">
-          <el-form-item label="账户:" prop="username">
-            <el-input v-model="form.username"></el-input>
-          </el-form-item>
-          <el-form-item label="密码:" prop="password" type="password">
-            <el-input v-model="form.password" type="password"></el-input>
-          </el-form-item>
-        </el-form>
-
-        <div slot="footer" class="dialog-footer">
-          <el-button @click="cancel('form')">取 消</el-button>
-          <el-button type="primary" @click="doLogin('form')">确 定</el-button>
-        </div>
-      </el-dialog>
-    </div>
-  </div>
-</div>
-
-
 </template>
 
 <script>
@@ -168,32 +176,29 @@ export default {
           console.log(this.form);
           this.axios
             .post(
-              "/phpApi/index.php/Home/User/login",
+              "/api/user/login",
               qs.stringify({
                 username: this.form.username,
                 password: this.form.password
               })
             )
             .then(res => {
-              let code = res.data.code
-              let userId = res.data.id
-              if (code > 0) {
+              let code = res.data.errno;
+              if (code >= 0) {
                 this.$message({
-                  type: 'success',
-                  message: '登录成功'
-                })
-                this.$store.dispatch('changLoginState', {
-                  hasLogin: 1,
-                  username: this.form.username,
-                  password: this.form.password,
-                  userId
-                  })
-                this.cancel('form')
+                  type: "success",
+                  message: "登录成功"
+                });
+                // this.$store.dispatch("changLoginState", {
+                //   hasLogin: 1,
+                //   username: this.form.username
+                // });
+                this.cancel("form");
               } else {
-                 this.$message({
-                  type: 'error',
-                  message: '登录失败，用户名或密码错误'
-                })
+                this.$message({
+                  type: "error",
+                  message: "登录失败，用户名或密码错误"
+                });
               }
               // console.log(res.data.code);
               // debugger
@@ -219,7 +224,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 /deep/ .el-dialog__header {
   padding: 20px 20px 10px;
   background: #f5f5f5;
@@ -245,7 +249,6 @@ export default {
   }
 }
 
-
 // pc端样式
 .pc-show {
   display: block;
@@ -253,7 +256,6 @@ export default {
 // 移动端样式
 .phone-show {
   display: none;
-
 }
 
 // 移动端样式
@@ -266,5 +268,4 @@ export default {
     display: block;
   }
 }
-
 </style>
