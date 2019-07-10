@@ -9,7 +9,8 @@ const login = (username, password) => {
     password = genPassword(password)
     password = escape(password)
 
-    const sql = `
+    const sql = 
+    `
         select * from tb_users where username=${username} and password=${password}
     `
     // console.log('sql is', sql)
@@ -23,10 +24,11 @@ const login = (username, password) => {
 // 用户信息
 const userInfo = (username) => {
     username = escape(username)
-    const sql = `
+    const sql = 
+    `
         select tb_users.id ,username  from tb_users where username=${username}
     `
-    // console.log('sql is', sql)
+    // console.log('sql is', sql) 
     return exec(sql).then(rows => {
         return rows[0] || {}
     })

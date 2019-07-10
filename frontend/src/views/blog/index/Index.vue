@@ -161,6 +161,7 @@ export default {
         // this.backTopAllow = false
       }
     },
+
     doLoginOrRegis(type) {
       // console.log(type);
       this.loginOrRegister = type;

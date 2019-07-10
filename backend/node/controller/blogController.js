@@ -1,22 +1,25 @@
 const {
-    exec
+    exec,
+    escape
 } = require('./../db/mysql')
-
+const { timestampToTime } = require('../utils/data')
 // 得到博客推荐列表
 const getList = (author, keyword) => {
+    author = escape(author)
+    keyword = escape(keyword)
     let sql =
         `select * , tb_blogs.id as articleid
-    from tb_blogs, tb_users 
-    where tb_blogs.author_id=tb_users.id 
-    and tb_blogs.show=1
-    `
+            from tb_blogs, tb_users 
+            where tb_blogs.author_id=tb_users.id 
+            and tb_blogs.show=1
+        `
     if (author) {
-        sql += `and author='${author}' `
+        sql += `and author=${author} `
     }
     if (keyword) {
-        sql += `and title like '%${keyword}%' `
+        sql += `and title like %${keyword}% `
     }
-    sql += `order by createtime desc;`
+    sql += `order by tb_blogs.createtime desc;`
 
     // 返回 promise
     return exec(sql)
@@ -30,7 +33,8 @@ const getMyArticle = (username) => {
         from tb_blogs, tb_users 
         where tb_blogs.author_id=tb_users.id
         and tb_users.username= '${username}' 
-        and tb_blogs.show=1
+        and tb_blogs.show=1 
+        order by tb_blogs.createtime desc;
     `
     // console.log(sql)
     return exec(sql).then(rows => {
@@ -64,23 +68,27 @@ const getEditArticle = (blogId) => {
 }
 // 编辑博客
 const editArticle = (blogId, title, detail, type, link, markdown) => {
-
+    detail = escape(detail)
+    markdown = escape(markdown)
+   
+    title = escape(title)
     // console.log(typeof(type),type)
     if (type === 0 + '') {
         link = ''
     }
+    link = escape(link)
     let sql =
         `
     update tb_blogs
     set
-        title = '${title}',
-        content ='${detail}',
+        title = ${title},
+        content =${detail},
         type =  ${type},
-        link ='${link}',
-        markdown ='${markdown}'
+        link = ${link},
+        markdown =${markdown}
     where id = ${blogId}
     `
-    // console.log(sql)
+    console.log(sql)
     return exec(sql).then(updateData => {
         // console.log('updateData is ', updateData)
         if (updateData.affectedRows > 0) {
@@ -92,11 +100,15 @@ const editArticle = (blogId, title, detail, type, link, markdown) => {
 
 // 添加博客
 const addArticle = (title, content, link, author_id,markdown,type) => {
-    let createtime = Date.now()
+    content = escape(content)
+    markdown = escape(markdown)
+    title = escape(title)
+    link = escape(link)
+    let createtime = timestampToTime(Date.now())
     let sql =
     `
         insert into tb_blogs (title, content, link, createtime, author_id, markdown, type)
-        values ('${title}', '${content}', '${link}', '${createtime}', '${author_id}', '${markdown}', '${type}');
+        values (${title}, ${content}, ${link}, '${createtime}', '${author_id}', ${markdown}, '${type}');
     `
     console.log(sql)
     return exec(sql).then(insertData => {
@@ -154,7 +166,6 @@ const addview = (blogId) => {
         }
         return false
     })
-
 }
 
 module.exports = {
