@@ -99,7 +99,6 @@ class ArticleController extends Controller {
             );
             echo json_encode($datas);
         }
-        
     }
 
     // 保存文章

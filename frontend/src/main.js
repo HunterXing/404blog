@@ -1,6 +1,7 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
+import Vuex from 'vuex'
 // import App from './App'
 import Index from './views/blog/index/Index'
 import router from './router'
@@ -21,6 +22,7 @@ Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(VueLazyload)
 Vue.use(store)
+Vue.use(Vuex)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
@@ -40,7 +42,7 @@ router.beforeEach((to, from, next) => {
   if (to.meta.title) {
     document.title = to.meta.title
   }
-  let getFlag = localStorage.hasLogin
+  let getFlag = localStorage.isLogin
 
   if (getFlag) {
     next()

@@ -33,7 +33,11 @@ export default {
     doSubmit () {
       this.$emit('doSubmit')
     }
-  }
+  },
+  mounted() {
+     // 登录验证
+    this.$store.dispatch("loginCheck");
+  },
 
 }
 </script>

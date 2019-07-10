@@ -72,23 +72,26 @@ export default {
     };
   },
   mounted() {
-    this.getEditArticle();
+    if (this.$route.params.blogId) {
+       this.getEditArticle();
+    }
+
   },
   methods: {
     // 得到需要编辑的文章
     getEditArticle() {
       this.axios
         .post(
-          "/phpApi/index.php/Home/Article/getEditArticle",
+          "/api/blog/getEditArticle",
           qs.stringify({
             blogId: this.$route.params.blogId
           })
         )
         .then(res => {
           console.log(res);
-          let data = res.data.result;
+          let data = res.data.data;
           this.form.articleTitle = data.title;
-          this.form.articleType = data.type;
+          this.form.articleType = data.type+"";
           this.form.articleText = data.markdown;
           this.form.link = data.link;
         })
@@ -132,13 +135,15 @@ export default {
     // 添加文章
     addArticle(html, markdown) {
       // addArticle
+      console.log(this.$store.state.auth.id)
+      debugger
       this.axios
         .post(
-          "/phpApi/index.php/Home/Article/addArticle",
+          "/api/blog/addArticle",
           qs.stringify({
-            userId: this.$store.state.userId,
+            author_id: this.$store.state.auth.id,
             title: this.form.articleTitle,
-            detail: html,
+            content: html,
             type: this.form.articleType,
             link: this.form.link,
             markdown: markdown
@@ -146,10 +151,10 @@ export default {
         )
         .then(res => {
           // console.log(res);
-          let code = res.data.code;
+          let code = res.data.errno;
           let message = res.data.message;
-          if (code > 0) {
-            let blogId = res.data.blogId;
+          if (code === 0) {
+            let blogId = res.data.data.id;
             this.$message({
               type: "success",
               message: message
@@ -162,11 +167,6 @@ export default {
                 }
               });
             }, 1500);
-          } else {
-            this.$message({
-              type: "error",
-              message: message
-            });
           }
         })
         .catch(error => {
@@ -177,11 +177,10 @@ export default {
     editArticle(html, markdown) {
       this.axios
         .post(
-          "/phpApi/index.php/Home/Article/editArticle",
+          "/api/blog/editArticle",
           qs.stringify({
-            userId: this.$store.state.userId,
+            // userId: this.$store.state.auth.id,
             blogId: this.$route.params.blogId,
-            hasLogin: this.$store.state.userId,
             title: this.form.articleTitle,
             detail: html,
             type: this.form.articleType,
@@ -190,10 +189,10 @@ export default {
           })
         )
         .then(res => {
-          // console.log(res);
-          let code = res.data.code;
+          console.log(res);
+          let code = res.data.errno;
           let message = res.data.message;
-          if (code > 0) {
+          if (code ===  0) {
             let blogId = this.$route.params.blogId;
             this.$message({
               type: "success",

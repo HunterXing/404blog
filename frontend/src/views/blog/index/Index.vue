@@ -50,9 +50,7 @@
         <my-header @doLoginOrRegis="doLoginOrRegis"></my-header>
         <div class="content">
           <!-- 嵌套路由-->
-          <keep-alive>
-            <router-view></router-view>
-          </keep-alive>
+          <router-view></router-view>
         </div>
         <footer-bar></footer-bar>
         <my-footer></my-footer>
@@ -67,7 +65,7 @@
         <el-dialog
           title="登录"
           :visible.sync="dialogFormVisible"
-          width="90%"
+          width="80%"
           @close="cancel('form')"
           :append-to-body="true"
           :close-on-click-modal="false"
@@ -193,6 +191,7 @@ export default {
                 //   hasLogin: 1,
                 //   username: this.form.username
                 // });
+                this.$store.dispatch("loginCheck");
                 this.cancel("form");
               } else {
                 this.$message({
@@ -219,6 +218,8 @@ export default {
     // 页面挂载时就启动监听
     // document.documentElement.scrollTop = 0
     window.addEventListener("scroll", this.backTopShowOperate, true);
+    // 登录验证
+    this.$store.dispatch("loginCheck");
   }
 };
 </script>

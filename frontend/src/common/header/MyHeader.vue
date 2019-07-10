@@ -20,7 +20,7 @@
         <!-- 我的文章 -->
         <router-link tag="div" :to="{name: 'Article'}" class="my-article">
           <i class="el-icon-tickets"></i>
-          <span class="link">my文章</span>
+          <span class="link">我的</span>
         </router-link>
         <!--  标签-->
         <div class="tags"></div>
@@ -43,24 +43,28 @@
         </div>
 
         <!-- 写文章 -->
-        <div class="write" v-if="hasLogin">
+        <div class="write" v-if="auth.isLogin">
           <el-button type="plain" plain @click.native="toWrite()">写文章</el-button>
         </div>
         <!-- 头像 -->
-        <div class="header-box" v-if="hasLogin">
+        <div class="header-box" v-if="auth.isLogin">
           <!-- 截取用户名首字为头像 -->
           <el-avatar
             style=" margin-top: 5px;background: #009a61;"
-          >{{this.$store.state.username.slice(0,1)}}</el-avatar>
+          >{{auth.username.slice(0,1)}}</el-avatar>
         </div>
-        <div class="login-register" v-if="!hasLogin">
+         <!-- 写文章 -->
+        <div class="write" v-if="auth.isLogin">
+          <el-button type="danger" plain @click.native="doExit()">退出</el-button>
+        </div>
+        <div class="login-register" v-if="!auth.isLogin">
           <el-button @click="doLoginOrRegis('0')">立即登录</el-button>
           <el-button type="success" @click="doLoginOrRegis('1')">免费注册</el-button>
         </div>
       </div>
     </div>
 
-    <!-- 移动端 待做-->
+    <!-- 移动端-->
     <div class="phone-header-show">
       <div class="m-header">
         <!-- logo标志 -->
@@ -69,13 +73,13 @@
         </router-link>
         <!-- 头像 -->
         <!-- 头像 -->
-        <div class="header-box" v-if="hasLogin">
+        <div class="header-box" v-if="auth.isLogin">
           <!-- 截取用户名首字为头像 -->
           <el-avatar
             style=" margin-top: 5px;background: #009a61;"
-          >{{this.$store.state.username.slice(0,1)}}</el-avatar>
+          >{{auth.username.slice(0,1)}}</el-avatar>
         </div>
-        <div class="login-register" v-if="!hasLogin">
+        <div class="login-register" v-if="!auth.isLogin">
           <el-button type="mini" @click="doLoginOrRegis('0')">登录</el-button>
           <!-- <el-button type="success" @click="doLoginOrRegis('1')">免费注册</el-button> -->
         </div>
@@ -126,6 +130,24 @@ export default {
         });
       }
     },
+
+    // 退出
+    doExit () {
+      this.axios.get('/api/user/exit')
+      .then( res => {
+        console.log(res)
+        // 退出成功
+        if (res.data.errno === 0) {
+          this.$store.dispatch("loginCheck");
+          // this.$router.push({
+          //   name:"Recommend"
+          // })
+        }
+      }).catch(err => {
+        console.log(err)
+      })
+    },
+
     // 得到个人收件信息
     getMyMessage() {
       // todo
@@ -136,12 +158,9 @@ export default {
     }
   },
   computed: {
-    // let hasLogin = 0
-    hasLogin() {
-      let hasLogin = this.$store.state.hasLogin
-      return hasLogin;
+    auth() {
+      return this.$store.state.auth;
     }
-    // return hasLogin
   }
 };
 </script>
@@ -231,7 +250,7 @@ export default {
     }
 
     .header-box {
-      flex: 5;
+      flex: 2;
       display: inline-block;
       height: 50px;
       line-height: 65px;

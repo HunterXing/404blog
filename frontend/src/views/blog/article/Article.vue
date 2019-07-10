@@ -19,42 +19,27 @@ export default {
   mounted() {
     this.getMyArticle();
   },
+  activated () {
+    this.getMyArticle();
+  },
   data() {
     return {
       myArticle: []
     };
   },
   methods: {
-    // getApi () {
-    //   axios.get('http://212.64.25.152:5000/test')
-    //     .then(function (res) {
-    //       console.log(res)
-    //     })
-    //     .catch(function (err) {
-    //       console.log(err)
-    //     })
-    // }
-    // 得到自己所有的文章
     getMyArticle() {
       // debugger
       this.axios
         .post(
-          "/phpApi/index.php/Home/Article/getMyArticle",
-          qs.stringify({
-            userId: this.$store.state.userId
-          })
+          "/api/blog/getMyArticle",
         )
         .then(res => {
           console.log(res);
-          let code = res.data.code;
-          if (code > 0) {
-            let message = res.data.message;
-            this.myArticle = res.data.result;
-          } else {
-            this.$message({
-              type: "error",
-              message: message
-            });
+          let code = res.data.errno;
+          if (code ===  0) {
+            // let message = res.data.message;
+            this.myArticle = res.data.data;
           }
         })
         .catch(error => {

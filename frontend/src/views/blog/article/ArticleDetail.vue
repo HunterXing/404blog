@@ -2,26 +2,16 @@
   <div class="article">
     <my-header></my-header>
     <div class="article-detail markdown-body">
-      <!-- <div class="author-info-con clearfix">
-        <img  class="fl header-pic" src="https://avatar-static.segmentfault.com/421/904/4219049238-5c96fb0fef7e6_big64" alt="">
-        <div class="fl">
-          <div class="top">
-
-          </div>
-          <div class="bottom">
-
-          </div>
-        </div>
-      </div>-->
       <div class="article-title-con">
         <span class="article-title">{{articleDetail.title}}</span>
       </div>
-      <el-tag v-if="articleDetail.type === '0'">原创</el-tag>
+      <el-tag v-if="articleDetail.type === 0 ">原创</el-tag>
       <el-tag v-else>转载自 {{articleDetail.link}}</el-tag>
       <el-tag type="info">作者：{{articleDetail.username}}</el-tag>
       <el-tag type="success">{{articleDetail.preview}} 浏览</el-tag>
       <span class="create-time">{{articleDetail.createtime}}</span>
-      <div class="fr" v-if="articleDetail.id === this.$store.state.userId">
+      <!-- 是本文章的作者才能进行编辑和删除 -->
+      <div class="fr" v-if="articleDetail.id === auth.id">
         <el-button
           type="success"
           size="small"
@@ -34,19 +24,6 @@
 
       <div v-html="articleDetail.content" class="article-content"></div>
     </div>
-    <!-- <el-backtop target=".article-title-con " :bottom="100">
-      <div
-        style="{
-            height: 100%;
-            width: 100%;
-            background-color: #f2f5f6;
-            box-shadow: 0 0 6px rgba(0,0,0, .12);
-            text-align: center;
-            line-height: 40px;
-            color: #1989fa;
-          }"
-      >sdfesdrgsergsergse</div>
-    </el-backtop>-->
     <!-- 自己定义的返回顶部组件 -->
     <go-top @goTop="goTop" :backTopShow="backTopShow" :backSeconds="backSeconds" :showPx="showPx"></go-top>
   </div>
@@ -78,30 +55,24 @@ export default {
   },
   methods: {
     getData() {
-      // this.axios
-      //   .get("/phpApi/Home/Article/getDetail")
-      //   .then(res => {
-      //     // console.log(res.data[0].content);
-      //     this.article = res.data[0].content;
-      //   })
-      //   .catch(function(err) {
-      //     console.log(err);
-      //   });
-
       this.axios
         .post(
-          "/phpApi/index.php/Home/Article/getDetail",
+          "/api/blog/detail",
           qs.stringify({
             blogId: this.$route.params.blogId
           })
         )
         .then(res => {
           console.log(res);
-          let code = res.data.code;
-          let message = res.data.message;
-          this.articleDetail = res.data.result;
-          if (code > 0) {
+          let code = res.data.errno;
+          // let message = res.data.message;
+
+          console.log(res.data.data)
+          if (code >= 0) {
+            this.articleDetail = res.data.data;
+            // debugger
             let blogId = res.data.blogId;
+            console.log(res.data.blogId)
             // this.$message({
             //   type: "success",
             //   message: message
@@ -128,9 +99,6 @@ export default {
         .then(() => {
           this.doDel();
         })
-        .then(() => {
-          this.doDel();
-        })
         .catch(() => {
           this.$message({
             type: "info",
@@ -142,18 +110,16 @@ export default {
     doDel() {
       this.axios
         .post(
-          "/phpApi/index.php/Home/Article/delArticle",
+          "/api/blog/delArticle",
           qs.stringify({
-            blogId: this.$route.params.blogId,
-            userId: this.$store.state.userId,
-            hasLogin: this.$store.state.hasLogin
+            blogId: this.$route.params.blogId
           })
         )
         .then(res => {
           console.log(res);
-          let code = res.data.code;
+          let code = res.data.errno;
           let message = res.data.message;
-          if (code > 0) {
+          if (code === 0) {
             this.goHome();
             this.$message({
               type: "success",
@@ -169,13 +135,13 @@ export default {
     addPageView() {
       this.axios
         .post(
-          "/phpApi/index.php/Home/Article/addview",
+          "/api/blog/addview",
           qs.stringify({
             blogId: this.$route.params.blogId,
           })
         )
         .then(res => {
-          // console.log(res);
+          console.log(res);
         })
         .catch(error => {
           console.log(error);
@@ -235,6 +201,12 @@ export default {
     this.getData();
     this.addPageView();
     window.addEventListener("scroll", this.backTopShowOperate, true);
+    this.$store.dispatch("loginCheck");
+  },
+  computed: {
+    auth() {
+      return this.$store.state.auth;
+    }
   }
 };
 </script>
