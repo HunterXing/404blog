@@ -2,7 +2,7 @@
 - 登录
 
   ```
-  api/Home/User/login
+  api/user/login           post
   ```
 
   | 参数名   | 描述   |
@@ -11,80 +11,114 @@
   | password | 密码   |
 
   
+- 退出
+
+  ```
+  api/user/exit             get
+  ```
+  `不需要参数`
+
+
+- 登录验证
+
+  ```
+  api/user/loginCheck       get
+  ```
+  `不需要参数`
+
 
 - 我的所有文章首页
 
   ```
-  api/user/login
+  api/blog/list             get
   ```
 
   | 参数名   | 描述   |
   | -------- | ------ |
-  | username | 用户名 |
-  | password | 密码   |
+  | author | 用户名 |
+  | keyword | 关键词   |
 
-
-- 推荐
-
-  ```
-  api/user/login
-  ```
-
-  | 参数名   | 描述   |
-  | -------- | ------ |
-  | username | 用户名 |
-  | password | 密码   |
-
-- 写文章
-
-  - 保存文章
-  - 发布文章
+- 推荐文章
 
   ```
-  api/user/login
+  api/blog/getMyArticle      post
+  ```
+  `不需要参数`
+
+- 文章详情
+
+  ```
+  api/blog/detail            post
   ```
 
   | 参数名   | 描述   |
   | -------- | ------ |
-  | username | 用户名 |
-  | password | 密码   |
+  | blogId | 博客的id |
 
+
+- 添加文章
+
+  ```
+  api/blog/addArticle        post
+  ```
+
+  | 参数名   | 描述   |
+  | -------- | ------ |
+  | title | 博客的标题 |
+  | content | 博客的内容 |
+  | link | 博客转载的链接 |
+  | author_id | 作者的id |
+  | markdown | 博客的markdown文档内容 |
+  | type | 博客的类型 转载或者原创 |
+
+
+
+- 得到需要编辑文章的详情
+
+    ```
+    api/blog/getEditArticle     post
+    ```
+
+  | 参数名   | 描述   |
+  | -------- | ------ |
+  | blogId | 博客的id |
 
 
 - 编辑文章
 
-  ​	
-
     ```
-    api/user/login
+    api/blog/editArticle      post
     ```
 
   | 参数名   | 描述   |
   | -------- | ------ |
-  | username | 用户名 |
-  | password | 密码   |
+  | blogId | 博客的id |
+  | title | 博客的标题 |
+  | detail | 博客的内容 |
+  | link | 博客转载的链接 |
+  | markdown | 博客的markdown文档内容 |
+  | type | 博客的类型 转载或者原创 |
+
 
 - 删除文章
 
   ```
-  api/user/login
+  api/blog/delArticle            post
   ```
 
   | 参数名   | 描述   |
   | -------- | ------ |
-  | username | 用户名 |
-  | password | 密码   |
+  | blogId | 博客的id |
 
-- 查看文章
+- 增加文章的预览人数
 
   ```
-  api/user/login
+  api/blog/addview               post
   ```
 
   | 参数名   | 描述   |
   | -------- | ------ |
-  | username | 用户名 |
-  | password | 密码   |
+  | blogId | 博客的id |
 
 
 
