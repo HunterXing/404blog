@@ -11,7 +11,7 @@
       <el-tag type="success">{{articleDetail.preview}} 浏览</el-tag>
       <span class="create-time">{{articleDetail.createtime}}</span>
       <!-- 是本文章的作者才能进行编辑和删除 -->
-      <div class="fr" v-if="articleDetail.id === auth.id">
+      <div class="fr editor-con" v-if="articleDetail.id === auth.id">
         <el-button
           type="success"
           size="small"
@@ -267,12 +267,18 @@ export default {
     width: 90%;
     margin: 20px auto;
   }
+  .editor-con {
+    display: none;
+  }
 }
 @media only screen and( min-width:960px) {
   // 当屏幕宽度大于960时 认为是PC端
   .article-detail {
     width: 60%;
     margin: 20px auto;
+  }
+  .editor-con {
+    display: block;
   }
 }
 </style>

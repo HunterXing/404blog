@@ -5,8 +5,6 @@ const {
 const { timestampToTime } = require('../utils/data')
 // 得到博客推荐列表
 const getList = (author, keyword) => {
-    author = escape(author)
-    keyword = escape(keyword)
     let sql =
         `select * , tb_blogs.id as articleid
             from tb_blogs, tb_users 
@@ -14,13 +12,15 @@ const getList = (author, keyword) => {
             and tb_blogs.show=1
         `
     if (author) {
+        author = escape(author) 
         sql += `and author=${author} `
     }
     if (keyword) {
+        keyword = escape(keyword) 
         sql += `and title like %${keyword}% `
     }
     sql += `order by tb_blogs.createtime desc;`
-
+    console.log(sql)
     // 返回 promise
     return exec(sql)
 }

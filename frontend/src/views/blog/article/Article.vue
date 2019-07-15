@@ -19,9 +19,6 @@ export default {
   mounted() {
     this.getMyArticle();
   },
-  activated () {
-    this.getMyArticle();
-  },
   data() {
     return {
       myArticle: []
@@ -29,7 +26,6 @@ export default {
   },
   methods: {
     getMyArticle() {
-      // debugger
       this.axios
         .post(
           "/api/blog/getMyArticle",
