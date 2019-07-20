@@ -4,8 +4,8 @@
 
 ### 预览地址 （PC或者手机）
 #### > 注意：PC端支持markdown编辑博客，但是手机端不支持编辑，仅支持查看博客内容
-[博客预览地址](http://212.64.25.152:8081) 
-
+[博客预览地址:php后台版本](http://212.64.25.152) 
+[博客预览地址:node后台版本](http://212.64.25.152:8081) 
 ### 技术栈
 
 前端：html、css、sass、ES6、webpack、vue-cli、vue2、vuex、vue-router、axios、element-ui
