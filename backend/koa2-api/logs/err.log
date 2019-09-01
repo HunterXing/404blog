@@ -1,0 +1,400 @@
+2019-09-01 20:51:02: { Error: connect ECONNREFUSED 127.0.0.1:3306
+2019-09-01 20:51:02:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1117:14)
+2019-09-01 20:51:02:     --------------------
+2019-09-01 20:51:02:     at Protocol._enqueue (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+2019-09-01 20:51:02:     at Protocol.handshake (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+2019-09-01 20:51:02:     at Connection.connect (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\Connection.js:119:18)
+2019-09-01 20:51:02:     at Object.<anonymous> (C:\xampp\htdocs\404blog\backend\koa2-api\db\mysql.js:8:5)
+2019-09-01 20:51:02:     at Module._compile (internal/modules/cjs/loader.js:689:30)
+2019-09-01 20:51:02:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+2019-09-01 20:51:02:     at Module.load (internal/modules/cjs/loader.js:599:32)
+2019-09-01 20:51:02:     at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+2019-09-01 20:51:02:     at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+2019-09-01 20:51:02:     at Module.require (internal/modules/cjs/loader.js:637:17)
+2019-09-01 20:51:02:     at Module.Hook._require.Module.require (C:\Users\10482\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:70:37)
+2019-09-01 20:51:02:     at require (internal/modules/cjs/helpers.js:22:18)
+2019-09-01 20:51:02:     at Object.<anonymous> (C:\xampp\htdocs\404blog\backend\koa2-api\controller\userController.js:1:88)
+2019-09-01 20:51:02:     at Module._compile (internal/modules/cjs/loader.js:689:30)
+2019-09-01 20:51:02:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+2019-09-01 20:51:02:     at Module.load (internal/modules/cjs/loader.js:599:32)
+2019-09-01 20:51:02:   errno: 'ECONNREFUSED',
+2019-09-01 20:51:02:   code: 'ECONNREFUSED',
+2019-09-01 20:51:02:   syscall: 'connect',
+2019-09-01 20:51:02:   address: '127.0.0.1',
+2019-09-01 20:51:02:   port: 3306,
+2019-09-01 20:51:02:   fatal: true }
+2019-09-01 20:51:06: { Error: connect ECONNREFUSED 127.0.0.1:3306
+2019-09-01 20:51:06:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1117:14)
+2019-09-01 20:51:06:     --------------------
+2019-09-01 20:51:06:     at Protocol._enqueue (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+2019-09-01 20:51:06:     at Protocol.handshake (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+2019-09-01 20:51:06:     at Connection.connect (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\Connection.js:119:18)
+2019-09-01 20:51:06:     at Object.<anonymous> (C:\xampp\htdocs\404blog\backend\koa2-api\db\mysql.js:8:5)
+2019-09-01 20:51:06:     at Module._compile (internal/modules/cjs/loader.js:689:30)
+2019-09-01 20:51:06:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+2019-09-01 20:51:06:     at Module.load (internal/modules/cjs/loader.js:599:32)
+2019-09-01 20:51:06:     at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+2019-09-01 20:51:06:     at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+2019-09-01 20:51:06:     at Module.require (internal/modules/cjs/loader.js:637:17)
+2019-09-01 20:51:06:     at Module.Hook._require.Module.require (C:\Users\10482\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:70:37)
+2019-09-01 20:51:06:     at require (internal/modules/cjs/helpers.js:22:18)
+2019-09-01 20:51:06:     at Object.<anonymous> (C:\xampp\htdocs\404blog\backend\koa2-api\controller\userController.js:1:88)
+2019-09-01 20:51:06:     at Module._compile (internal/modules/cjs/loader.js:689:30)
+2019-09-01 20:51:06:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+2019-09-01 20:51:06:     at Module.load (internal/modules/cjs/loader.js:599:32)
+2019-09-01 20:51:06:   errno: 'ECONNREFUSED',
+2019-09-01 20:51:06:   code: 'ECONNREFUSED',
+2019-09-01 20:51:06:   syscall: 'connect',
+2019-09-01 20:51:06:   address: '127.0.0.1',
+2019-09-01 20:51:06:   port: 3306,
+2019-09-01 20:51:06:   fatal: true }
+2019-09-01 20:51:09: { Error: connect ECONNREFUSED 127.0.0.1:3306
+2019-09-01 20:51:09:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1117:14)
+2019-09-01 20:51:09:     --------------------
+2019-09-01 20:51:09:     at Protocol._enqueue (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+2019-09-01 20:51:09:     at Protocol.handshake (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+2019-09-01 20:51:09:     at Connection.connect (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\Connection.js:119:18)
+2019-09-01 20:51:09:     at Object.<anonymous> (C:\xampp\htdocs\404blog\backend\koa2-api\db\mysql.js:8:5)
+2019-09-01 20:51:09:     at Module._compile (internal/modules/cjs/loader.js:689:30)
+2019-09-01 20:51:09:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+2019-09-01 20:51:09:     at Module.load (internal/modules/cjs/loader.js:599:32)
+2019-09-01 20:51:09:     at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+2019-09-01 20:51:09:     at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+2019-09-01 20:51:09:     at Module.require (internal/modules/cjs/loader.js:637:17)
+2019-09-01 20:51:09:     at Module.Hook._require.Module.require (C:\Users\10482\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:70:37)
+2019-09-01 20:51:09:     at require (internal/modules/cjs/helpers.js:22:18)
+2019-09-01 20:51:09:     at Object.<anonymous> (C:\xampp\htdocs\404blog\backend\koa2-api\controller\userController.js:1:88)
+2019-09-01 20:51:09:     at Module._compile (internal/modules/cjs/loader.js:689:30)
+2019-09-01 20:51:09:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+2019-09-01 20:51:09:     at Module.load (internal/modules/cjs/loader.js:599:32)
+2019-09-01 20:51:09:   errno: 'ECONNREFUSED',
+2019-09-01 20:51:09:   code: 'ECONNREFUSED',
+2019-09-01 20:51:09:   syscall: 'connect',
+2019-09-01 20:51:09:   address: '127.0.0.1',
+2019-09-01 20:51:09:   port: 3306,
+2019-09-01 20:51:09:   fatal: true }
+2019-09-01 20:51:12: { Error: connect ECONNREFUSED 127.0.0.1:3306
+2019-09-01 20:51:12:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1117:14)
+2019-09-01 20:51:12:     --------------------
+2019-09-01 20:51:12:     at Protocol._enqueue (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+2019-09-01 20:51:12:     at Protocol.handshake (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+2019-09-01 20:51:12:     at Connection.connect (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\Connection.js:119:18)
+2019-09-01 20:51:12:     at Object.<anonymous> (C:\xampp\htdocs\404blog\backend\koa2-api\db\mysql.js:8:5)
+2019-09-01 20:51:12:     at Module._compile (internal/modules/cjs/loader.js:689:30)
+2019-09-01 20:51:12:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+2019-09-01 20:51:12:     at Module.load (internal/modules/cjs/loader.js:599:32)
+2019-09-01 20:51:12:     at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+2019-09-01 20:51:12:     at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+2019-09-01 20:51:12:     at Module.require (internal/modules/cjs/loader.js:637:17)
+2019-09-01 20:51:12:     at Module.Hook._require.Module.require (C:\Users\10482\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:70:37)
+2019-09-01 20:51:12:     at require (internal/modules/cjs/helpers.js:22:18)
+2019-09-01 20:51:12:     at Object.<anonymous> (C:\xampp\htdocs\404blog\backend\koa2-api\controller\userController.js:1:88)
+2019-09-01 20:51:12:     at Module._compile (internal/modules/cjs/loader.js:689:30)
+2019-09-01 20:51:12:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+2019-09-01 20:51:12:     at Module.load (internal/modules/cjs/loader.js:599:32)
+2019-09-01 20:51:12:   errno: 'ECONNREFUSED',
+2019-09-01 20:51:12:   code: 'ECONNREFUSED',
+2019-09-01 20:51:12:   syscall: 'connect',
+2019-09-01 20:51:12:   address: '127.0.0.1',
+2019-09-01 20:51:12:   port: 3306,
+2019-09-01 20:51:12:   fatal: true }
+2019-09-01 20:51:16: { Error: connect ECONNREFUSED 127.0.0.1:3306
+2019-09-01 20:51:16:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1117:14)
+2019-09-01 20:51:16:     --------------------
+2019-09-01 20:51:16:     at Protocol._enqueue (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+2019-09-01 20:51:16:     at Protocol.handshake (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+2019-09-01 20:51:16:     at Connection.connect (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\Connection.js:119:18)
+2019-09-01 20:51:16:     at Object.<anonymous> (C:\xampp\htdocs\404blog\backend\koa2-api\db\mysql.js:8:5)
+2019-09-01 20:51:16:     at Module._compile (internal/modules/cjs/loader.js:689:30)
+2019-09-01 20:51:16:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+2019-09-01 20:51:16:     at Module.load (internal/modules/cjs/loader.js:599:32)
+2019-09-01 20:51:16:     at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+2019-09-01 20:51:16:     at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+2019-09-01 20:51:16:     at Module.require (internal/modules/cjs/loader.js:637:17)
+2019-09-01 20:51:16:     at Module.Hook._require.Module.require (C:\Users\10482\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:70:37)
+2019-09-01 20:51:16:     at require (internal/modules/cjs/helpers.js:22:18)
+2019-09-01 20:51:16:     at Object.<anonymous> (C:\xampp\htdocs\404blog\backend\koa2-api\controller\userController.js:1:88)
+2019-09-01 20:51:16:     at Module._compile (internal/modules/cjs/loader.js:689:30)
+2019-09-01 20:51:16:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+2019-09-01 20:51:16:     at Module.load (internal/modules/cjs/loader.js:599:32)
+2019-09-01 20:51:16:   errno: 'ECONNREFUSED',
+2019-09-01 20:51:16:   code: 'ECONNREFUSED',
+2019-09-01 20:51:16:   syscall: 'connect',
+2019-09-01 20:51:16:   address: '127.0.0.1',
+2019-09-01 20:51:16:   port: 3306,
+2019-09-01 20:51:16:   fatal: true }
+2019-09-01 20:51:19: { Error: connect ECONNREFUSED 127.0.0.1:3306
+2019-09-01 20:51:19:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1117:14)
+2019-09-01 20:51:19:     --------------------
+2019-09-01 20:51:19:     at Protocol._enqueue (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+2019-09-01 20:51:19:     at Protocol.handshake (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+2019-09-01 20:51:19:     at Connection.connect (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\Connection.js:119:18)
+2019-09-01 20:51:19:     at Object.<anonymous> (C:\xampp\htdocs\404blog\backend\koa2-api\db\mysql.js:8:5)
+2019-09-01 20:51:19:     at Module._compile (internal/modules/cjs/loader.js:689:30)
+2019-09-01 20:51:19:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+2019-09-01 20:51:19:     at Module.load (internal/modules/cjs/loader.js:599:32)
+2019-09-01 20:51:19:     at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+2019-09-01 20:51:19:     at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+2019-09-01 20:51:19:     at Module.require (internal/modules/cjs/loader.js:637:17)
+2019-09-01 20:51:19:     at Module.Hook._require.Module.require (C:\Users\10482\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:70:37)
+2019-09-01 20:51:19:     at require (internal/modules/cjs/helpers.js:22:18)
+2019-09-01 20:51:19:     at Object.<anonymous> (C:\xampp\htdocs\404blog\backend\koa2-api\controller\userController.js:1:88)
+2019-09-01 20:51:19:     at Module._compile (internal/modules/cjs/loader.js:689:30)
+2019-09-01 20:51:19:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+2019-09-01 20:51:19:     at Module.load (internal/modules/cjs/loader.js:599:32)
+2019-09-01 20:51:19:   errno: 'ECONNREFUSED',
+2019-09-01 20:51:19:   code: 'ECONNREFUSED',
+2019-09-01 20:51:19:   syscall: 'connect',
+2019-09-01 20:51:19:   address: '127.0.0.1',
+2019-09-01 20:51:19:   port: 3306,
+2019-09-01 20:51:19:   fatal: true }
+2019-09-01 20:51:22: { Error: connect ECONNREFUSED 127.0.0.1:3306
+2019-09-01 20:51:22:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1117:14)
+2019-09-01 20:51:22:     --------------------
+2019-09-01 20:51:22:     at Protocol._enqueue (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+2019-09-01 20:51:22:     at Protocol.handshake (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+2019-09-01 20:51:22:     at Connection.connect (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\Connection.js:119:18)
+2019-09-01 20:51:22:     at Object.<anonymous> (C:\xampp\htdocs\404blog\backend\koa2-api\db\mysql.js:8:5)
+2019-09-01 20:51:22:     at Module._compile (internal/modules/cjs/loader.js:689:30)
+2019-09-01 20:51:22:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+2019-09-01 20:51:22:     at Module.load (internal/modules/cjs/loader.js:599:32)
+2019-09-01 20:51:22:     at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+2019-09-01 20:51:22:     at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+2019-09-01 20:51:22:     at Module.require (internal/modules/cjs/loader.js:637:17)
+2019-09-01 20:51:22:     at Module.Hook._require.Module.require (C:\Users\10482\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:70:37)
+2019-09-01 20:51:22:     at require (internal/modules/cjs/helpers.js:22:18)
+2019-09-01 20:51:22:     at Object.<anonymous> (C:\xampp\htdocs\404blog\backend\koa2-api\controller\userController.js:1:88)
+2019-09-01 20:51:22:     at Module._compile (internal/modules/cjs/loader.js:689:30)
+2019-09-01 20:51:22:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+2019-09-01 20:51:22:     at Module.load (internal/modules/cjs/loader.js:599:32)
+2019-09-01 20:51:22:   errno: 'ECONNREFUSED',
+2019-09-01 20:51:22:   code: 'ECONNREFUSED',
+2019-09-01 20:51:22:   syscall: 'connect',
+2019-09-01 20:51:22:   address: '127.0.0.1',
+2019-09-01 20:51:22:   port: 3306,
+2019-09-01 20:51:22:   fatal: true }
+2019-09-01 20:51:26: { Error: connect ECONNREFUSED 127.0.0.1:3306
+2019-09-01 20:51:26:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1117:14)
+2019-09-01 20:51:26:     --------------------
+2019-09-01 20:51:26:     at Protocol._enqueue (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+2019-09-01 20:51:26:     at Protocol.handshake (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+2019-09-01 20:51:26:     at Connection.connect (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\Connection.js:119:18)
+2019-09-01 20:51:26:     at Object.<anonymous> (C:\xampp\htdocs\404blog\backend\koa2-api\db\mysql.js:8:5)
+2019-09-01 20:51:26:     at Module._compile (internal/modules/cjs/loader.js:689:30)
+2019-09-01 20:51:26:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+2019-09-01 20:51:26:     at Module.load (internal/modules/cjs/loader.js:599:32)
+2019-09-01 20:51:26:     at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+2019-09-01 20:51:26:     at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+2019-09-01 20:51:26:     at Module.require (internal/modules/cjs/loader.js:637:17)
+2019-09-01 20:51:26:     at Module.Hook._require.Module.require (C:\Users\10482\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:70:37)
+2019-09-01 20:51:26:     at require (internal/modules/cjs/helpers.js:22:18)
+2019-09-01 20:51:26:     at Object.<anonymous> (C:\xampp\htdocs\404blog\backend\koa2-api\controller\userController.js:1:88)
+2019-09-01 20:51:26:     at Module._compile (internal/modules/cjs/loader.js:689:30)
+2019-09-01 20:51:26:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+2019-09-01 20:51:26:     at Module.load (internal/modules/cjs/loader.js:599:32)
+2019-09-01 20:51:26:   errno: 'ECONNREFUSED',
+2019-09-01 20:51:26:   code: 'ECONNREFUSED',
+2019-09-01 20:51:26:   syscall: 'connect',
+2019-09-01 20:51:26:   address: '127.0.0.1',
+2019-09-01 20:51:26:   port: 3306,
+2019-09-01 20:51:26:   fatal: true }
+2019-09-01 20:51:29: { Error: connect ECONNREFUSED 127.0.0.1:3306
+2019-09-01 20:51:29:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1117:14)
+2019-09-01 20:51:29:     --------------------
+2019-09-01 20:51:29:     at Protocol._enqueue (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+2019-09-01 20:51:29:     at Protocol.handshake (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+2019-09-01 20:51:29:     at Connection.connect (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\Connection.js:119:18)
+2019-09-01 20:51:29:     at Object.<anonymous> (C:\xampp\htdocs\404blog\backend\koa2-api\db\mysql.js:8:5)
+2019-09-01 20:51:29:     at Module._compile (internal/modules/cjs/loader.js:689:30)
+2019-09-01 20:51:29:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+2019-09-01 20:51:29:     at Module.load (internal/modules/cjs/loader.js:599:32)
+2019-09-01 20:51:29:     at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+2019-09-01 20:51:29:     at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+2019-09-01 20:51:29:     at Module.require (internal/modules/cjs/loader.js:637:17)
+2019-09-01 20:51:29:     at Module.Hook._require.Module.require (C:\Users\10482\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:70:37)
+2019-09-01 20:51:29:     at require (internal/modules/cjs/helpers.js:22:18)
+2019-09-01 20:51:29:     at Object.<anonymous> (C:\xampp\htdocs\404blog\backend\koa2-api\controller\userController.js:1:88)
+2019-09-01 20:51:29:     at Module._compile (internal/modules/cjs/loader.js:689:30)
+2019-09-01 20:51:29:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+2019-09-01 20:51:29:     at Module.load (internal/modules/cjs/loader.js:599:32)
+2019-09-01 20:51:29:   errno: 'ECONNREFUSED',
+2019-09-01 20:51:29:   code: 'ECONNREFUSED',
+2019-09-01 20:51:29:   syscall: 'connect',
+2019-09-01 20:51:29:   address: '127.0.0.1',
+2019-09-01 20:51:29:   port: 3306,
+2019-09-01 20:51:29:   fatal: true }
+2019-09-01 20:51:32: { Error: connect ECONNREFUSED 127.0.0.1:3306
+2019-09-01 20:51:32:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1117:14)
+2019-09-01 20:51:32:     --------------------
+2019-09-01 20:51:32:     at Protocol._enqueue (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+2019-09-01 20:51:32:     at Protocol.handshake (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+2019-09-01 20:51:32:     at Connection.connect (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\Connection.js:119:18)
+2019-09-01 20:51:32:     at Object.<anonymous> (C:\xampp\htdocs\404blog\backend\koa2-api\db\mysql.js:8:5)
+2019-09-01 20:51:32:     at Module._compile (internal/modules/cjs/loader.js:689:30)
+2019-09-01 20:51:32:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+2019-09-01 20:51:32:     at Module.load (internal/modules/cjs/loader.js:599:32)
+2019-09-01 20:51:32:     at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+2019-09-01 20:51:32:     at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+2019-09-01 20:51:32:     at Module.require (internal/modules/cjs/loader.js:637:17)
+2019-09-01 20:51:32:     at Module.Hook._require.Module.require (C:\Users\10482\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:70:37)
+2019-09-01 20:51:32:     at require (internal/modules/cjs/helpers.js:22:18)
+2019-09-01 20:51:32:     at Object.<anonymous> (C:\xampp\htdocs\404blog\backend\koa2-api\controller\userController.js:1:88)
+2019-09-01 20:51:32:     at Module._compile (internal/modules/cjs/loader.js:689:30)
+2019-09-01 20:51:32:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+2019-09-01 20:51:32:     at Module.load (internal/modules/cjs/loader.js:599:32)
+2019-09-01 20:51:32:   errno: 'ECONNREFUSED',
+2019-09-01 20:51:32:   code: 'ECONNREFUSED',
+2019-09-01 20:51:32:   syscall: 'connect',
+2019-09-01 20:51:32:   address: '127.0.0.1',
+2019-09-01 20:51:32:   port: 3306,
+2019-09-01 20:51:32:   fatal: true }
+2019-09-01 20:51:36: { Error: connect ECONNREFUSED 127.0.0.1:3306
+2019-09-01 20:51:36:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1117:14)
+2019-09-01 20:51:36:     --------------------
+2019-09-01 20:51:36:     at Protocol._enqueue (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+2019-09-01 20:51:36:     at Protocol.handshake (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+2019-09-01 20:51:36:     at Connection.connect (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\Connection.js:119:18)
+2019-09-01 20:51:36:     at Object.<anonymous> (C:\xampp\htdocs\404blog\backend\koa2-api\db\mysql.js:8:5)
+2019-09-01 20:51:36:     at Module._compile (internal/modules/cjs/loader.js:689:30)
+2019-09-01 20:51:36:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+2019-09-01 20:51:36:     at Module.load (internal/modules/cjs/loader.js:599:32)
+2019-09-01 20:51:36:     at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+2019-09-01 20:51:36:     at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+2019-09-01 20:51:36:     at Module.require (internal/modules/cjs/loader.js:637:17)
+2019-09-01 20:51:36:     at Module.Hook._require.Module.require (C:\Users\10482\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:70:37)
+2019-09-01 20:51:36:     at require (internal/modules/cjs/helpers.js:22:18)
+2019-09-01 20:51:36:     at Object.<anonymous> (C:\xampp\htdocs\404blog\backend\koa2-api\controller\userController.js:1:88)
+2019-09-01 20:51:36:     at Module._compile (internal/modules/cjs/loader.js:689:30)
+2019-09-01 20:51:36:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+2019-09-01 20:51:36:     at Module.load (internal/modules/cjs/loader.js:599:32)
+2019-09-01 20:51:36:   errno: 'ECONNREFUSED',
+2019-09-01 20:51:36:   code: 'ECONNREFUSED',
+2019-09-01 20:51:36:   syscall: 'connect',
+2019-09-01 20:51:36:   address: '127.0.0.1',
+2019-09-01 20:51:36:   port: 3306,
+2019-09-01 20:51:36:   fatal: true }
+2019-09-01 20:51:39: { Error: connect ECONNREFUSED 127.0.0.1:3306
+2019-09-01 20:51:39:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1117:14)
+2019-09-01 20:51:39:     --------------------
+2019-09-01 20:51:39:     at Protocol._enqueue (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+2019-09-01 20:51:39:     at Protocol.handshake (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+2019-09-01 20:51:39:     at Connection.connect (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\Connection.js:119:18)
+2019-09-01 20:51:39:     at Object.<anonymous> (C:\xampp\htdocs\404blog\backend\koa2-api\db\mysql.js:8:5)
+2019-09-01 20:51:39:     at Module._compile (internal/modules/cjs/loader.js:689:30)
+2019-09-01 20:51:39:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+2019-09-01 20:51:39:     at Module.load (internal/modules/cjs/loader.js:599:32)
+2019-09-01 20:51:39:     at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+2019-09-01 20:51:39:     at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+2019-09-01 20:51:39:     at Module.require (internal/modules/cjs/loader.js:637:17)
+2019-09-01 20:51:39:     at Module.Hook._require.Module.require (C:\Users\10482\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:70:37)
+2019-09-01 20:51:39:     at require (internal/modules/cjs/helpers.js:22:18)
+2019-09-01 20:51:39:     at Object.<anonymous> (C:\xampp\htdocs\404blog\backend\koa2-api\controller\userController.js:1:88)
+2019-09-01 20:51:39:     at Module._compile (internal/modules/cjs/loader.js:689:30)
+2019-09-01 20:51:39:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+2019-09-01 20:51:39:     at Module.load (internal/modules/cjs/loader.js:599:32)
+2019-09-01 20:51:39:   errno: 'ECONNREFUSED',
+2019-09-01 20:51:39:   code: 'ECONNREFUSED',
+2019-09-01 20:51:39:   syscall: 'connect',
+2019-09-01 20:51:39:   address: '127.0.0.1',
+2019-09-01 20:51:39:   port: 3306,
+2019-09-01 20:51:39:   fatal: true }
+2019-09-01 20:51:42: { Error: connect ECONNREFUSED 127.0.0.1:3306
+2019-09-01 20:51:42:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1117:14)
+2019-09-01 20:51:42:     --------------------
+2019-09-01 20:51:42:     at Protocol._enqueue (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+2019-09-01 20:51:42:     at Protocol.handshake (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+2019-09-01 20:51:42:     at Connection.connect (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\Connection.js:119:18)
+2019-09-01 20:51:42:     at Object.<anonymous> (C:\xampp\htdocs\404blog\backend\koa2-api\db\mysql.js:8:5)
+2019-09-01 20:51:42:     at Module._compile (internal/modules/cjs/loader.js:689:30)
+2019-09-01 20:51:42:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+2019-09-01 20:51:42:     at Module.load (internal/modules/cjs/loader.js:599:32)
+2019-09-01 20:51:42:     at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+2019-09-01 20:51:42:     at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+2019-09-01 20:51:42:     at Module.require (internal/modules/cjs/loader.js:637:17)
+2019-09-01 20:51:42:     at Module.Hook._require.Module.require (C:\Users\10482\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:70:37)
+2019-09-01 20:51:42:     at require (internal/modules/cjs/helpers.js:22:18)
+2019-09-01 20:51:42:     at Object.<anonymous> (C:\xampp\htdocs\404blog\backend\koa2-api\controller\userController.js:1:88)
+2019-09-01 20:51:42:     at Module._compile (internal/modules/cjs/loader.js:689:30)
+2019-09-01 20:51:42:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+2019-09-01 20:51:42:     at Module.load (internal/modules/cjs/loader.js:599:32)
+2019-09-01 20:51:42:   errno: 'ECONNREFUSED',
+2019-09-01 20:51:42:   code: 'ECONNREFUSED',
+2019-09-01 20:51:42:   syscall: 'connect',
+2019-09-01 20:51:42:   address: '127.0.0.1',
+2019-09-01 20:51:42:   port: 3306,
+2019-09-01 20:51:42:   fatal: true }
+2019-09-01 20:51:45: { Error: connect ECONNREFUSED 127.0.0.1:3306
+2019-09-01 20:51:45:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1117:14)
+2019-09-01 20:51:45:     --------------------
+2019-09-01 20:51:45:     at Protocol._enqueue (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+2019-09-01 20:51:45:     at Protocol.handshake (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+2019-09-01 20:51:45:     at Connection.connect (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\Connection.js:119:18)
+2019-09-01 20:51:45:     at Object.<anonymous> (C:\xampp\htdocs\404blog\backend\koa2-api\db\mysql.js:8:5)
+2019-09-01 20:51:45:     at Module._compile (internal/modules/cjs/loader.js:689:30)
+2019-09-01 20:51:45:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+2019-09-01 20:51:45:     at Module.load (internal/modules/cjs/loader.js:599:32)
+2019-09-01 20:51:45:     at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+2019-09-01 20:51:45:     at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+2019-09-01 20:51:45:     at Module.require (internal/modules/cjs/loader.js:637:17)
+2019-09-01 20:51:45:     at Module.Hook._require.Module.require (C:\Users\10482\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:70:37)
+2019-09-01 20:51:45:     at require (internal/modules/cjs/helpers.js:22:18)
+2019-09-01 20:51:45:     at Object.<anonymous> (C:\xampp\htdocs\404blog\backend\koa2-api\controller\userController.js:1:88)
+2019-09-01 20:51:45:     at Module._compile (internal/modules/cjs/loader.js:689:30)
+2019-09-01 20:51:45:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+2019-09-01 20:51:45:     at Module.load (internal/modules/cjs/loader.js:599:32)
+2019-09-01 20:51:45:   errno: 'ECONNREFUSED',
+2019-09-01 20:51:45:   code: 'ECONNREFUSED',
+2019-09-01 20:51:45:   syscall: 'connect',
+2019-09-01 20:51:45:   address: '127.0.0.1',
+2019-09-01 20:51:45:   port: 3306,
+2019-09-01 20:51:45:   fatal: true }
+2019-09-01 20:51:49: { Error: connect ECONNREFUSED 127.0.0.1:3306
+2019-09-01 20:51:49:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1117:14)
+2019-09-01 20:51:49:     --------------------
+2019-09-01 20:51:49:     at Protocol._enqueue (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+2019-09-01 20:51:49:     at Protocol.handshake (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+2019-09-01 20:51:49:     at Connection.connect (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\Connection.js:119:18)
+2019-09-01 20:51:49:     at Object.<anonymous> (C:\xampp\htdocs\404blog\backend\koa2-api\db\mysql.js:8:5)
+2019-09-01 20:51:49:     at Module._compile (internal/modules/cjs/loader.js:689:30)
+2019-09-01 20:51:49:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+2019-09-01 20:51:49:     at Module.load (internal/modules/cjs/loader.js:599:32)
+2019-09-01 20:51:49:     at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+2019-09-01 20:51:49:     at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+2019-09-01 20:51:49:     at Module.require (internal/modules/cjs/loader.js:637:17)
+2019-09-01 20:51:49:     at Module.Hook._require.Module.require (C:\Users\10482\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:70:37)
+2019-09-01 20:51:49:     at require (internal/modules/cjs/helpers.js:22:18)
+2019-09-01 20:51:49:     at Object.<anonymous> (C:\xampp\htdocs\404blog\backend\koa2-api\controller\userController.js:1:88)
+2019-09-01 20:51:49:     at Module._compile (internal/modules/cjs/loader.js:689:30)
+2019-09-01 20:51:49:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+2019-09-01 20:51:49:     at Module.load (internal/modules/cjs/loader.js:599:32)
+2019-09-01 20:51:49:   errno: 'ECONNREFUSED',
+2019-09-01 20:51:49:   code: 'ECONNREFUSED',
+2019-09-01 20:51:49:   syscall: 'connect',
+2019-09-01 20:51:49:   address: '127.0.0.1',
+2019-09-01 20:51:49:   port: 3306,
+2019-09-01 20:51:49:   fatal: true }
+2019-09-01 20:51:52: { Error: connect ECONNREFUSED 127.0.0.1:3306
+2019-09-01 20:51:52:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1117:14)
+2019-09-01 20:51:52:     --------------------
+2019-09-01 20:51:52:     at Protocol._enqueue (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+2019-09-01 20:51:52:     at Protocol.handshake (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+2019-09-01 20:51:52:     at Connection.connect (C:\xampp\htdocs\404blog\backend\koa2-api\node_modules\mysql\lib\Connection.js:119:18)
+2019-09-01 20:51:52:     at Object.<anonymous> (C:\xampp\htdocs\404blog\backend\koa2-api\db\mysql.js:8:5)
+2019-09-01 20:51:52:     at Module._compile (internal/modules/cjs/loader.js:689:30)
+2019-09-01 20:51:52:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+2019-09-01 20:51:52:     at Module.load (internal/modules/cjs/loader.js:599:32)
+2019-09-01 20:51:52:     at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+2019-09-01 20:51:52:     at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+2019-09-01 20:51:52:     at Module.require (internal/modules/cjs/loader.js:637:17)
+2019-09-01 20:51:52:     at Module.Hook._require.Module.require (C:\Users\10482\AppData\Roaming\npm\node_modules\pm2\node_modules\require-in-the-middle\index.js:70:37)
+2019-09-01 20:51:52:     at require (internal/modules/cjs/helpers.js:22:18)
+2019-09-01 20:51:52:     at Object.<anonymous> (C:\xampp\htdocs\404blog\backend\koa2-api\controller\userController.js:1:88)
+2019-09-01 20:51:52:     at Module._compile (internal/modules/cjs/loader.js:689:30)
+2019-09-01 20:51:52:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+2019-09-01 20:51:52:     at Module.load (internal/modules/cjs/loader.js:599:32)
+2019-09-01 20:51:52:   errno: 'ECONNREFUSED',
+2019-09-01 20:51:52:   code: 'ECONNREFUSED',
+2019-09-01 20:51:52:   syscall: 'connect',
+2019-09-01 20:51:52:   address: '127.0.0.1',
+2019-09-01 20:51:52:   port: 3306,
+2019-09-01 20:51:52:   fatal: true }
