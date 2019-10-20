@@ -1,13 +1,13 @@
+# 一款基于vue.js 和node构建个人博客项目
+
 ### 前言
 
-本项目是一款个人学习的博客项目，主要是为了学习vue2 和 node.js。另外涉及到MySQL redis nginx 等技术栈知识
+本项目是一款个人学习的博客项目，主要是为了学习vue2 和 node.js。另外涉及到MySQL redis nginx 等技术栈知识 [项目地址](https://github.com/HunterXing/404blog)
 
 ### 预览地址 （PC或者手机）
 #### > 注意：PC端支持markdown编辑博客，但是手机端不支持编辑，仅支持查看博客内容
-[博客预览地址:php后台版本](https://notfound404.cn) 
-<br>
-[博客预览地址:node后台版本](https://notfound404.cn:8081) 
-<br>
+
+#### [博客预览地址:node后台版本](https://notfound404.cn:4431) 
 预览账号
 ```
 账号:test
@@ -19,17 +19,6 @@
 
 后端：Node、Mysql、redis、nginx
 
-### 项目运行方法
-（1）git clone https://github.com/HunterXing/404blog.git
-
-（2）npm install
-
-（3）npm run dev
-
-
-### 说明
-
-如有问题请直接在 Issues 中提，或者您发现问题并有非常好的解决方案，欢迎 PR 👍
 
 ### 目标功能
 > 目标很简单 基本的增删改就满足于学习 node 和 vue 实现前后端分离 另外还有redis 的session保存 、ngnix的反向代理、 pm2的进程守护
@@ -46,23 +35,21 @@
 - [x] express后台（100%）
 - [x] koa后台（100%）
 
-### 目录结构
 
-<pre>
-backend
-</pre>
+### 项目截图
 
-### 项目GIF图
+#### 首页
+![首页](https://raw.githubusercontent.com/HunterXing/resourse/master/images/20191020181055.png)
 
-### 项目后端的Api和数据库表结构
+#### 查看博客
+![查看博客](https://raw.githubusercontent.com/HunterXing/resourse/master/images/20191020181158.png)
 
-[api地址](https://github.com/HunterXing/404blog/blob/master/api.md) 
+#### markdown写博客
+![markdown写博客](https://raw.githubusercontent.com/HunterXing/resourse/master/images/20191020181402.png)
 
-### 后端环境配置
-`windows下`
-#### 1. mysql安装配置
-#### 2. redis安装配置
-#### 3. nginx安装配置
+#### 移动端首页
+![移动端首页](https://raw.githubusercontent.com/HunterXing/resourse/master/images/20191020180749.png)
 
-### 写在最后
+#### 移动端查看博客
 
+![移动端查看博客](https://raw.githubusercontent.com/HunterXing/resourse/master/images/20191020180702.png)
